@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+     <ion-icon name="podium"></ion-icon>
+	EVS
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-list>
+		<ion-item>
+		    <ion-thumbnail item-start>
+		    <img src="img/kreis.png">
+		    </ion-thumbnail>
+		    <h2>O P M</h2>
+		    <p>offene Auftraege, Leistung, Material</p>
+		<button ion-button clear item-end (click)="pushOpm()">Check die Zahlen</button>
+		</ion-item>
+
+		<ion-item>
+		    <ion-thumbnail item-start>
+		    <img src="img/kreis.png">
+		    </ion-thumbnail>
+		    <h2>D P S</h2>
+		    <p>offene Auftraege, Leistung, Material</p>
+		<button ion-button clear item-end (click)="pushDps()">Check die Zahlen</button>
+		</ion-item>
+
+		<ion-item>
+		    <ion-thumbnail item-start>
+		    <img src="img/kreis.png">
+		    </ion-thumbnail>
+		    <h2>C P S</h2>
+		    <p>offene Auftraege, Leistung</p>
+		<button ion-button clear item-end (click)="pushCps()">Check die Zahlen</button>
+		</ion-item>
+
+		<ion-item>
+		    <ion-thumbnail item-start>
+		    <img src="img/kreis.png">
+		    </ion-thumbnail>
+		    <h2>W E</h2>
+		    <p> Automatisierunggrad, Leistung</p>
+		<button ion-button clear item-end (click)="pushWe()">Check die Zahlen</button>
+		</ion-item>
+
+		<ion-item>
+		    <ion-thumbnail item-start>
+		    <img src="img/kreis.png">
+		    </ion-thumbnail>
+		    <h2>W A</h2>
+		    <p>offene TUs, Fuellgrad</p>
+		<button ion-button clear item-end (click)="pushWa()">Check die Zahlen</button>
+		</ion-item>
+
+		<ion-item>
+		    <ion-thumbnail item-start>
+		    <img src="img/kreis.png">
+		    </ion-thumbnail>
+		    <h2>M I S C</h2>
+		    <p>Fuellgrade</p>
+		<button ion-button clear item-end (click)="pushMisc()">Check die Zahlen</button>
+		</ion-item>
+	</ion-list>
+</ion-content>
