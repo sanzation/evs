@@ -13,13 +13,15 @@ import { MiscPage } from '../misc/misc';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController  ) {
   }
 
+   ionViewWillEnter(){
+   }
+
   pushOpm(){
-   this.navCtrl.push(OpmPage);
+   this.navCtrl.push(OpmPage );
   }
   pushDps(){
    this.navCtrl.push(DpsPage);
@@ -36,5 +38,5 @@ export class HomePage {
    pushMisc(){
    this.navCtrl.push(MiscPage);
    }
- 
 }
+
