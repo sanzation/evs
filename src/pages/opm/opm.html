@@ -5,21 +5,179 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
     <ion-title>OPM</ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
 <ion-content padding>
-	<ion-grid>
-		<ion-row>
-			<ion-col width-50 offset-25>
-					<h2 class="comPerf">COM: {{comPerf}} Kolli/h</h2>
-					<h2 class="depPerf">DEP: {{depPerf}} Kolli/h</h2>
-			</ion-col>  
-		</ion-row>
-	</ion-grid>
+	<ion-card>
+		<ion-card-header>
+		<h1 class="category">Leistung</h1>
+		</ion-card-header>
+	<ion-card-content>
+			<ion-row>
+				<ion-col class="colo">
+					<p class="area">COM</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="com">{{comPerf}}</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit">Kolli/h</p>
+				</ion-col>
+				<ion-col>
+					<ion-badge [color]="comPerfDiffColor">{{comPerfDiff}}</ion-badge>
+				</ion-col>
+				
+			</ion-row>
+			<ion-row>
+				<ion-col class="colo">
+					 <p class="area">DEP</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="dep">{{depPerf}}</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit">Kolli/h</p>
+				</ion-col>
+				<ion-col>
+				       	<ion-badge>+1220</ion-badge>
+				</ion-col>
+			</ion-row>
+	</ion-card-content>
+	</ion-card>
+
+		<ion-card>
+			<ion-card-header>
+			<h1 class="category">Stoerungen</h1>
+			</ion-card-header>
+		<ion-card-content>	
+
+			<ion-row>
+				<ion-col class="colo">
+					<p class="area">COM</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="com">test</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit">Stoerungen/1000 Kolli</p>
+				</ion-col>
+				<ion-col>
+				       	<ion-badge>+1220</ion-badge>
+				</ion-col>
+			</ion-row>
+		
+		
+			<ion-row>
+				<ion-col class="colo">
+					 <p class="area">DEP</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="dep">test2</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit">Stoerungen/1000 Kolli</p>
+				</ion-col>
+				<ion-col>
+				       	<ion-badge>+1220</ion-badge>
+				</ion-col>
+			</ion-row>
+			</ion-card-content>	
+		</ion-card>
+
+		<ion-card>
+		<ion-card-header>
+		<h1 class="category">Auftraege</h1>
+		</ion-card-header>
+		<ion-card-content>
+			<ion-row>
+				<ion-col class="colo">
+					<p class="area">Offen heute</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="com">1234</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit">Kolli</p>
+				</ion-col>
+				<ion-col>
+				       	<ion-badge>+1220</ion-badge>
+				</ion-col>
+			</ion-row>
+		
+		
+			<ion-row>
+				<ion-col class="colo">
+					<p class="area">Offen morgen</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="com">1234</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit">Kolli</p>
+				</ion-col>
+				<ion-col>
+				       	<ion-badge>+1220</ion-badge>
+				</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col class="colo">
+					<p class="area">fertig in ~</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="com">00:00:00</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit"> </p>
+				</ion-col>
+				<ion-col>
+				       	<ion-badge>+1220</ion-badge>
+				</ion-col>
+			</ion-row>
+		</ion-card-content>
+		</ion-card>
+
+		<ion-card>
+			<ion-card-header>
+			<h1 class="category">Material</h1>
+			</ion-card-header>
+		<ion-card-content>	
+
+						<ion-row>
+						<ion-col class="colo">
+							<h2 class="area">Slipsheets</h2>
+						</ion-col>  
+						<ion-col col-auto><h1 class="slip">14</h1></ion-col>
+						<ion-col><p class="unit">Bestand OPM</p></ion-col>
+						</ion-row>
+						<ion-row>
+						<ion-col></ion-col>
+						<ion-col col-auto><h1 class="slip">144</h1></ion-col>
+						<ion-col><p class="unit">reserviert OPM</p></ion-col>
+						</ion-row>
+						<ion-row>
+						<ion-col></ion-col>
+						<ion-col col-auto><h1 class="slip">1244</h1></ion-col>
+						<ion-col><p class="unit">Bestand HBW</p></ion-col>
+						</ion-row>
+					
+						<ion-row>
+						<ion-col></ion-col>
+						<ion-col col-auto><h1 class="slip">121313211344</h1></ion-col>
+						<ion-col><p class="unit">Bedarf/Tag</p></ion-col>
+						</ion-row>
+		</ion-card-content>
+		</ion-card>
+
+
+<ion-card>
+      <ion-card-header>
+	<h1 class="category">Graph</h1></ion-card-header>
+      <ion-card-content>
+        <canvas #lineCanvas></canvas>
+      </ion-card-content>
+</ion-card>
+ 
+
 </ion-content>

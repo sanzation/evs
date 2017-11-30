@@ -33,23 +33,32 @@ $app-direction: ltr;
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
 
-$areacolors: (
-  primary:    #7ab6db,
-  secondary:  #259ee7,
-  danger:     #db7712,
-  light:      #d8d8d8,
-  dark:       #aaaaaa
-);
 
 $colors: (
-  primary:    #7ab6db,
+  primary:    #16292C,
   secondary:  #259ee7,
   danger:     #db7712,
   light:      #d8d8d8,
-  dark:       #aaaaaa
+  white:	#ffffff,
+  dark:       #545454,
+  com:		#002f7c,
+  dep:		#00707c,
+  slip:		#00067c,
+  opm:		#99b3dd,
+  dps:		#8e3030,
+  cps:		#308e39,
+  pick:		#7C0000,
+  rpck:		#af3b3b,
+  cpsa:		#007c18,
+  cpsd:		#467c00,
+  we:		#7c006c,
+  wa:		#7c5d00
 );
 
-
+// top-toolbar
+$toolbar-background: color($colors, dark);
+$grid-padding-width: 20px;
+$font-family-base: "noto-sans";
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
