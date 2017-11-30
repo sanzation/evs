@@ -77,7 +77,7 @@ ionViewWillEnter()
 	{
  console.log('ionViewWillEnter OpmPage');
 
-	this.comPerfDiff=this.comPerfDiff+1;
+	this.comPerfDiff=Math.random() * (1 + 2) - 2;
 
 	if(this.comPerfDiff>0)
 	  {
