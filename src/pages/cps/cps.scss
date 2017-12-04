@@ -1,3 +1,61 @@
 page-cps {
+.row
+{
+	align-items: center;
+		
+}
+.colo
+{
+	text-align: center;	
+}
+.category
+{
+	color:color($colors, primary);
+}
 
+.unit 
+{
+	left-padding: 9px;
+}
+.card-header{
+	background-color: color($colors, cps);
+}
+
+.card{
+width: auto;
+border-radius: 5px;
+}
+
+.cpsauto
+{
+	color: color($colors, cpsa);
+	font-size: 30px;
+	font-weight: bold;
+
+}
+.cpsdsp
+{
+	color: color($colors, cpsd);
+	font-size: 30px;
+	font-weight: bold;
+
+}
+
+.toolbar-title{
+	color: color($colors,white );
+}
+ .bar-button
+{
+ 	color: color($colors, white);
+
+}
+.area
+{
+	font-size: 22px;
+}
+.badge
+{
+	padding: 6px 8px;
+
+}
 }

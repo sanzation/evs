@@ -7,12 +7,87 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>We</ion-title>
+    <ion-title>Wareneingang</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+<ion-card>
+		<ion-card-header>
+		<h1 class="category">Leistung</h1>
+		</ion-card-header>
+	<ion-card-content>
+			<ion-row>
+				<ion-col class="colo">
+					<p class="area">Durchsatz</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="pal">{{wepalhPerf}}</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit">Paletten/h</p>
+				</ion-col>
+				<ion-col>
+					<ion-badge [color]="wepalhDiffCol">{{wepalhDiff}}</ion-badge>
+				</ion-col>
+				
+			</ion-row>
+			<ion-row>
+				<ion-col class="colo">
+					<p class="area"> </p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="pal">1234</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit">Paletten/Tag</p>
+				</ion-col>
+				<ion-col>
+				       	<ion-badge>+1</ion-badge>
+				</ion-col>
+			</ion-row>
+		
+			<ion-row>
+				<ion-col class="colo">
+					 <p class="area">Automatikquote</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="var">{{varah}}</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit">% Variante A/h</p>
+				</ion-col>
+				<ion-col>
+				       	<ion-badge>+1220</ion-badge>
+				</ion-col>
+			</ion-row>
+	
+		
+			<ion-row>
+				<ion-col class="colo">
+					<p class="area"> </p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="var">1234</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit">% Variante A/Tag</p>
+				</ion-col>
+				<ion-col>
+				       	<ion-badge>+1</ion-badge>
+				</ion-col>
+			</ion-row>
+	</ion-card-content>	
 
+	</ion-card>
+<ion-card>
+      <ion-card-header>
+	<h1 class="category">Graph</h1></ion-card-header>
+      <ion-card-content>
+        <canvas #lineCanvas></canvas>
+      </ion-card-content>
+</ion-card>
+ 
 </ion-content>

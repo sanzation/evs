@@ -7,12 +7,120 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Wa</ion-title>
+    <ion-title>Warenausgang</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+<ion-card>
+		<ion-card-header>
+		<h1 class="category">Füllgrad</h1>
+		</ion-card-header>
+	<ion-card-content>
+			<ion-row>
+				<ion-col class="colo">
+					<p class="area">Gesamt</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="fill">{{ocbFillAll}}</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit">%</p>
+				</ion-col>
+				<ion-col>
+					<ion-badge [color]="ocbFillAllDiffCol">{{ocbFillAllDiff}}</ion-badge>
+				</ion-col>
+				
+			</ion-row>
+			<ion-row>
+				<ion-col class="colo">
+					<p class="area">OCB91</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="fill">1234</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit">%</p>
+				</ion-col>
+				<ion-col>
+				       	<ion-badge>+1</ion-badge>
+				</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col class="colo">
+					<p class="area">OCB92</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="fill">1234</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit">%</p>
+				</ion-col>
+				<ion-col>
+				       	<ion-badge>+1</ion-badge>
+				</ion-col>
+			</ion-row>
+	</ion-card-content>
+</ion-card>
+<ion-card>
+		<ion-card-header>
+		<h1 class="category">Auslagerung offen</h1>
+		</ion-card-header>
+	<ion-card-content>
+				<ion-row>
+				<ion-col class="colo">
+					<p class="area">Gesamt</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="open">{{ocbOpenAll}}</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit">TU</p>
+				</ion-col>
+				<ion-col>
+					<ion-badge [color]="ocbOpenAllDiffCol">{{ocbOpenAllDiff}}</ion-badge>
+				</ion-col>
+				
+			</ion-row>
+			<ion-row>
+				<ion-col class="colo">
+					<p class="area">OCB91</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="open">1234</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit">TU</p>
+				</ion-col>
+				<ion-col>
+				       	<ion-badge>+1</ion-badge>
+				</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col class="colo">
+					<p class="area">OCB92</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="open">1234</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit">TU</p>
+				</ion-col>
+				<ion-col>
+				       	<ion-badge>+1</ion-badge>
+				</ion-col>
+			</ion-row>
+	</ion-card-content>	
 
+	</ion-card>
+<ion-card>
+      <ion-card-header>
+	<h1 class="category">Graph</h1></ion-card-header>
+      <ion-card-content>
+        <canvas #lineCanvas></canvas>
+      </ion-card-content>
+</ion-card>
+ 
 </ion-content>
