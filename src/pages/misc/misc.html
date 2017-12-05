@@ -14,5 +14,39 @@
 
 
 <ion-content padding>
-
+<ion-card>
+		<ion-card-header>
+		<h1 class="category">Fuellgrad</h1>
+		</ion-card-header>
+	<ion-card-content>
+			<ion-row>
+				<ion-col class="colo">
+					<p class="area">Gesamt</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="fill">{{hbwFillLoc}}</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<h1 class="fill">{{hbwFillCha}}</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit">%</p>
+				</ion-col>
+				<ion-col>
+					<ion-badge [color]="ocbFillAllDiffCol">{{ocbFillAllDiff}}</ion-badge>
+				</ion-col>
+				
+			</ion-row>
+			
+			
+	</ion-card-content>
+</ion-card>
+<ion-card>
+      <ion-card-header>
+	<h1 class="category">Graph</h1></ion-card-header>
+      <ion-card-content>
+        <canvas #lineCanvas></canvas>
+      </ion-card-content>
+</ion-card>
+ 
 </ion-content>
