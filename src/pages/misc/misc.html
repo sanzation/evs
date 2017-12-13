@@ -21,24 +21,87 @@
 	<ion-card-content>
 			<ion-row>
 				<ion-col class="colo">
-					<p class="area">Gesamt</p>
+					<p class="area"></p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="fill">{{hbwFillLoc}}</h1>
+					<h3 class="area">Platz</h3>
 				</ion-col>
 				<ion-col col-auto>
-					<h1 class="fill">{{hbwFillCha}}</h1>
-				</ion-col>
-				<ion-col col-auto>
-					<p class="unit">%</p>
+					<h3 class="area">Kanal</h3>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="ocbFillAllDiffCol">{{ocbFillAllDiff}}</ion-badge>
 				</ion-col>
-				
 			</ion-row>
-			
-			
+			<ion-row>
+				<ion-col class="colo">
+					<p class="area">HBW</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="hbw">{{hbwFillLoc}}</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<h1 class="hbw"></h1>
+				</ion-col>
+				<ion-col>
+					<ion-badge [color]="hbwFillDiffCol">{{hbwFillDiff}}</ion-badge>
+				</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col class="colo">
+					<p class="area">Tray</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="try">{{tryFillLoc}}</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<h1 class="try">{{tryFillCha}}</h1>
+				</ion-col>
+				<ion-col>
+					<ion-badge [color]="tryDiffCol">{{tryDiff}}</ion-badge>
+				</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col class="colo">
+					<p class="area">EXC</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="exc">{{excFillLoc}}</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<h1 class="exc">{{excFillCha}}</h1>
+				</ion-col>
+				<ion-col>
+					<ion-badge [color]="excFillDiffCol">{{excFillDiff}}</ion-badge>
+				</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col class="colo">
+					<p class="area">SEB</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="seb">{{sebFillLoc}}</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<h1 class="seb">{{sebFillCha}}</h1>
+				</ion-col>
+				<ion-col>
+					<ion-badge [color]="sebFillDiffCol">{{sebFillDiff}}</ion-badge>
+				</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col class="colo">
+					<p class="area">DPS</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="dps">{{dpsFillLoc}}</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<h1 class="dps">{{dpsFillCha}}</h1>
+				</ion-col>
+				<ion-col>
+					<ion-badge [color]="dpsFillDiffCol">{{dpsFillDiff}}</ion-badge>
+				</ion-col>
+			</ion-row>
 	</ion-card-content>
 </ion-card>
 <ion-card>

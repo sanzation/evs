@@ -30,12 +30,14 @@ export class OpmPage {
 
   }
   ionViewDidLoad() {
-
+	var gDate=new Date();
 	this.lineChart = new Chart(this.lineCanvas.nativeElement, {
 	 
 		    type: 'line',
 		    data: {
-			labels: ["January", "February", "March", "April", "May", "June", "July"],
+			labels: [
+			"22:00","23:00","00:00","01:00"			
+				],
 			datasets: [
 			    {
 				label: "My First dataset",
@@ -56,7 +58,7 @@ export class OpmPage {
 				pointHoverBorderWidth: 2,
 				pointRadius: 1,
 				pointHitRadius: 10,
-				data: [65, 59, 80, 81, 56, 55, 40],
+				data: [65, 59,31,51],
 				spanGaps: false,
 			    }
 			]
