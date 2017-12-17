@@ -40,7 +40,7 @@ export class OpmPage {
 				],
 			datasets: [
 			    {
-				label: "My First dataset",
+				label: "OPM",
 				fill: false,
 				lineTension: 0.1,
 				backgroundColor: "rgba(75,192,192,0.4)",
@@ -58,7 +58,7 @@ export class OpmPage {
 				pointHoverBorderWidth: 2,
 				pointRadius: 1,
 				pointHitRadius: 10,
-				data: [65, 59,31,51],
+				data: [6500, 5904,3123,5105],
 				spanGaps: false,
 			    }
 			]
