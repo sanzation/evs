@@ -74,12 +74,12 @@ export class OpmPage {
 
      });
 
-  }OpmPage
+  }
 ionViewWillEnter()
 	{
  console.log('ionViewWillEnter OpmPage');
 
-	this.comPerfDiff=Math.random() * (1 + 2) - 2;
+	this.comPerfDiff=Math.round(Math.random() * (1 + 2) - 2,1);
 
 	if(this.comPerfDiff>0)
 	  {
@@ -92,5 +92,8 @@ ionViewWillEnter()
 
 
 	}
+actGraph(){
+	console.log('actGraph ');
+	}	
 
 }
