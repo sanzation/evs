@@ -80,22 +80,14 @@ ionViewWillEnter()
 	{
  console.log('ionViewWillEnter OpmPage');
 
-	this.comPerfDiff=Math.round(Math.random() * (1 + 2) - 2,5);
-
-	if(this.comPerfDiff>0)
-	  {
-	  this.comPerfDiffColor='danger';
-	  }
-	  else
-	  {
-	  this.comPerfDiffColor='secondary';
-	  }
+	this.comPerfDiff=Math.random() * (1 + 2) - 2;
+	this.comPerfDiffColor= this.comPerfDiff>0 ?  'danger' : 'secondary';
 
 
 	}
 actGraph(area : string){
 	console.log('actGraph ');
-//	if(this.comPerfSelect=!"background-color: #f0f0f0")
+//	f(this.comPerfSelect=!"background-color: #f0f0f0")
 //	{
 	this.comPerfSelect='#f0f0f0';
 //	}
