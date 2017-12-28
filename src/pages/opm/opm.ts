@@ -25,6 +25,7 @@ export class OpmPage {
 	depPerf:any;
 	comPerfDiff: any;
 	comPerfDiffColor: string;
+	comPerfSelect: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private EvsCall : EvscallProvider) {
 
@@ -79,7 +80,7 @@ ionViewWillEnter()
 	{
  console.log('ionViewWillEnter OpmPage');
 
-	this.comPerfDiff=Math.round(Math.random() * (1 + 2) - 2,1);
+	this.comPerfDiff=Math.round(Math.random() * (1 + 2) - 2,5);
 
 	if(this.comPerfDiff>0)
 	  {
@@ -92,8 +93,16 @@ ionViewWillEnter()
 
 
 	}
-actGraph(){
+actGraph(area : string){
 	console.log('actGraph ');
-	}	
+//	if(this.comPerfSelect=!"background-color: #f0f0f0")
+//	{
+	this.comPerfSelect='#f0f0f0';
+//	}
+//	else
+//	{
+//	this.comPerfSelect="background-color: #000000";
+//	}			
+}	
 
 }
