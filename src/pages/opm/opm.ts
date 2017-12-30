@@ -24,8 +24,11 @@ export class OpmPage {
 	comPerf:any;
 	depPerf:any;
 	comPerfDiff: any;
+	
 	comPerfDiffColor: string;
 	comPerfSelect: string;
+	depPerfSelect: string;
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private EvsCall : EvscallProvider) {
 
@@ -87,14 +90,12 @@ ionViewWillEnter()
 	}
 actGraph(area : string){
 	console.log('actGraph ');
-//	f(this.comPerfSelect=!"background-color: #f0f0f0")
-//	{
-	this.comPerfSelect='#f0f0f0';
-//	}
-//	else
-//	{
-//	this.comPerfSelect="background-color: #000000";
-//	}			
+
+	
+	this.comPerfSelect = area =='COM' ? '#f0f0f0' : '#ffffff';
+	this.depPerfSelect = area =='DEP' ? '#f0f0f0' : '#ffffff';
+	console.log(area);
+
 }	
 
 }
