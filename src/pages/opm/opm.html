@@ -9,13 +9,13 @@
     <ion-title>OPM</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
+<ion-content class="cont" has-footer>
 	<ion-card>
 		<ion-card-header>
 		<h1 class="category">Leistung</h1>
 		</ion-card-header>
 	<ion-card-content>
-			<ion-row [style.backgroundColor]="comPerfSelect" (click)="actGraph('COM')">
+			<ion-row [style.backgroundColor]="comCat.select" (click)="actGraph('com')">
 				<ion-col class="colo">
 					<p class="area">COM</p>
 				</ion-col>  
@@ -26,11 +26,11 @@
 					<p class="unit">Kolli/h</p>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="comPerfDiffColor">{{comPerfDiff}}</ion-badge>
+					<ion-badge [color]="comCat.perfDiffCol">{{comCat.perfDiff}}</ion-badge>
 				</ion-col>
 				
 			</ion-row>
-			<ion-row [style.backgroundColor]="depPerfSelect" (click)="actGraph('DEP')">
+			<ion-row [style.backgroundColor]="depCat.select" (click)="actGraph('dep')">
 				<ion-col class="colo">
 					 <p class="area">DEP</p>
 				</ion-col>  
@@ -41,6 +41,7 @@
 					<p class="unit">Kolli/h</p>
 				</ion-col>
 				<ion-col>
+					
 				       	<ion-badge>+1220</ion-badge>
 				</ion-col>
 			</ion-row>
@@ -91,7 +92,8 @@
 		<h1 class="category">Auftraege</h1>
 		</ion-card-header>
 		<ion-card-content>
-			<ion-row>
+			<ion-row [style.backgroundColor]="openCat.select" (click)="actGraph('open')">
+
 				<ion-col class="colo">
 					<p class="area">Offen heute</p>
 				</ion-col>  
@@ -138,7 +140,7 @@
 		</ion-card-content>
 		</ion-card>
 
-		<ion-card>
+		<ion-card class="matcard">
 			<ion-card-header>
 			<h1 class="category">Material</h1>
 			</ion-card-header>
@@ -170,14 +172,14 @@
 		</ion-card-content>
 		</ion-card>
 
-
-<ion-card>
-      <ion-card-header>
-	<h1 class="category">Graph</h1></ion-card-header>
-      <ion-card-content>
-        <canvas #lineCanvas></canvas>
-      </ion-card-content>
-</ion-card>
+</ion-content>
+<ion-footer class="graphfooter">
+	<ion-card class="graphcard">
+	      <!--ion-card-header> <h1 class="category">Graph</h1></ion-card-header-->
+	      <ion-card-content>
+		<canvas class="graphcanvas" #lineCanvas></canvas>
+	      </ion-card-content>
+	</ion-card>
+</ion-footer>
  
 
-</ion-content>
