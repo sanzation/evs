@@ -80,12 +80,18 @@ ionViewWillEnter()
 
 
 	}
-	
-const actGraph= (area : string): void =>{
-	
+
+const actSelect=(area : string): void =>
+	{
+
 	this.comCat.select = area =='com' ? '#f0f0f0' : '#ffffff';
 	this.depCat.select = area =='dep' ? '#f0f0f0' : '#ffffff';
 	this.openCat.select = area =='open' ? '#f0f0f0' : '#ffffff';
+
+	this.actGraph(area);
+	};	
+const actGraph= (area : string): void =>{
+	
 
 	let drawGraph= ( area : string): void => {
 	
@@ -99,30 +105,32 @@ const actGraph= (area : string): void =>{
 		
 			return (data[area]||data['default'])();	
 		}
-		const colorget= (area: string) : string => {
+		const colorget= (area: string,type: number) : string => {
 			let data={
-				'primary':    () => {return'#16292C'},
-				'secondary':  () => {return'#259ee7'},
-				'danger':     () => {return'#db7712'},
-				'light':      () => {return'#d8d8d8'},
-				'white':	() => {return '#ffffff'},
-				'dark':       () => {return '#545454'},
-				'com':		() => {return'#002f7c'},
-				'dep':		() => {return'#00707c'},
-				'slip':		() => {return'#00067c'},
-				'opm':		() => {return'#99b3dd'},
-				'dps':		() => {return'#d17373'},
-				'cps':		() => {return'#9bbb59'},
-				'dpick':	() => {return'#7C0000'},
-				'drpck':	() => {return'#af3b3b'},
-				'cpsa':		() => {return'#007c18'},
-				'cpsd':		() => {return'#467c00'},
-				'we':		() => {return'#c164c1'},
-				'wa':		() => {return'#ccbd7c'},
-			 	'inlay':	() => {return'#C9AE91'},
-				'kk':		() => {return'#029DDD'},
-				'misc':		() => {return'#93a2ba'},
-				'default':	() => {return'#ffffff'}
+				'primary':    () => {return type==1 ? '#16292C' : 'Primär'},
+				'secondary':  () => {return type==1 ? '#259ee7': 'Sekundär'},
+				'danger':     () => {return type==1 ? '#db7712': 'Gefahr'},
+				'light':      () => {return type==1 ? '#d8d8d8': 'Leicht'},
+				'white':	() => {return type==1 ?  '#ffffff': 'Weiss'},
+				'dark':       () => {return type==1 ?  '#545454': 'Dunkel'},
+				'com':		() => {return type==1 ? '#002f7c': 'COM Ko/h'},
+				'dep':		() => {return type==1 ? '#00707c': 'DEP Ko/h'},
+				'slip':		() => {return type==1 ? '#00067c': 'Slipsheet'},
+				'opm':		() => {return type==1 ? '#99b3dd': 'OPM'},
+				'dps':		() => {return type==1 ? '#d17373': 'DPS'},
+				'cps':		() => {return type==1 ? '#9bbb59': 'CPS'},
+				'dpick':	() => {return type==1 ? '#7C0000': 'DPS Pick/h'},
+				'drpck':	() => {return type==1 ? '#af3b3b': 'DPS Repack/h'},
+				'cpsa':		() => {return type==1 ? '#007c18': 'CPS Auto/h'},
+				'cpsd':		() => {return type==1 ? '#467c00': 'CPS Display/h'},
+				'we':		() => {return type==1 ? '#c164c1': 'WE'},
+				'wa':		() => {return type==1 ? '#ccbd7c': 'WA'},
+			 	'inlay':	() => {return type==1 ? '#C9AE91': 'Inlay'},
+				'kk':		() => {return type==1 ? '#029DDD': 'Klappkisten'},
+				'misc':		() => {return type==1 ? '#93a2ba': 'Misc'},
+				'default':	() => {return type==1 ? '#ffffff': 'Default'},
+				'open':		() => {return type==1 ? '#f4f4f4': 'Offene Auftragskolli heute'},
+				'openn':	() => {return type==1 ? '#f9f9f9' : 'Offene Auftragskolli morgen'}
 			};
 			return (data[area]||data['default'])();
 		}	
@@ -138,10 +146,10 @@ const actGraph= (area : string): void =>{
 				,
 			datasets: [
 			    {
-				label: area,
+				label: colorget(area,2),
 				fill: false,
 				lineTension: 0.1,
-				backgroundColor: colorget(area),
+				backgroundColor: colorget(area,1),
 				borderColor: "rgba(75,192,192,1)",
 				borderCapStyle: 'butt',
 				borderDash: [],

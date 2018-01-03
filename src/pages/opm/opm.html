@@ -15,7 +15,7 @@
 		<h1 class="category">Leistung</h1>
 		</ion-card-header>
 	<ion-card-content>
-			<ion-row [style.backgroundColor]="comCat.select" (click)="actGraph('com')">
+			<ion-row [style.backgroundColor]="comCat.select" (click)="actSelect('com')">
 				<ion-col class="colo">
 					<p class="area">COM</p>
 				</ion-col>  
@@ -30,7 +30,7 @@
 				</ion-col>
 				
 			</ion-row>
-			<ion-row [style.backgroundColor]="depCat.select" (click)="actGraph('dep')">
+			<ion-row [style.backgroundColor]="depCat.select" (click)="actSelect('dep')">
 				<ion-col class="colo">
 					 <p class="area">DEP</p>
 				</ion-col>  
@@ -92,7 +92,7 @@
 		<h1 class="category">Auftraege</h1>
 		</ion-card-header>
 		<ion-card-content>
-			<ion-row [style.backgroundColor]="openCat.select" (click)="actGraph('open')">
+			<ion-row [style.backgroundColor]="openCat.select" (click)="actSelect('open')">
 
 				<ion-col class="colo">
 					<p class="area">Offen heute</p>
