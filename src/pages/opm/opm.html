@@ -30,6 +30,7 @@
 				</ion-col>
 				
 			</ion-row>
+			
 			<ion-row [style.backgroundColor]="depCat.select" (click)="actSelect('dep')">
 				<ion-col class="colo">
 					 <p class="area">DEP</p>
@@ -42,7 +43,7 @@
 				</ion-col>
 				<ion-col>
 					
-				       	<ion-badge>+1220</ion-badge>
+					<ion-badge [color]="depCat.perfDiffCol">{{depCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
 	</ion-card-content>
@@ -54,7 +55,7 @@
 			</ion-card-header>
 		<ion-card-content>	
 
-			<ion-row>
+			<ion-row [style.backgroundColor]="comfCat.select" (click)="actSelect('comf')">
 				<ion-col class="colo">
 					<p class="area">COM</p>
 				</ion-col>  
@@ -65,12 +66,12 @@
 					<p class="unit">Stoerungen/1000 Kolli</p>
 				</ion-col>
 				<ion-col>
-				       	<ion-badge>+1220</ion-badge>
+					<ion-badge [color]="comfCat.perfDiffCol">{{comfCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
 		
 		
-			<ion-row>
+			<ion-row [style.backgroundColor]="depfCat.select" (click)="actSelect('depf')">
 				<ion-col class="colo">
 					 <p class="area">DEP</p>
 				</ion-col>  
@@ -81,7 +82,8 @@
 					<p class="unit">Stoerungen/1000 Kolli</p>
 				</ion-col>
 				<ion-col>
-				       	<ion-badge>+1220</ion-badge>
+
+					<ion-badge [color]="depfCat.perfDiffCol">{{depfCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
 			</ion-card-content>	
@@ -92,7 +94,7 @@
 		<h1 class="category">Auftraege</h1>
 		</ion-card-header>
 		<ion-card-content>
-			<ion-row [style.backgroundColor]="openCat.select" (click)="actSelect('open')">
+			<ion-row [style.backgroundColor]="oopenCat.select" (click)="actSelect('oopen')">
 
 				<ion-col class="colo">
 					<p class="area">Offen heute</p>
@@ -104,12 +106,13 @@
 					<p class="unit">Kolli</p>
 				</ion-col>
 				<ion-col>
-				       	<ion-badge>+1220</ion-badge>
+
+					<ion-badge [color]="oopenCat.perfDiffCol">{{oopenCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
 		
 		
-			<ion-row>
+			<ion-row [style.backgroundColor]="oopennCat.select" (click)="actSelect('oopenn')">
 				<ion-col class="colo">
 					<p class="area">Offen morgen</p>
 				</ion-col>  
@@ -120,7 +123,7 @@
 					<p class="unit">Kolli</p>
 				</ion-col>
 				<ion-col>
-				       	<ion-badge>+1220</ion-badge>
+					<ion-badge [color]="oopennCat.perfDiffCol">{{oopennCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
 			<ion-row>
@@ -134,7 +137,6 @@
 					<p class="unit"> </p>
 				</ion-col>
 				<ion-col>
-				       	<ion-badge>+1220</ion-badge>
 				</ion-col>
 			</ion-row>
 		</ion-card-content>
@@ -146,25 +148,25 @@
 			</ion-card-header>
 		<ion-card-content>	
 
-						<ion-row>
+			<ion-row [style.backgroundColor]="stTryCat.select" (click)="actSelect('stTry')">
 						<ion-col class="colo">
 							<h2 class="area">Slipsheets</h2>
 						</ion-col>  
 						<ion-col col-auto><h1 class="slip">14</h1></ion-col>
 						<ion-col><p class="unit">Bestand OPM</p></ion-col>
 						</ion-row>
-						<ion-row>
+			<ion-row [style.backgroundColor]="rsTryCat.select" (click)="actSelect('rsTry')">
 						<ion-col></ion-col>
 						<ion-col col-auto><h1 class="slip">144</h1></ion-col>
 						<ion-col><p class="unit">reserviert OPM</p></ion-col>
 						</ion-row>
-						<ion-row>
+			<ion-row [style.backgroundColor]="stHbwCat.select" (click)="actSelect('stHbw')">
 						<ion-col></ion-col>
 						<ion-col col-auto><h1 class="slip">1244</h1></ion-col>
 						<ion-col><p class="unit">Bestand HBW</p></ion-col>
 						</ion-row>
 					
-						<ion-row>
+			<ion-row [style.backgroundColor]="saleCat.select" (click)="actSelect('sale')">
 						<ion-col></ion-col>
 						<ion-col col-auto><h1 class="slip">121313211344</h1></ion-col>
 						<ion-col><p class="unit">Bedarf/Tag</p></ion-col>
