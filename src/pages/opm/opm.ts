@@ -36,8 +36,8 @@ export class OpmPage {
 	depCat: catData;
 	comfCat: catData;
 	depfCat: catData;
-	openCat: catData;
-	opennCat: catData;
+	oopenCat: catData;
+	oopennCat: catData;
 	stTryCat: catData;
 	rsTryCat: catData;
 	stHbwCat: catData;
@@ -52,8 +52,8 @@ export class OpmPage {
 	this.depCat =new catData('dep');  
 	this.comfCat=new catData('comf');
 	this.depfCat=new catData('depf');
-	this.openCat=new catData('oopen');
-	this.opennCat=new catData('oopenn');
+	this.oopenCat=new catData('oopen');
+	this.oopennCat=new catData('oopenn');
 	this.stTryCat=new catData('stTry');
 	this.rsTryCat=new catData('rsTry');
 	this.stHbwCat=new catData('stHbw');
@@ -74,7 +74,6 @@ export class OpmPage {
   }
   ionViewDidLoad() {
 
-
    this.EvsCall.getData().subscribe(EvsData=>{
 	this.EvsData= EvsData.current_observation;
 	console.log(EvsData);
@@ -85,12 +84,14 @@ export class OpmPage {
 
 
   }
+
+
 ionViewWillEnter()
 	{
 		this.CatCol.forEach( (cat) =>
 			{
 			cat.perfDiff=Math.random() * (1 + 2) - 2;
-			cat.perfDiffCol= cat.perfDiff>0 ?  'danger' : 'secondary';
+			cat.perfDiffCol= cat.perfDiff>0 ? 'secondary' : 'danger'  ;
 			});
 
 	}
@@ -101,7 +102,10 @@ const actSelect=(area : string): void =>
 	this.CatCol.forEach( (cat) => {		
 	cat.select = area ==cat.name ? '#f0f0f0' : '#ffffff';
 	});
-
+	
+	if(this.lineChart==null){} 
+		else{this.lineChart.destroy();}
+			
 	this.actGraph(area);
 	}	
 
@@ -112,7 +116,7 @@ const actGraph= (area : string): void  =>{
 			let data= {
 			'com': () => {return  [1234,8700,1233,7999];},
 			'dep': () => {return  [5674,122,4505,423];},
-			'open': () => {return  [96964,43434,59544,13490];},
+			'oopen': () => {return  [96964,43434,59544,13490];},
 			'default': () => {return  [0,0,0,0];}
 			}; 
 		
