@@ -16,7 +16,6 @@ import { WePage } from '../pages/we/we';
 import { MiscPage } from '../pages/misc/misc';
 import { EvscallProvider } from '../providers/evscall/evscall';
 
-
 @NgModule({
   declarations: [
     MyApp,

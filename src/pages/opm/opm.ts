@@ -1,5 +1,6 @@
 /* node */
 
+
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EvscallProvider } from '../../providers/evscall/evscall';
@@ -28,9 +29,20 @@ export class OpmPage {
 	@ViewChild('lineCanvas') lineCanvas;
 	lineChart:any;
 	//data
-	EvsData:any;	
-	comPerf:any;
-	depPerf:any;
+	EvsData:any;
+
+	comData: any;
+	depData: any;
+	comfData: any;
+	depfData: any;
+	oopenData: any;
+	oopennData: any;
+	stTryData: any;
+	rsTryData: any;
+	stHbwData: any;
+	saleData: any;
+
+
 
 	comCat: catData;
 	depCat: catData;
@@ -77,8 +89,8 @@ export class OpmPage {
    this.EvsCall.getData().subscribe(EvsData=>{
 	this.EvsData= EvsData.current_observation;
 	console.log(EvsData);
-	   this.comPerf=EvsData.rows[0].elements[0].distance.text;
-	   this.depPerf=EvsData.rows[0].elements[0].distance.value;
+	   this.comData=EvsData.rows[0].elements[0].distance.text;
+	   this.depData=EvsData.rows[0].elements[0].distance.value;
 
      });
 

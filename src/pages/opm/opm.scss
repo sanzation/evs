@@ -10,7 +10,7 @@ page-opm{
 }
 .category
 {
-	color:color($colors, primary);
+	color:color($colors, white);
 }
 
 .unit 
@@ -18,8 +18,10 @@ page-opm{
 	left-padding: 9px;
 }
 .card-header{
-	background-color: color($colors, opm);
+	background: url(../img/typewriterr.jpeg);
 }
+.card-header-div{
+    }
 
 .card{
 width: auto;
