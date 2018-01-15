@@ -10,7 +10,7 @@ page-dps {
 }
 .category
 {
-	color:color($colors, primary);
+	color:color($colors, white);
 }
 
 .unit 
@@ -18,7 +18,7 @@ page-dps {
 	left-padding: 9px;
 }
 .card-header{
-	background-color: color($colors, dps);
+	background: url(../img/city.jpg);
 }
 
 .card{

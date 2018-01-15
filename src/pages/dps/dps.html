@@ -5,7 +5,6 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
     <ion-title>Dps</ion-title>
   </ion-navbar>
@@ -14,67 +13,68 @@
 <ion-content padding>
 	<ion-card>
 		<ion-card-header>
+			<div class="card-header-div"></div>
 		<h1 class="category">Leistung</h1>
 		</ion-card-header>
 	<ion-card-content>
-			<ion-row>
+			<ion-row [style.backgroundColor]="dpickCat.select" (click)="actSelect('dpick')">
 				<ion-col class="colo">
 					<p class="area">DPS Pick</p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="dpick">{{dpickPerf}}</h1>
+					<h1 class="dpick">{{dpickCat.data}}</h1>
 				</ion-col>
 				<ion-col col-auto>
 					<p class="unit">Kolli/h</p>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="dpickPerfDiffColor">{{dpickPerfDiff}}</ion-badge>
+					<ion-badge [color]="dpickCat.perfDiffColor">{{dpickCat.perfDiff}}</ion-badge>
 				</ion-col>
 				
 			</ion-row>
-			<ion-row>
+			<ion-row [style.backgroundColor]="dpuserCat.select" (click)="actSelect('dpuser')">
 				<ion-col class="colo">
 					<p class="area"> </p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="dpick">1234</h1>
+					<h1 class="dpick">{{dpuserCat.data}}</h1>
 				</ion-col>
 				<ion-col col-auto>
 					<p class="unit">User</p>
 				</ion-col>
 				<ion-col>
-				       	<ion-badge>+1</ion-badge>
+					<ion-badge [color]="dpickCat.perfDiffColor">{{dpickCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
 		
-			<ion-row>
+			<ion-row [style.backgroundColor]="drpckCat.select" (click)="actSelect('drpck')">
 				<ion-col class="colo">
 					 <p class="area">DPS Repack</p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="drpck">{{drpckPerf}}</h1>
+					<h1 class="drpck">{{drpckCat.data}}</h1>
 				</ion-col>
 				<ion-col col-auto>
 					<p class="unit">Kolli/h</p>
 				</ion-col>
 				<ion-col>
-				       	<ion-badge>+1220</ion-badge>
+					<ion-badge [color]="dpickCat.perfDiffColor">{{dpickCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
 	
 		
-			<ion-row>
+			<ion-row [style.backgroundColor]="druserCat.select" (click)="actSelect('druser')">
 				<ion-col class="colo">
 					<p class="area"> </p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="dpick">1234</h1>
+					<h1 class="drpck">{{druserCat.data}}</h1>
 				</ion-col>
 				<ion-col col-auto>
 					<p class="unit">User</p>
 				</ion-col>
 				<ion-col>
-				       	<ion-badge>+1</ion-badge>
+					<ion-badge [color]="dpickCat.perfDiffColor">{{dpickCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
 	</ion-card-content>	
@@ -86,34 +86,32 @@
 		<h1 class="category">Auftraege</h1>
 		</ion-card-header>
 		<ion-card-content>
-			<ion-row>
+			<ion-row [style.backgroundColor]="oopenCat.select" (click)="actSelect('oopen')">
 				<ion-col class="colo">
 					<p class="area">Offen heute</p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="dpick">1234</h1>
+					<h1 class="dpick">{{oopenCat.data}}</h1>
 				</ion-col>
 				<ion-col col-auto>
 					<p class="unit">Kolli</p>
 				</ion-col>
 				<ion-col>
-				       	<ion-badge>+1220</ion-badge>
+					<ion-badge [color]="dpickCat.perfDiffColor">{{dpickCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
-		
-		
-			<ion-row>
+			<ion-row [style.backgroundColor]="oopennCat.select" (click)="actSelect('oopenn')">
 				<ion-col class="colo">
 					<p class="area">Offen morgen</p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="dpick">1234</h1>
+					<h1 class="dpick">{{oopennCat.data}}</h1>
 				</ion-col>
 				<ion-col col-auto>
 					<p class="unit">Kolli</p>
 				</ion-col>
 				<ion-col>
-				       	<ion-badge>+1220</ion-badge>
+					<ion-badge [color]="dpickCat.perfDiffColor">{{dpickCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
 			<ion-row>
@@ -139,42 +137,44 @@
 			</ion-card-header>
 		<ion-card-content>	
 
-						<ion-row>
+					<ion-row [style.backgroundColor]="stInlCat.select" (click)="actSelect('stInl')">
 						<ion-col class="colo">
 							<h2 class="area">Inlays</h2>
 						</ion-col>  
-						<ion-col col-auto><h1 class="inlay">14</h1></ion-col>
+						<ion-col col-auto><h1 class="inlay">{{stInlCat.data}}</h1></ion-col>
 						<ion-col><p class="unit">Bestand</p></ion-col>
 						</ion-row>
-						<ion-row>
+					<ion-row [style.backgroundColor]="saInlCat.select" (click)="actSelect('saInl')">
 						<ion-col></ion-col>
-						<ion-col col-auto><h1 class="inlay">144</h1></ion-col>
+						<ion-col col-auto><h1 class="inlay">{{saInlCat.data}}</h1></ion-col>
 						<ion-col><p class="unit">Bedarf/Tag</p></ion-col>
 						</ion-row>
-						<ion-row>
+					<ion-row [style.backgroundColor]="kkHbwCat.select" (click)="actSelect('kkHbwCat')">
 						<ion-col class="colo">
-							<h2 class="area">Klappkisten Leergut</h2>
+						<h2 class="area">Klappkisten Leergut</h2>
 						</ion-col>
-						<ion-col col-auto><h1 class="kk">1244</h1></ion-col>
+						<ion-col col-auto><h1 class="kk">{{kkHbwCat.data}}</h1></ion-col>
 						<ion-col><p class="unit">Pal im HBW</p></ion-col>
 						</ion-row>
 					
-						<ion-row>
+					<ion-row [style.backgroundColor]="kkDpsCat.select" (click)="actSelect('kkDpsCat')">
 						<ion-col></ion-col>
-						<ion-col col-auto><h1 class="kk">121313211344</h1></ion-col>
+						<ion-col col-auto><h1 class="kk">{{kkDpsCat.data}}</h1></ion-col>
 						<ion-col><p class="unit">Leerkisten DPS</p></ion-col>
 						</ion-row>
 		</ion-card-content>
 		</ion-card>
 
 
-<ion-card>
-      <ion-card-header>
-	<h1 class="category">Graph</h1></ion-card-header>
-      <ion-card-content>
-        <canvas #lineCanvas></canvas>
-      </ion-card-content>
-</ion-card>
- 
 
 </ion-content>
+<ion-footer class="graphfooter">
+	<ion-card class="graphcard">
+	      <!--ion-card-header> <h1 class="category">Graph</h1></ion-card-header-->
+	      <ion-card-content>
+		<canvas class="graphcanvas" #lineCanvas></canvas>
+	      </ion-card-content>
+	</ion-card>
+</ion-footer>
+ 
+

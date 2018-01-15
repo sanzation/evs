@@ -31,19 +31,6 @@ export class OpmPage {
 	//data
 	EvsData:any;
 
-	comData: any;
-	depData: any;
-	comfData: any;
-	depfData: any;
-	oopenData: any;
-	oopennData: any;
-	stTryData: any;
-	rsTryData: any;
-	stHbwData: any;
-	saleData: any;
-
-
-
 	comCat: catData;
 	depCat: catData;
 	comfCat: catData;
@@ -89,8 +76,8 @@ export class OpmPage {
    this.EvsCall.getData().subscribe(EvsData=>{
 	this.EvsData= EvsData.current_observation;
 	console.log(EvsData);
-	   this.comData=EvsData.rows[0].elements[0].distance.text;
-	   this.depData=EvsData.rows[0].elements[0].distance.value;
+	   this.comCat.data=EvsData.rows[0].elements[0].distance.text;
+	   this.depCat.data=EvsData.rows[0].elements[0].distance.value;
 
      });
 

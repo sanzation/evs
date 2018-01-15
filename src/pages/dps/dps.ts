@@ -4,6 +4,8 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EvscallProvider } from '../../providers/evscall/evscall';
 import { Chart } from 'chart.js';
+import { colorGet,graphOpt,newCat } from '../../utils/func';
+import { catData } from '../../utils/types';
 /*
 *
  * Generated class for the DpsPage page.
@@ -21,76 +23,106 @@ export class DpsPage {
 	@ViewChild('lineCanvas') lineCanvas;
 	lineChart:any;
 	EvsData:any;	
-	dpickPerf:any;
-	drpckPerf:any;
-	dpickPerfDiff: any;
-	dpickPerfDiffColor: string;
+
+	dpickCat: catData;
+	drpckCat: catData;
+	dpuserCat: catData;
+	druserCat: catData;
+	oopenCat: catData;
+	oopennCat: catData;
+	stInlCat: catData;
+	saInlCat: catData;
+	kkHbwCat: catData;
+	kkDpsCat: catData;
+
+	CatCol: Array<catData>;
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private EvsCall : EvscallProvider) {
+	this.CatCol=new Array<catData>();  
+	this.dpickCat=new catData('dpick');
+	this.drpckCat =new catData('drpck');  
+	this.dpuserCat=new catData('dpuser');
+	this.druserCat=new catData('druser');
+	this.oopenCat=new catData('oopen');
+	this.oopennCat=new catData('oopenn');
+	this.stInlCat=new catData('stInl');
+	this.saInlCat=new catData('saInl');
+	this.kkHbwCat=new catData('kkHbw');
+	this.kkDpsCat=new catData('kkDps');
+
+	this.CatCol.push(this.dpickCat);
+	this.CatCol.push(this.drpckCat);
+	this.CatCol.push(this.dpuserCat);
+	this.CatCol.push(this.druserCat);
+	this.CatCol.push(this.oopenCat);
+	this.CatCol.push(this.oopennCat);
+	this.CatCol.push(this.stInlCat);
+	this.CatCol.push(this.saInlCat);
+	this.CatCol.push(this.kkHbwCat);
+	this.CatCol.push(this.kkDpsCat);
+
 
   }
   ionViewDidLoad() {
-	var gDate=new Date();
-	this.lineChart = new Chart(this.lineCanvas.nativeElement, {
-	 
-		    type: 'line',
-		    data: {
-			labels: [
-			"22:00","23:00","00:00","01:00"			
-				],
-			datasets: [
-			    {
-				label: "DPS",
-				fill: false,
-				lineTension: 0.1,
-				backgroundColor: "rgba(75,192,192,0.4)",
-				borderColor: "rgba(75,192,192,1)",
-				borderCapStyle: 'butt',
-				borderDash: [],
-				borderDashOffset: 0.0,
-				borderJoinStyle: 'miter',
-				pointBorderColor: "rgba(75,192,192,1)",
-				pointBackgroundColor: "#fff",
-				pointBorderWidth: 1,
-				pointHoverRadius: 5,
-				pointHoverBackgroundColor: "rgba(75,192,192,1)",
-				pointHoverBorderColor: "rgba(220,220,220,1)",
-				pointHoverBorderWidth: 2,
-				pointRadius: 1,
-				pointHitRadius: 10,
-				data: [6500, 5904,3123,5105],
-				spanGaps: false,
-			    }
-			]
-		    }
-	 
-		});
 
    this.EvsCall.getData().subscribe(EvsData=>{
 	this.EvsData= EvsData.current_observation;
 	console.log(EvsData);
-	   this.dpickPerf=EvsData.rows[0].elements[0].distance.text;
-	   this.drpckPerf=EvsData.rows[0].elements[0].distance.value;
+	   this.dpickCat.data=EvsData.rows[0].elements[0].distance.text;
+	   this.drpckCat.data=EvsData.rows[0].elements[0].distance.value;
 
      });
 
-  }DpsPage
+
+  }
+
+
 ionViewWillEnter()
 	{
- console.log('ionViewWillEnter DpsPage');
-
-	this.dpickPerfDiff=Math.random() * (1 + 2) - 2;
-
-	if(this.dpickPerfDiff>0)
-	  {
-	  this.dpickPerfDiffColor='danger';
-	  }
-	  else
-	  {
-	  this.dpickPerfDiffColor='secondary';
-	  }
-
+		this.CatCol.forEach( (cat) =>
+			{
+			cat.perfDiff=Math.random() * (1 + 2) - 2;
+			cat.perfDiffCol= cat.perfDiff>0 ? 'secondary' : 'danger'  ;
+			});
 
 	}
+
+const actSelect=(area : string): void =>
+	{
+	
+	this.CatCol.forEach( (cat) => {		
+	cat.select = area ==cat.name ? '#f0f0f0' : '#ffffff';
+	});
+	
+	if(this.lineChart==null){} 
+		else{this.lineChart.destroy();}
+			
+	this.actGraph(area);
+	}	
+
+
+const actGraph= (area : string): void  =>{
+	let drawGraph= ( area : string): void =>{ 
+		const perfdatafunc= (area: string) : any => {
+			let data= {
+			'dpick': () => {return  [1234,8700,1233,7999];},
+			'drpck': () => {return  [5674,122,4505,423];},
+			'oopen': () => {return  [96964,43434,59544,13490];},
+			'default': () => {return  [0,0,0,0];}
+			}; 
+		
+			return (data[area]||data['default'])();	
+		}
+	        var perfdata = perfdatafunc(area);
+		var labeldata  = 		
+			["22:00","23:00","00:00","01:00"];			
+		
+		this.lineChart =
+			 new Chart(this.lineCanvas.nativeElement,graphOpt(labeldata, perfdata, area)
+		);
+	}
+		drawGraph(area);
+}
 
 }

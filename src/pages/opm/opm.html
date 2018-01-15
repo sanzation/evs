@@ -22,7 +22,7 @@
 					<p class="area">COM</p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="com">{{comData}}</h1>
+					<h1 class="com">{{comCat.data}}</h1>
 				</ion-col>
 				<ion-col col-auto>
 					<p class="unit">Kolli/h</p>
@@ -38,7 +38,7 @@
 					 <p class="area">DEP</p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="dep">{{depData}}</h1>
+					<h1 class="dep">{{depCat.data}}</h1>
 				</ion-col>
 				<ion-col col-auto>
 					<p class="unit">Kolli/h</p>
@@ -62,7 +62,7 @@
 					<p class="area">COM</p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="com">{{comfData}}</h1>
+					<h1 class="com">{{comfCat.data}}</h1>
 				</ion-col>
 				<ion-col col-auto>
 					<p class="unit">Stoerungen/1000 Kolli</p>
@@ -78,7 +78,7 @@
 					 <p class="area">DEP</p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="dep">{{depfData}}</h1>
+					<h1 class="dep">{{depfCat.data}}</h1>
 				</ion-col>
 				<ion-col col-auto>
 					<p class="unit">Stoerungen/1000 Kolli</p>
@@ -102,7 +102,7 @@
 					<p class="area">Offen heute</p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="com">{{oopenData}}</h1>
+					<h1 class="com">{{oopenCat.data}}</h1>
 				</ion-col>
 				<ion-col col-auto>
 					<p class="unit">Kolli</p>
@@ -119,7 +119,7 @@
 					<p class="area">Offen morgen</p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="com">{{oopennData}}</h1>
+					<h1 class="com">{{oopennCat.data}}</h1>
 				</ion-col>
 				<ion-col col-auto>
 					<p class="unit">Kolli</p>
@@ -154,23 +154,23 @@
 						<ion-col class="colo">
 							<h2 class="area">Slipsheets</h2>
 						</ion-col>  
-						<ion-col col-auto><h1 class="slip">{{stTryData}}</h1></ion-col>
+						<ion-col col-auto><h1 class="slip">{{stTryCat.data}}</h1></ion-col>
 						<ion-col><p class="unit">Bestand OPM</p></ion-col>
 						</ion-row>
 			<ion-row [style.backgroundColor]="rsTryCat.select" (click)="actSelect('rsTry')">
 						<ion-col></ion-col>
-						<ion-col col-auto><h1 class="slip">{{rsTryData}}</h1></ion-col>
+						<ion-col col-auto><h1 class="slip">{{rsTryCat.data}}</h1></ion-col>
 						<ion-col><p class="unit">reserviert OPM</p></ion-col>
 						</ion-row>
 			<ion-row [style.backgroundColor]="stHbwCat.select" (click)="actSelect('stHbw')">
 						<ion-col></ion-col>
-						<ion-col col-auto><h1 class="slip">{{stHbwData}}</h1></ion-col>
+						<ion-col col-auto><h1 class="slip">{{stHbwCat.data}}</h1></ion-col>
 						<ion-col><p class="unit">Bestand HBW</p></ion-col>
 						</ion-row>
 					
 			<ion-row [style.backgroundColor]="saleCat.select" (click)="actSelect('sale')">
 						<ion-col></ion-col>
-						<ion-col col-auto><h1 class="slip">{{saleData}}</h1></ion-col>
+						<ion-col col-auto><h1 class="slip">{{saleCat.data}}</h1></ion-col>
 						<ion-col><p class="unit">Bedarf/Tag</p></ion-col>
 						</ion-row>
 		</ion-card-content>
