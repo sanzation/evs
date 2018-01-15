@@ -6,7 +6,7 @@ import { EvscallProvider } from '../../providers/evscall/evscall';
 import { Chart } from 'chart.js';
 import { colorGet,graphOpt,newCat } from '../../utils/func';
 import { catData } from '../../utils/types';
-/
+
 /*
 *
  * Generated class for the CpsPage page.
@@ -37,17 +37,17 @@ export class CpsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private EvsCall : EvscallProvider) {
 	this.CatCol=new Array<catData>();  
-	this.cpickCat=new catData('dpick');
-	this.cdspCat =new catData('drpck');  
-	this.cpuserCat=new catData('dpuser');
-	this.cduserCat=new catData('druser');
+	this.cpickCat=new catData('cpick');
+	this.cdspCat =new catData('cdsp');  
+	this.cpuserCat=new catData('cpuser');
+	this.cduserCat=new catData('cduser');
 	this.oopenCat=new catData('oopen');
 	this.oopennCat=new catData('oopenn');
 
-	this.CatCol.push(this.dpickCat);
-	this.CatCol.push(this.drpckCat);
-	this.CatCol.push(this.dpuserCat);
-	this.CatCol.push(this.druserCat);
+	this.CatCol.push(this.cpickCat);
+	this.CatCol.push(this.cdspCat);
+	this.CatCol.push(this.cpuserCat);
+	this.CatCol.push(this.cduserCat);
 	this.CatCol.push(this.oopenCat);
 	this.CatCol.push(this.oopennCat);
 
@@ -59,7 +59,7 @@ export class CpsPage {
 	this.EvsData= EvsData.current_observation;
 	console.log(EvsData);
 	   this.cpickCat.data=EvsData.rows[0].elements[0].distance.text;
-	   this.cCat.data=EvsData.rows[0].elements[0].distance.value;
+	   this.cdspCat.data=EvsData.rows[0].elements[0].distance.value;
 
      });
 
