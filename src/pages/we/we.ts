@@ -20,76 +20,90 @@ export class WePage {
 	@ViewChild('lineCanvas') lineCanvas;
 	lineChart:any;
 	EvsData:any;	
-	wepalhPerf:any;
-	varahPerf:any;
-	wepalhPerfDiff: any;
-	wepalhPerfDiffColor: string;
+
+	wepalhCat: catData;
+	wepaldCat: catData;
+	wevarhCat: catData;
+	wevardCat: catData;
+
+	CatCol: Array<catData>;
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private EvsCall : EvscallProvider) {
+	this.CatCol=new Array<catData>();  
+	this.wepalhCat=new catData('wepalh');
+	this.wepaldCat =new catData('wepald');  
+	this.wevarhCat=new catData('wevarh');
+	this.wevardCat=new catData('wevard');
+
+	this.CatCol.push(this.cpickCat);
+	this.CatCol.push(this.cdspCat);
+	this.CatCol.push(this.cpuserCat);
+	this.CatCol.push(this.cduserCat);
+	this.CatCol.push(this.oopenCat);
+	this.CatCol.push(this.oopennCat);
+
 
   }
   ionViewDidLoad() {
-	var gDate=new Date();
-	this.lineChart = new Chart(this.lineCanvas.nativeElement, {
-	 
-		    type: 'line',
-		    data: {
-			labels: [
-			"22:00","23:00","00:00","01:00"			
-				],
-			datasets: [
-			    {
-				label: "WE",
-				fill: false,
-				lineTension: 0.1,
-				backgroundColor: "rgba(75,192,192,0.4)",
-				borderColor: "rgba(75,192,192,1)",
-				borderCapStyle: 'butt',
-				borderDash: [],
-				borderDashOffset: 0.0,
-				borderJoinStyle: 'miter',
-				pointBorderColor: "rgba(75,192,192,1)",
-				pointBackgroundColor: "#fff",
-				pointBorderWidth: 1,
-				pointHoverRadius: 5,
-				pointHoverBackgroundColor: "rgba(75,192,192,1)",
-				pointHoverBorderColor: "rgba(220,220,220,1)",
-				pointHoverBorderWidth: 2,
-				pointRadius: 1,
-				pointHitRadius: 10,
-				data: [6500, 5904,3123,5105],
-				spanGaps: false,
-			    }
-			]
-		    }
-	 
-		});
 
    this.EvsCall.getData().subscribe(EvsData=>{
 	this.EvsData= EvsData.current_observation;
 	console.log(EvsData);
-	   this.wepalhPerf=EvsData.rows[0].elements[0].distance.text;
-	   this.varahPerf=EvsData.rows[0].elements[0].distance.value;
+	   this.cpickCat.data=EvsData.rows[0].elements[0].distance.text;
+	   this.cdspCat.data=EvsData.rows[0].elements[0].distance.value;
 
      });
 
-  }WePage
+
+  }
+
+
 ionViewWillEnter()
 	{
- console.log('ionViewWillEnter WePage');
-
-	this.wepalhPerfDiff=Math.random() * (1 + 2) - 2;
-
-	if(this.wepalhPerfDiff>0)
-	  {
-	  this.wepalhPerfDiffColor='danger';
-	  }
-	  else
-	  {
-	  this.wepalhPerfDiffColor='secondary';
-	  }
-
+		this.CatCol.forEach( (cat) =>
+			{
+			cat.perfDiff=Math.random() * (1 + 2) - 2;
+			cat.perfDiffCol= cat.perfDiff>0 ? 'secondary' : 'danger'  ;
+			});
 
 	}
+
+const actSelect=(area : string): void =>
+	{
+	
+	this.CatCol.forEach( (cat) => {		
+	cat.select = area ==cat.name ? '#f0f0f0' : '#ffffff';
+	});
+	
+	if(this.lineChart==null){} 
+		else{this.lineChart.destroy();}
+			
+	this.actGraph(area);
+	}	
+
+
+const actGraph= (area : string): void  =>{
+	let drawGraph= ( area : string): void =>{ 
+		const perfdatafunc= (area: string) : any => {
+			let data= {
+			'dpick': () => {return  [1234,8700,1233,7999];},
+			'drpck': () => {return  [5674,122,4505,423];},
+			'oopen': () => {return  [96964,43434,59544,13490];},
+			'default': () => {return  [0,0,0,0];}
+			}; 
+		
+			return (data[area]||data['default'])();	
+		}
+	        var perfdata = perfdatafunc(area);
+		var labeldata  = 		
+			["22:00","23:00","00:00","01:00"];			
+		
+		this.lineChart =
+			 new Chart(this.lineCanvas.nativeElement,graphOpt(labeldata, perfdata, area)
+		);
+	}
+		drawGraph(area);
+}
 
 }
