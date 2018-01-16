@@ -6,7 +6,7 @@
   "proxies": [
   {
 	"path": "/api",
-        "proxyUrl": "https://maps.googleapis.com/maps/api"	
+        "proxyUrl": "http://sbs07r2bck02.sbs07wmsdom.local:38317/EvsDataServiceWeb"	
   }
   
   ]

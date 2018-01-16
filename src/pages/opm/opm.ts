@@ -89,8 +89,8 @@ export class OpmPage {
    this.EvsCall.getData().subscribe(EvsData=>{
 	this.EvsData= EvsData.current_observation;
 	console.log(EvsData);
-	   this.comData=EvsData.rows[0].elements[0].distance.text;
-	   this.depData=EvsData.rows[0].elements[0].distance.value;
+	   //this.comData=EvsData.rows[0].elements[0].distance.text;
+	   //this.depData=EvsData.rows[0].elements[0].distance.value;
 
      });
 
