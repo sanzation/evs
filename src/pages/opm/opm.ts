@@ -77,9 +77,17 @@ export class OpmPage {
 	this.EvsData= EvsData.current_observation;
 	console.log(EvsData);
 
-	   this.comCat.data=EvsData.rows[0].elements[0].distance.text;
-	   this.depCat.data=EvsData.rows[0].elements[0].distance.value;
-
+	this.comCat.data=EvsData.getPerfEntityResult.comperf;
+	this.depCat.data=EvsData.getPerfEntityResult.depperf;   
+	this.comfCat.data=EvsData.getPerfEntityResult.com_errorcnt;   
+	this.depfCat.data=EvsData.getPerfEntityResult.dep_errorcnt;   
+	this.oopenCat.data=EvsData.getPerfEntityResult.oopen;   
+	this.oopennCat.data=EvsData.getPerfEntityResult.oopen2;   
+	this.stTryCat.data=EvsData.getPerfEntityResult.slipinvtry;   
+	this.rsTryCat.data=EvsData.getPerfEntityResult.slipinvreserv;   
+	this.stHbwCat.data=EvsData.getPerfEntityResult.slipinvhbw;   
+	this.saleCat.data=EvsData.getPerfEntityResult.slipabv;   
+	  
      });
 
 
