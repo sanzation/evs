@@ -13,28 +13,28 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding>	
 <ion-card>
 		<ion-card-header>
 		<h1 class="category">Leistung</h1>
 		</ion-card-header>
 	<ion-card-content>
-			<ion-row>
+			<ion-row [style.backgroundColor]="wepalhCat.select" (click)="actSelect('wepalh')">
 				<ion-col class="colo">
 					<p class="area">Durchsatz</p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="pal">{{wepalhPerf}}</h1>
+					<h1 class="pal">{{wepalhCat.data}}</h1>
 				</ion-col>
 				<ion-col col-auto>
 					<p class="unit">Paletten/h</p>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="wepalhPerfDiffColor">{{wepalhPerfDiff}}</ion-badge>
+					<ion-badge [color]="wepalhCat.perfDiffColor">{{wepalhCat.perfDiff}}</ion-badge>
 				</ion-col>
 				
 			</ion-row>
-			<ion-row>
+			<ion-row [style.backgroundColor]="wepaldCat.select" (click)="actSelect('wepald')">
 				<ion-col class="colo">
 					<p class="area"> </p>
 				</ion-col>  
@@ -49,7 +49,7 @@
 				</ion-col>
 			</ion-row>
 		
-			<ion-row>
+			<ion-row [style.backgroundColor]="wevarhCat.select" (click)="actSelect('wevarh')">
 				<ion-col class="colo">
 					 <p class="area">Automatikquote</p>
 				</ion-col>  
@@ -65,7 +65,7 @@
 			</ion-row>
 	
 		
-			<ion-row>
+			<ion-row [style.backgroundColor]="wevardCat.select" (click)="actSelect('wevard')">
 				<ion-col class="colo">
 					<p class="area"> </p>
 				</ion-col>  
@@ -82,12 +82,5 @@
 	</ion-card-content>	
 
 	</ion-card>
-<ion-card>
-      <ion-card-header>
-	<h1 class="category">Graph</h1></ion-card-header>
-      <ion-card-content>
-        <canvas #lineCanvas></canvas>
-      </ion-card-content>
-</ion-card>
- 
+
 </ion-content>

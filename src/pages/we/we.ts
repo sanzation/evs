@@ -4,6 +4,9 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EvscallProvider } from '../../providers/evscall/evscall';
 import { Chart } from 'chart.js';
+
+import { colorGet,graphOpt,newCat } from '../../utils/func';
+import { catData } from '../../utils/types';
 /*
 *
  * Generated class for the WePage page.
@@ -36,12 +39,10 @@ export class WePage {
 	this.wevarhCat=new catData('wevarh');
 	this.wevardCat=new catData('wevard');
 
-	this.CatCol.push(this.cpickCat);
-	this.CatCol.push(this.cdspCat);
-	this.CatCol.push(this.cpuserCat);
-	this.CatCol.push(this.cduserCat);
-	this.CatCol.push(this.oopenCat);
-	this.CatCol.push(this.oopennCat);
+	this.CatCol.push(this.wepalhCat);
+	this.CatCol.push(this.wepaldCat);
+	this.CatCol.push(this.wevarhCat);
+	this.CatCol.push(this.wevardCat);
 
 
   }
@@ -50,8 +51,6 @@ export class WePage {
    this.EvsCall.getData().subscribe(EvsData=>{
 	this.EvsData= EvsData.current_observation;
 	console.log(EvsData);
-	   this.cpickCat.data=EvsData.rows[0].elements[0].distance.text;
-	   this.cdspCat.data=EvsData.rows[0].elements[0].distance.value;
 
      });
 
