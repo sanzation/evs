@@ -15,7 +15,7 @@ export class EvscallProvider {
 
 	
 	url : string="http://sbs07r2bck02.sbs07wmsdom.local:38317/EvsDataServiceWeb";
-
+	test : string="http://localhost:8100/api";
 	ent : string="/getDataEnt";
 	list : string="/getDataList";
 	rou : string="/getRouList";
@@ -26,24 +26,24 @@ export class EvscallProvider {
     console.log('der provider juckt');
   }
 	getData(){
-	return this.http.get(`${this.url}${this.ent}`)
+	return this.http.get(`${this.test}${this.ent}`)
 		.map(res => res.json());
 	
 	}
 	
 	getList(){
-	return this.http.get(`${this.url}${this.list}`)
+	return this.http.get(`${this.test}${this.list}`)
 		.map(res => res.json());
 	
 	}
 	
 	getRou(){
-	return this.http.get(`${this.url}${this.rou}`)
+	return this.http.get(`${this.test}${this.rou}`)
 		.map(res => res.json());
 	
 	}
 	getCam(){
-	return this.http.get(`${this.url}${this.cam}`)
+	return this.http.get(`${this.test}${this.cam}`)
 		.map(res => res.json());
 	
 	}

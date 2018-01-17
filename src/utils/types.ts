@@ -3,6 +3,7 @@ export interface IcatData{
 		perfDiffCol: string;
 		name: string;
 		select: string;
+		data: any;
 	};
 export class catData implements IcatData{
 	constructor(name: string)
@@ -11,5 +12,6 @@ export class catData implements IcatData{
 	this.perfDiffCol='primary';
 	this.select=' ';
 	this.name=name;	
+	this.data=0;	
 	}
 }
