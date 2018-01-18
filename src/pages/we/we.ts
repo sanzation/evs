@@ -52,6 +52,11 @@ export class WePage {
 	this.EvsData= EvsData.current_observation;
 	console.log(EvsData);
 
+	this.wepalhCat.data=EvsData.getPerfEntityResult.wepal_hour;
+	this.wepaldCat.data=EvsData.getPerfEntityResult.wepal_day;
+	this.wevarhCat.data=EvsData.getPerfEntityResult.wevara_hour;
+	this.wevardCat.data=EvsData.getPerfEntityResult.wevara_day;
+
      });
 
 

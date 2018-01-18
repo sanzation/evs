@@ -58,8 +58,14 @@ export class CpsPage {
    this.EvsCall.getData().subscribe(EvsData=>{
 	this.EvsData= EvsData.current_observation;
 	console.log(EvsData);
-	   this.cpickCat.data=EvsData.rows[0].elements[0].distance.text;
-	   this.cdspCat.data=EvsData.rows[0].elements[0].distance.value;
+	this.cpickCat.data=EvsData.getPerfEntityResult.cpsautoperf;
+	this.cdspCat.data=EvsData.getPerfEntityResult.cpsdspperf;
+	this.cpuserCat.data=EvsData.getPerfEntityResult.cpsautocnt;
+	this.cduserCat.data=EvsData.getPerfEntityResult.cpsdspcnt;
+	this.oopenCat.data=EvsData.getPerfEntityResult.copen;
+	this.oopennCat.data=EvsData.getPerfEntityResult.copen2;
+
+
 
      });
 

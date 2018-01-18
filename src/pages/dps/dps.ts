@@ -69,9 +69,17 @@ export class DpsPage {
    this.EvsCall.getData().subscribe(EvsData=>{
 	this.EvsData= EvsData.current_observation;
 	console.log(EvsData);
-	   this.dpickCat.data=EvsData.rows[0].elements[0].distance.text;
-	   this.drpckCat.data=EvsData.rows[0].elements[0].distance.value;
 
+	this.dpickCat.data=EvsData.getPerfEntityResult.dpickuserperf;
+	this.drpckCat.data=EvsData.getPerfEntityResult.drpckuserperf;
+	this.dpuserCat.data=EvsData.getPerfEntityResult.dpickcnt;
+	this.druserCat.data=EvsData.getPerfEntityResult.drpckcnt;
+	this.oopenCat.data=EvsData.getPerfEntityResult.dopen;
+	this.oopennCat.data=EvsData.getPerfEntityResult.dopen2;
+	this.stInlCat.data=EvsData.getPerfEntityResult.inlaysinv;
+	this.saInlCat.data=EvsData.getPerfEntityResult.inlaysabv;
+	this.kkHbwCat.data=EvsData.getPerfEntityResult.kkstackhbwinv;
+	this.kkDpsCat.data=EvsData.getPerfEntityResult.kkemptydpsinv;
      });
 
 

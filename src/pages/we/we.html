@@ -39,13 +39,13 @@
 					<p class="area"> </p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="pal">1234</h1>
+					<h1 class="pal">{{wepaldCat.data}}</h1>
 				</ion-col>
 				<ion-col col-auto>
 					<p class="unit">Paletten/Tag</p>
 				</ion-col>
 				<ion-col>
-				       	<ion-badge>+1</ion-badge>
+					<ion-badge [color]="wepaldCat.perfDiffColor">{{wepaldCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
 		
@@ -54,13 +54,13 @@
 					 <p class="area">Automatikquote</p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="var">{{varahPerf}}</h1>
+					<h1 class="var">{{wevarhCat.data}}</h1>
 				</ion-col>
 				<ion-col col-auto>
 					<p class="unit">% Variante A/h</p>
 				</ion-col>
 				<ion-col>
-				       	<ion-badge>+1220</ion-badge>
+					<ion-badge [color]="wevarhCat.perfDiffColor">{{wevarhCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
 	
@@ -70,13 +70,13 @@
 					<p class="area"> </p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="var">1234</h1>
+					<h1 class="var">{{wevardCat.data}}</h1>
 				</ion-col>
 				<ion-col col-auto>
 					<p class="unit">% Variante A/Tag</p>
 				</ion-col>
 				<ion-col>
-				       	<ion-badge>+1</ion-badge>
+					<ion-badge [color]="wevardCat.perfDiffColor">{{wevardCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
 	</ion-card-content>	
@@ -84,3 +84,13 @@
 	</ion-card>
 
 </ion-content>
+<ion-footer class="graphfooter">
+	<ion-card class="graphcard">
+	      <!--ion-card-header> <h1 class="category">Graph</h1></ion-card-header-->
+	      <ion-card-content>
+		<canvas class="graphcanvas" #lineCanvas></canvas>
+	      </ion-card-content>
+	</ion-card>
+</ion-footer>
+ 
+

@@ -10,7 +10,7 @@ page-we {
 }
 .category
 {
-	color:color($colors, primary);
+	color:color($colors, white);
 }
 
 .unit 
@@ -18,7 +18,7 @@ page-we {
 	left-padding: 9px;
 }
 .card-header{
-	background-color: color($colors, we);
+	background: url(../img/citylights.jpg);
 }
 
 .card{
