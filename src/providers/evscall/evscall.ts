@@ -47,7 +47,7 @@ export class EvscallProvider {
 	
 	}
 	getFill(){
-	return this.http.get(`${this.url}${this.fill}`)
+	return this.http.get(`${this.test}${this.fill}`)
 		.map(res => res.json());
 	
 	}

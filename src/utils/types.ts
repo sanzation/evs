@@ -4,6 +4,8 @@ export interface IcatData{
 		name: string;
 		select: string;
 		data: any;
+		datasec: any;
+
 	};
 export class catData implements IcatData{
 	constructor(name: string)
@@ -13,5 +15,6 @@ export class catData implements IcatData{
 	this.select=' ';
 	this.name=name;	
 	this.data=0;	
+	this.datasec=0;	
 	}
 }

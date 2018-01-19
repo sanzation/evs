@@ -4,6 +4,9 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EvscallProvider } from '../../providers/evscall/evscall';
 import { Chart } from 'chart.js';
+
+import { colorGet,graphOpt,newCat } from '../../utils/func';
+import { catData } from '../../utils/types';
 /*
 *
  * Generated class for the WaPage page.
@@ -56,12 +59,12 @@ export class WaPage {
 	this.EvsData= EvsData.current_observation;
 	console.log(EvsData);
 
-	this.fillCat.data=EvsData.getPerfEntityResult.fillperf;
-	this.fill91Cat.data=EvsData.getPerfEntityResult.fill91perf;   
-	this.fill92Cat.data=EvsData.getPerfEntityResult.fill_errorcnt;   
-	this.openCat.data=EvsData.getPerfEntityResult.fill91_errorcnt;   
-	this.open91Cat.data=EvsData.getPerfEntityResult.oopen;   
-	this.open92Cat.data=EvsData.getPerfEntityResult.oopen2;   
+	this.fillCat.data=EvsData.getPerfEntityResult.ocb_fillall;
+	this.fill91Cat.data=EvsData.getPerfEntityResult.ocb_fill91;   
+	this.fill92Cat.data=EvsData.getPerfEntityResult.ocb_fill92;   
+	this.openCat.data=EvsData.getPerfEntityResult.ocb_openall;   
+	this.open91Cat.data=EvsData.getPerfEntityResult.ocb_open91;   
+	this.open92Cat.data=EvsData.getPerfEntityResult.ocb_open92;   
 	  
      });
 

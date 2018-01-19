@@ -32,84 +32,87 @@
 				<ion-col>
 				</ion-col>
 			</ion-row>
-			<ion-row>
+			<ion-row [style.backgroundColor]="hbwCat.select" (click)="actSelect('hbwCat')">
 				<ion-col class="colo">
 					<p class="area">HBW</p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="hbw">{{hbwFillLoc}}</h1>
+					<h1 class="hbw">{{hbwCat.data}}</h1>
 				</ion-col>
 				<ion-col col-auto>
-					<h1 class="hbw"></h1>
+					<h1 class="hbw">{{hbwCat.secdata}}</h1>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="hbwFillDiffCol">{{hbwFillDiff}}</ion-badge>
+					<ion-badge [color]="hbwCat.perfDiffColor">{{hbwCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
-			<ion-row>
+			<ion-row [style.backgroundColor]="tryCat.select" (click)="actSelect('tryCat')">
 				<ion-col class="colo">
 					<p class="area">Tray</p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="try">{{tryFillLoc}}</h1>
+					<h1 class="try">{{tryCat.data}}</h1>
 				</ion-col>
 				<ion-col col-auto>
-					<h1 class="try">{{tryFillCha}}</h1>
+					<h1 class="try">{{tryCat.secdata}}</h1>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="tryDiffCol">{{tryDiff}}</ion-badge>
+					<ion-badge [color]="tryCat.perfDiffColor">{{tryCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
-			<ion-row>
+			<ion-row [style.backgroundColor]="excCat.select" (click)="actSelect('excCat')">
 				<ion-col class="colo">
 					<p class="area">EXC</p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="exc">{{excFillLoc}}</h1>
+					<h1 class="exc">{{excCat.data}}</h1>
 				</ion-col>
 				<ion-col col-auto>
-					<h1 class="exc">{{excFillCha}}</h1>
+					<h1 class="exc">{{excCat.secdata}}</h1>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="excFillDiffCol">{{excFillDiff}}</ion-badge>
+					<ion-badge [color]="excCat.perfDiffColor">{{excCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
-			<ion-row>
+			<ion-row [style.backgroundColor]="sebCat.select" (click)="actSelect('sebCat')">
 				<ion-col class="colo">
 					<p class="area">SEB</p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="seb">{{sebFillLoc}}</h1>
+					<h1 class="seb">{{sebCat.data}}</h1>
 				</ion-col>
 				<ion-col col-auto>
-					<h1 class="seb">{{sebFillCha}}</h1>
+					<h1 class="seb">{{sebCat.secdata}}</h1>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="sebFillDiffCol">{{sebFillDiff}}</ion-badge>
+					<ion-badge [color]="sebCat.perfDiffColor">{{sebCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
-			<ion-row>
+			<ion-row [style.backgroundColor]="dpsCat.select" (click)="actSelect('dps')">
 				<ion-col class="colo">
 					<p class="area">DPS</p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="dps">{{dpsFillLoc}}</h1>
+					<h1 class="dps">{{dpsCat.data}}</h1>
 				</ion-col>
 				<ion-col col-auto>
-					<h1 class="dps">{{dpsFillCha}}</h1>
+					<h1 class="dps">{{dpsCat.secData}}</h1>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="dpsFillDiffCol">{{dpsFillDiff}}</ion-badge>
+					<ion-badge [color]="dpsCat.perfDiffColor">{{dpsCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
 	</ion-card-content>
 </ion-card>
-<ion-card>
-      <ion-card-header>
-	<h1 class="category">Graph</h1></ion-card-header>
-      <ion-card-content>
-        <canvas #lineCanvas></canvas>
-      </ion-card-content>
-</ion-card>
- 
+
 </ion-content>
+<ion-footer class="graphfooter">
+	<ion-card class="graphcard">
+	      <!--ion-card-header> <h1 class="category">Graph</h1></ion-card-header-->
+	      <ion-card-content>
+		<canvas class="graphcanvas" #lineCanvas></canvas>
+	      </ion-card-content>
+	</ion-card>
+</ion-footer>
+ 
+

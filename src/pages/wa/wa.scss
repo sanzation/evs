@@ -11,7 +11,7 @@ page-wa {
 }
 .category
 {
-	color:color($colors, primary);
+	color:color($colors, white);
 }
 
 .unit 
@@ -19,7 +19,7 @@ page-wa {
 	left-padding: 9px;
 }
 .card-header{
-	background-color: color($colors, wa);
+	background: url(../img/rock.jpg);
 }
 
 .card{
