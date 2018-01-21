@@ -4,7 +4,7 @@ import { EvscallProvider } from '../../providers/evscall/evscall';
 import { Chart } from 'chart.js';
 
 
-import { colorGet,graphOpt,newCat } from '../../utils/func';
+import { colorGet,graphBar,newCat } from '../../utils/func';
 import { catData } from '../../utils/types';
 /**
  * Generated class for the MiscPage page.
@@ -34,7 +34,7 @@ export class MiscPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private EvsCall : EvscallProvider) {
 	this.CatCol=new Array<catData>();  
 	this.hbwCat=new catData('hbw');
-	this.tryCat =new catData('try');  
+	this.tryCat=new catData('try');  
 	this.excCat=new catData('exc');
 	this.sebCat=new catData('seb');
 	this.dpsCat=new catData('dps');
@@ -53,13 +53,23 @@ ionViewDidLoad(){
 	this.EvsData= EvsData.current_observation;
 
 	this.hbwCat.data=EvsData.getFillListResult[1].locfill/100;
-	this.hbwCat.secdata=EvsData.getFillListResult[1].chanfill/100;
+	this.hbwCat.datasec=EvsData.getFillListResult[1].chanfill/100;
 	this.tryCat.data=EvsData.getFillListResult[2].locfill/100;
-	this.tryCat.secdata=EvsData.getFillListResult[2].chanfill/100;
+	this.tryCat.datasec=EvsData.getFillListResult[2].chanfill/100;
         this.excCat.data=EvsData.getFillListResult[3].locfill/100;   
-        this.excCat.secdata=EvsData.getFillListResult[3].chanfill/100;   
+        this.excCat.datasec=EvsData.getFillListResult[3].chanfill/100;   
 	this.sebCat.data=EvsData.getFillListResult[4].locfill/100;   
-	this.sebCat.secdata=EvsData.getFillListResult[4].chanfill/100;   
+	this.sebCat.datasec=EvsData.getFillListResult[4].chanfill/100;   
+
+	this.CatCol= this.CatCol.map( (cat) : catData => {
+	var obj = EvsData.getFillResult.find( (data) => data.area.ToLower()===cat.name);
+	cat.data=obj.locfill/100;
+    	cat.datasec=obj.chanfill/100;
+	return cat;	
+	}
+	)
+	;
+	
 	  
 	console.log(this.hbwCat.data);
      });
@@ -90,19 +100,26 @@ const actGraph= (area : string): void  =>{
 	let drawGraph= ( area : string): void =>{ 
 		const perfdatafunc= (area: string) : any => {
 			let data= {
-			'hbw': () => {return  [this.hbwCat.data,this.hbwCat.secData];},
-			'seb': () => {return  [this.sebCat.data,this.sebCat.secData];},
-			'dps': () => {return  [this.dpsCat.data,this.dpsCat.secData];},
-			'exc': () => {return  [this.excCat.data,this.excCat.secData];},
-			'try': () => {return  [this.tryCat.data,this.tryCat.secData];},	
-			'default': () => {return  [0,0,0,0];}
-			}; 
+			'default': () => {return 
+		      	[
+			this.hbwCat.data,this.hbwCat.datasec,
+			this.tryCat.data,this.tryCat.datasec,
+			this.excCat.data,this.excCat.datasec,
+			this.sebCat.data,this.sebCat.datasec,
+			this.dpsCat.data,this.dpsCat.datasec
+			]	
+			}}; 
 		
 			return (data[area]||data['default'])();	
 		}
 	        var perfdata = perfdatafunc(area);
 		var labeldata  = 		
-			[this.hbwCat.name,this.tryCat.name,this.excCat.name,this.sebCat.name,this.dpsCat.name];			
+			[`${this.hbwCat.name} Platz`,`${this.hbwCat.name} Kanal`,
+			   `${this.tryCat.name} Platz`,`${this.tryCat.name} Kanal`,
+				`${this.excCat.name} Platz`,`${this.excCat.name} Kanal`,
+				`${this.sebCat.name} Platz`,`${this.sebCat.name} Kanal`,
+				`${this.dpsCat.name} Platz`,`${this.dpsCat.name} Kanal`
+			];			
 		
 		this.lineChart =
 			 new Chart(this.lineCanvas.nativeElement,graphBar(labeldata, perfdata, area)
@@ -110,10 +127,4 @@ const actGraph= (area : string): void  =>{
 	}
 		drawGraph(area);
 }
-
-}
-	
-
-	  }
-
 }

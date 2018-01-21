@@ -15,6 +15,7 @@ import { WaPage } from '../pages/wa/wa';
 import { WePage } from '../pages/we/we';
 import { MiscPage } from '../pages/misc/misc';
 import { EvscallProvider } from '../providers/evscall/evscall';
+import { catData } from '../utils/types';
 
 @NgModule({
   declarations: [

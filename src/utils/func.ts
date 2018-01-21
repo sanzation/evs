@@ -1,5 +1,7 @@
 import { catData } from '../utils/types';
 
+import { EvscallProvider } from '../../providers/evscall/evscall';
+
 
 export const colorGet= (area: string,type: number) : string => {
 			let data={
@@ -28,7 +30,7 @@ export const colorGet= (area: string,type: number) : string => {
 				'misc':		() => {return type==1 ? '#93a2ba': 'Misc'},
 				'default':	() => {return type==1 ? '#ffffff': 'Default'},
 				'oopen':	() => {return type==1 ? '#747474': 'Offene Auftragskolli heute'},
-				'oopenn':	() => {return type==1 ? '#999999': 'Offene Auftragskolli morgen'},
+				'oopenn':	() => {return type==1 ? '#999999': 'Offene AuftragskolJetzt verifizieren li morgen'},
 				'dopen':	() => {return type==1 ? '#747474': 'Offene Auftragskolli heute'},
 				'copen':	() => {return type==1 ? '#747474': 'Offene Auftragskolli heute'},
 				'dopenn':	() => {return type==1 ? '#999999' : 'Offene Auftragskolli morgen'},
@@ -119,4 +121,20 @@ export const graphBar = (labeldata : any, perfdata : any, area : string )  : any
 
 	};
 
+
+export const perfdatafunc= (area: string, EvsCall: any) : any => {
+			var EvsData;
+			EvsCall.getList().subscribe(EvsData=>{
+			this.EvsData= EvsData.current_observation;
+			});
+
+			let data= {
+			'com': () => {  EvsData.getPerfListResult.map((data)=>{ [{'date' : data.gendate,'val' : data.comperf}] ;}) ;},
+			'dep': () => {  EvsData.getPerfListResult.map((data)=>{ [{'date' : data.gendate,'val' : data.depperf}] ;}) ;},
+			'oopen': () => {  EvsData.getPerfListResult.map((data)=>{ [{'date': data.gendate,'val' : data.oopen}] ;}) ;},
+			'default': () => {return  [{'date' : 0,'val' : 0},{'data' : 0,'val' : 0}];}
+			}; 
+		
+			return (data[area]||data['default'])();	
+		};
 

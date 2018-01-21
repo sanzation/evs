@@ -5,7 +5,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EvscallProvider } from '../../providers/evscall/evscall';
 import { Chart } from 'chart.js';
-import { colorGet,graphOpt,newCat } from '../../utils/func';
+import { colorGet,graphOpt,newCat,perfdatafunc } from '../../utils/func';
 import { catData } from '../../utils/types';
 /*
 *
@@ -120,22 +120,12 @@ const actSelect=(area : string): void =>
 
 const actGraph= (area : string): void  =>{
 	let drawGraph= ( area : string): void =>{ 
-		const perfdatafunc= (area: string) : any => {
-			let data= {
-			'com': () => {return  [1234,8700,1233,7999];},
-			'dep': () => {return  [5674,122,4505,423];},
-			'oopen': () => {return  [96964,43434,59544,13490];},
-			'default': () => {return  [0,0,0,0];}
-			}; 
-		
-			return (data[area]||data['default'])();	
-		}
-	        var perfdata = perfdatafunc(area);
-		var labeldata  = 		
-			["22:00","23:00","00:00","01:00"];			
-		
+		var perfdata = perfdatafunc(area, this.EvsCall);
+		var values = perfdata.map((data)=>{ data.val});
+	       
+		var labeldata=  perfdata.map((data)=>{data.date});	
 		this.lineChart =
-			 new Chart(this.lineCanvas.nativeElement,graphOpt(labeldata, perfdata, area)
+			 new Chart(this.lineCanvas.nativeElement,graphOpt(labeldata, values, area)
 		);
 	}
 		drawGraph(area);
