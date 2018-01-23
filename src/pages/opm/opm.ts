@@ -5,7 +5,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EvscallProvider } from '../../providers/evscall/evscall';
 import { Chart } from 'chart.js';
-import { colorGet,graphOpt,newCat,perfdatafunc } from '../../utils/func';
+import { colorGet,graphOpt,newCat,perfdatafunc,parseDateTime } from '../../utils/func';
 import { catData } from '../../utils/types';
 /*
 *
@@ -90,7 +90,6 @@ export class OpmPage {
 	  
      });
 
-
   }
 
 
@@ -120,13 +119,18 @@ const actSelect=(area : string): void =>
 
 const actGraph= (area : string): void  =>{
 	let drawGraph= ( area : string): void =>{ 
-		var perfdata = perfdatafunc(area, this.EvsCall);
-		var values = perfdata.map((data)=>{ data.val});
-	       
-		var labeldata=  perfdata.map((data)=>{data.date});	
-		this.lineChart =
-			 new Chart(this.lineCanvas.nativeElement,graphOpt(labeldata, values, area)
-		);
+		this.EvsCall.getList().subscribe((EvsData)=>{
+			
+			var perfData = perfdatafunc(area, EvsData );
+			var values =perfData.map((data)=>{return parseInt(data.val,10)});
+			var labeldata= perfData.map((data)=>{return parseDateTime(data.date)});	
+		        var avgPerf = Math.round(values.reduce((a,b)=>{return a+b})/values.length,0);
+		        var maxPerf = values.reduce((a,b)=>{return a>b? a : b});
+			console.log(maxPerf);
+			this.lineChart =
+				 new Chart(this.lineCanvas.nativeElement,graphOpt(labeldata, values, area, avgPerf, maxPerf));
+		});
+
 	}
 		drawGraph(area);
 }

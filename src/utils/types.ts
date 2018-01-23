@@ -1,4 +1,4 @@
-export interface IcatData{
+interface IcatData{
 		perfDiff: any;
 		perfDiffCol: string;
 		name: string;
@@ -7,6 +7,14 @@ export interface IcatData{
 		datasec: any;
 
 	};
+interface Itime {
+	date: int;
+	hours: int;
+	min: int;
+	sec: int;
+	ms: int;
+
+}
 export class catData implements IcatData{
 	constructor(name: string)
 	{
@@ -17,4 +25,15 @@ export class catData implements IcatData{
 	this.data=0;	
 	this.datasec=0;	
 	}
+}
+export class evsTime implements Itime{
+constructor()
+	{
+	this.date=0;
+	this.hours=0;
+	this.min=0;
+	this.sec=0;
+	this.ms=0;	
+	}
+
 }

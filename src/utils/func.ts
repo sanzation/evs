@@ -1,6 +1,5 @@
 import { catData } from '../utils/types';
 
-import { EvscallProvider } from '../../providers/evscall/evscall';
 
 
 export const colorGet= (area: string,type: number) : string => {
@@ -30,7 +29,7 @@ export const colorGet= (area: string,type: number) : string => {
 				'misc':		() => {return type==1 ? '#93a2ba': 'Misc'},
 				'default':	() => {return type==1 ? '#ffffff': 'Default'},
 				'oopen':	() => {return type==1 ? '#747474': 'Offene Auftragskolli heute'},
-				'oopenn':	() => {return type==1 ? '#999999': 'Offene AuftragskolJetzt verifizieren li morgen'},
+				'oopenn':	() => {return type==1 ? '#999999': 'Offene Auftragskolli morgen'},
 				'dopen':	() => {return type==1 ? '#747474': 'Offene Auftragskolli heute'},
 				'copen':	() => {return type==1 ? '#747474': 'Offene Auftragskolli heute'},
 				'dopenn':	() => {return type==1 ? '#999999' : 'Offene Auftragskolli morgen'},
@@ -39,7 +38,7 @@ export const colorGet= (area: string,type: number) : string => {
 			return (data[area]||data['default'])();
 		}
 
-export const graphOpt = (labeldata : any, perfdata : any, area : string )  : any =>
+export const graphOpt = (labeldata : any, perfdata : any, area : string, info : string, infosec : string )  : any =>
 	{ return{
 		type: 'line',
 		    data: {
@@ -47,7 +46,7 @@ export const graphOpt = (labeldata : any, perfdata : any, area : string )  : any
 				,
 			datasets: [
 			    {
-				label: colorGet(area,2),
+				    label: colorGet(area,2)+" Avg: "+info+" Max: "+infosec,
 				fill: false,
 				lineTension: 0.1,
 				backgroundColor: colorGet(area,1),
@@ -122,19 +121,42 @@ export const graphBar = (labeldata : any, perfdata : any, area : string )  : any
 	};
 
 
-export const perfdatafunc= (area: string, EvsCall: any) : any => {
-			var EvsData;
-			EvsCall.getList().subscribe(EvsData=>{
-			this.EvsData= EvsData.current_observation;
-			});
+export const perfdatafunc= (area: string, EvsDat: any) : any => {
+			
 
 			let data= {
-			'com': () => {  EvsData.getPerfListResult.map((data)=>{ [{'date' : data.gendate,'val' : data.comperf}] ;}) ;},
-			'dep': () => {  EvsData.getPerfListResult.map((data)=>{ [{'date' : data.gendate,'val' : data.depperf}] ;}) ;},
-			'oopen': () => {  EvsData.getPerfListResult.map((data)=>{ [{'date': data.gendate,'val' : data.oopen}] ;}) ;},
-			'default': () => {return  [{'date' : 0,'val' : 0},{'data' : 0,'val' : 0}];}
+			'com': () => {return EvsDat.getPerfListResult.map((data)=>{return {'date' : data.gendate,'val' : data.comperf} ;}) ;},
+			'dep': () => {return  EvsDat.getPerfListResult.map((data)=>{return {'date' : data.gendate,'val' : data.depperf} ;}) ;},
+			'oopen': () => {return  EvsDat.getPerfListResult.map((data)=>{return {'date': data.gendate,'val' : data.oopen} ;}) ;},
+			'default': () => {return  {'date' : 0,'val' : 0},{'data' : 0,'val' : 0};}
 			}; 
-		
 			return (data[area]||data['default'])();	
 		};
+export const parseDateTime= (time: string) : any => { 
+	
+	
+	//var etime=new evsTime();
+	//Date(1516659302019+0100)/
+	var ttime = new Date(parseInt(time.substring(6,19),10));
+return	formatTime(ttime,"hour")+ ":" + formatTime(ttime,"min");	
 
+//	etime.sec=etime.ms/1000;
+//	etime.min=etime.sec/60;
+//	etime.hours=etime.min/60;
+//	etime.days=etime.hours/24;
+//	etime.months=etime.days
+}
+
+const formatTime= (time : Date, gettype: string) : string => {
+	
+	let str = 
+		{
+			"hour" : ()=>{return time.getHours()<10 ? `0${time.getHours()}` : time.getHours()},
+			"min" :  ()=>{return time.getMinutes()<10 ? `0${time.getMinutes()}` : time.getMinutes()}
+
+	       		
+		};
+
+
+	return (str[gettype]||str[hour])();
+} 
