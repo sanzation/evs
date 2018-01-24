@@ -16,6 +16,10 @@ export const colorGet= (area: string,type: number) : string => {
 				'depf':		() => {return type==1 ? '#00707c': 'DEP Stoerungen 1000Ko/h'},
 				'slip':		() => {return type==1 ? '#00067c': 'Slipsheet'},
 				'opm':		() => {return type==1 ? '#99b3dd': 'OPM'},
+				'sale':		() => {return type==1 ? '#00067c': 'Slipsheetverbrauch/Tag'},
+				'stTry':	() => {return type==1 ? '#00067c': 'Slipsheet Bestand Try'},
+				'rsTry':	() => {return type==1 ? '#00067c': 'Slipsheet Bestand Try reserviert'},
+				'stHbw':	() => {return type==1 ? '#00067c': 'Slipsheet Bestand Hbw'},
 				'dps':		() => {return type==1 ? '#d17373': 'DPS'},
 				'cps':		() => {return type==1 ? '#9bbb59': 'CPS'},
 				'dpick':	() => {return type==1 ? '#7C0000': 'DPS Pick/h'},
@@ -32,8 +36,19 @@ export const colorGet= (area: string,type: number) : string => {
 				'oopenn':	() => {return type==1 ? '#999999': 'Offene Auftragskolli morgen'},
 				'dopen':	() => {return type==1 ? '#747474': 'Offene Auftragskolli heute'},
 				'copen':	() => {return type==1 ? '#747474': 'Offene Auftragskolli heute'},
-				'dopenn':	() => {return type==1 ? '#999999' : 'Offene Auftragskolli morgen'},
-				'copenn':	() => {return type==1 ? '#999999' : 'Offene Auftragskolli morgen'},
+				'dopenn':	() => {return type==1 ? '#656565' : 'Offene Auftragskolli morgen'},
+				'copenn':	() => {return type==1 ? '#454545' : 'Offene Auftragskolli morgen'},
+				'wevarah':	() => {return type==1 ? '#c164c1' : 'Offene Auftragskolli morgen'},
+				'wevarad':	() => {return type==1 ? '#c164c1' : 'Offene Auftragskolli morgen'},
+				'wepalh':	() => {return type==1 ? '#c164c1' : 'Offene Auftragskolli morgen'},
+				'wepald':	() => {return type==1 ? '#c164c1' : 'Offene Auftragskolli morgen'},
+				'ocbfill':	() => {return type==1 ? '#ccbd7c' : 'Offene Auftragskolli morgen'},
+				'ocbfill91':	() => {return type==1 ? '#ccbd7c' : 'Offene Auftragskolli morgen'},
+				'ocbfill92':	() => {return type==1 ? '#ccbd7c' : 'Offene Auftragskolli morgen'},
+				'ocbopen':	() => {return type==1 ? '#ccbd7c' : 'Offene Auftragskolli morgen'},
+				'ocbopen91':	() => {return type==1 ? '#ccbd7c' : 'Offene Auftragskolli morgen'},
+				'ocbopen92':	() => {return type==1 ? '#ccbd7c' : 'Offene Auftragskolli morgen'},
+
 			};
 			return (data[area]||data['default'])();
 		}
@@ -121,16 +136,66 @@ export const graphBar = (labeldata : any, perfdata : any, area : string )  : any
 	};
 
 
-export const perfdatafunc= (area: string, EvsDat: any) : any => {
+export const perfdatafunc= (area: string, EvsDat: any, type : int) : any => {
 			
-
 			let data= {
-			'com': () => {return EvsDat.getPerfListResult.map((data)=>{return {'date' : data.gendate,'val' : data.comperf} ;}) ;},
-			'dep': () => {return  EvsDat.getPerfListResult.map((data)=>{return {'date' : data.gendate,'val' : data.depperf} ;}) ;},
-			'oopen': () => {return  EvsDat.getPerfListResult.map((data)=>{return {'date': data.gendate,'val' : data.oopen} ;}) ;},
-			'default': () => {return  {'date' : 0,'val' : 0},{'data' : 0,'val' : 0};}
+			'com':		() => {return "comperf"},
+			'dep':		() => {return "depperf"},
+			'comf':		() => {return "com_errorcnt"},
+			'depf':		() => {return "dep_errorcnt"},
+			'sale':		() => {return "slipabv"},
+			'stTry':	() => {return "slipinvtry"},
+			'rsTry':	() => {return "slipinvreserv"},
+			'stHbw':	() => {return "slipinvhbw"},
+			'dpick':	() => {return "dpickuserperf"},
+			'dpcnt':	() => {return "dpickcnt"},
+			'drpck':	() => {return "drpckuserperf"},
+			'drcnt':	() => {return "drpckcnt"},
+			'cpsa':		() => {return "cpsautoperf"},
+			'cpsacnt':	() => {return "cpsautocnt"},
+			'cpsd':		() => {return "cdpsdspperf"},
+			'cpsdcnt':	() => {return "cdpsdspcnt"},
+			'wevarah':	() => {return "wevara_hour"},
+			'wevarad':	() => {return "wevara_day"},
+			'wepalh':	() => {return "wepal_hour"},
+			'wepald':	() => {return "wepal_day"},
+			'ocbfill':	() => {return "ocb_fillall"},
+			'ocbfill91':	() => {return "ocb_fill91"},
+			'ocbfill92':	() => {return "ocb_fill92"},
+			'ocbopen':	() => {return "ocb_openall"},
+			'ocbopen91':	() => {return "ocb_open91"},
+			'ocbopen92':	() => {return "ocb_open92"},
+			'inlaysabv':	() => {return "inlaysabv"},
+			'kkdpsinv':	() => {return "kkemptydpsinv"},
+			'oopen':	() => {return "oopen"},
+			'oopenn':	() => {return "oopen2"},
+			'dopen':	() => {return "dopen"},
+			'copen':	() => {return "copen"},
+			'dopenn':	() => {return "dopen2"},
+			'copenn':	() => {return "copen2"},
+			'default':	() => {return  'default'}
 			}; 
-			return (data[area]||data['default'])();	
+			
+			if (type==1)
+				{
+					
+				const dataListFunc= (mdataval: any) =>{
+				return EvsDat.getPerfListResult.map((data)=>
+					{return {'date' : data.gendate,'val' : data[mdataval]}
+					}) 
+				};	
+				const retdata=()=>{dataListFunc(data[area])};
+				}
+			else
+				{
+
+				const dataEntFunc=(mdataval: any) =>{
+					return EvsDat.getPerfEntityResult[mdataval]
+				};
+				const retdata=()=>{dataEntFunc(data[area])};
+				}	
+				
+			return retdata();	
 		};
 export const parseDateTime= (time: string) : any => { 
 	

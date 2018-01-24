@@ -75,18 +75,20 @@ export class OpmPage {
 
    this.EvsCall.getData().subscribe(EvsData=>{
 	this.EvsData= EvsData.current_observation;
-	console.log(EvsData);
 
-	this.comCat.data=EvsData.getPerfEntityResult.comperf;
-	this.depCat.data=EvsData.getPerfEntityResult.depperf;   
-	this.comfCat.data=EvsData.getPerfEntityResult.com_errorcnt;   
-	this.depfCat.data=EvsData.getPerfEntityResult.dep_errorcnt;   
-	this.oopenCat.data=EvsData.getPerfEntityResult.oopen;   
-	this.oopennCat.data=EvsData.getPerfEntityResult.oopen2;   
-	this.stTryCat.data=EvsData.getPerfEntityResult.slipinvtry;   
-	this.rsTryCat.data=EvsData.getPerfEntityResult.slipinvreserv;   
-	this.stHbwCat.data=EvsData.getPerfEntityResult.slipinvhbw;   
-	this.saleCat.data=EvsData.getPerfEntityResult.slipabv;   
+	this.CatCol.map((cat)=>{ cat.data=perfdatafunc(cat.name,EvsData,2) });
+
+
+//	this.comCat.data=EvsData.getPerfEntityResult.comperf;
+//	this.depCat.data=EvsData.getPerfEntityResult.depperf;   
+//	this.comfCat.data=EvsData.getPerfEntityResult.com_errorcnt;   
+//	this.depfCat.data=EvsData.getPerfEntityResult.dep_errorcnt;   
+//	this.oopenCat.data=EvsData.getPerfEntityResult.oopen;   
+//	this.oopennCat.data=EvsData.getPerfEntityResult.oopen2;   
+//	this.stTryCat.data=EvsData.getPerfEntityResult.slipinvtry;   
+//	this.rsTryCat.data=EvsData.getPerfEntityResult.slipinvreserv;   
+//	this.stHbwCat.data=EvsData.getPerfEntityResult.slipinvhbw;   
+//	this.saleCat.data=EvsData.getPerfEntityResult.slipabv;   
 	  
      });
 
@@ -121,12 +123,11 @@ const actGraph= (area : string): void  =>{
 	let drawGraph= ( area : string): void =>{ 
 		this.EvsCall.getList().subscribe((EvsData)=>{
 			
-			var perfData = perfdatafunc(area, EvsData );
+			var perfData = perfdatafunc(area, EvsData, 1);
 			var values =perfData.map((data)=>{return parseInt(data.val,10)});
 			var labeldata= perfData.map((data)=>{return parseDateTime(data.date)});	
 		        var avgPerf = Math.round(values.reduce((a,b)=>{return a+b})/values.length,0);
 		        var maxPerf = values.reduce((a,b)=>{return a>b? a : b});
-			console.log(maxPerf);
 			this.lineChart =
 				 new Chart(this.lineCanvas.nativeElement,graphOpt(labeldata, values, area, avgPerf, maxPerf));
 		});
