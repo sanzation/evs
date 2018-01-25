@@ -8,13 +8,21 @@ interface IcatData{
 
 	};
 interface Itime {
-	date: int;
-	hours: int;
-	min: int;
-	sec: int;
-	ms: int;
+	date: number;
+	hours: number;
+	min: number;
+	sec: number;
+	ms: number;
 
 }
+interface IidentData{
+	servicename: string;
+	name: string;
+	color: string;
+	info: string;	
+
+};
+
 export class catData implements IcatData{
 	constructor(name: string)
 	{

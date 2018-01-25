@@ -1,5 +1,43 @@
 import { catData } from '../utils/types';
 
+export const identDict= {
+			'com':		() => {return "comperf"},
+			'dep':		() => {return "depperf"},
+			'comf':		() => {return "com_errorcnt"},
+			'depf':		() => {return "dep_errorcnt"},
+			'sale':		() => {return "slipabv"},
+			'stTry':	() => {return "slipinvtry"},
+			'rsTry':	() => {return "slipinvreserv"},
+			'stHbw':	() => {return "slipinvhbw"},
+			'dpick':	() => {return "dpickuserperf"},
+			'dpcnt':	() => {return "dpickcnt"},
+			'drpck':	() => {return "drpckuserperf"},
+			'drcnt':	() => {return "drpckcnt"},
+			'cpsa':		() => {return "cpsautoperf"},
+			'cpsacnt':	() => {return "cpsautocnt"},
+			'cpsd':		() => {return "cdpsdspperf"},
+			'cpsdcnt':	() => {return "cdpsdspcnt"},
+			'wevarah':	() => {return "wevara_hour"},
+			'wevarad':	() => {return "wevara_day"},
+			'wepalh':	() => {return "wepal_hour"},
+			'wepald':	() => {return "wepal_day"},
+			'ocbfill':	() => {return "ocb_fillall"},
+			'ocbfill91':	() => {return "ocb_fill91"},
+			'ocbfill92':	() => {return "ocb_fill92"},
+			'ocbopen':	() => {return "ocb_openall"},
+			'ocbopen91':	() => {return "ocb_open91"},
+			'ocbopen92':	() => {return "ocb_open92"},
+			'inlaysabv':	() => {return "inlaysabv"},
+			'kkdpsinv':	() => {return "kkemptydpsinv"},
+			'oopen':	() => {return "oopen"},
+			'oopenn':	() => {return "oopen2"},
+			'dopen':	() => {return "dopen"},
+			'copen':	() => {return "copen"},
+			'dopenn':	() => {return "dopen2"},
+			'copenn':	() => {return "copen2"},
+			'default':	() => {return  'default'}
+			}; 
+			
 
 
 export const colorGet= (area: string,type: number) : string => {
@@ -136,67 +174,26 @@ export const graphBar = (labeldata : any, perfdata : any, area : string )  : any
 	};
 
 
-export const perfdatafunc= (area: string, EvsDat: any, type : int) : any => {
+export const perfdatafunc= (area: string, EvsDat: any) : any => {
 			
-			let data= {
-			'com':		() => {return "comperf"},
-			'dep':		() => {return "depperf"},
-			'comf':		() => {return "com_errorcnt"},
-			'depf':		() => {return "dep_errorcnt"},
-			'sale':		() => {return "slipabv"},
-			'stTry':	() => {return "slipinvtry"},
-			'rsTry':	() => {return "slipinvreserv"},
-			'stHbw':	() => {return "slipinvhbw"},
-			'dpick':	() => {return "dpickuserperf"},
-			'dpcnt':	() => {return "dpickcnt"},
-			'drpck':	() => {return "drpckuserperf"},
-			'drcnt':	() => {return "drpckcnt"},
-			'cpsa':		() => {return "cpsautoperf"},
-			'cpsacnt':	() => {return "cpsautocnt"},
-			'cpsd':		() => {return "cdpsdspperf"},
-			'cpsdcnt':	() => {return "cdpsdspcnt"},
-			'wevarah':	() => {return "wevara_hour"},
-			'wevarad':	() => {return "wevara_day"},
-			'wepalh':	() => {return "wepal_hour"},
-			'wepald':	() => {return "wepal_day"},
-			'ocbfill':	() => {return "ocb_fillall"},
-			'ocbfill91':	() => {return "ocb_fill91"},
-			'ocbfill92':	() => {return "ocb_fill92"},
-			'ocbopen':	() => {return "ocb_openall"},
-			'ocbopen91':	() => {return "ocb_open91"},
-			'ocbopen92':	() => {return "ocb_open92"},
-			'inlaysabv':	() => {return "inlaysabv"},
-			'kkdpsinv':	() => {return "kkemptydpsinv"},
-			'oopen':	() => {return "oopen"},
-			'oopenn':	() => {return "oopen2"},
-			'dopen':	() => {return "dopen"},
-			'copen':	() => {return "copen"},
-			'dopenn':	() => {return "dopen2"},
-			'copenn':	() => {return "copen2"},
-			'default':	() => {return  'default'}
-			}; 
-			
-			if (type==1)
-				{
 					
 				const dataListFunc= (mdataval: any) =>{
 				return EvsDat.getPerfListResult.map((data)=>
 					{return {'date' : data.gendate,'val' : data[mdataval]}
 					}) 
 				};	
-				const retdata=()=>{dataListFunc(data[area])};
-				}
-			else
-				{
+				return dataListFunc(identDict[area])();
+
+				
+		};
+
+export const perfdataEntFunc = (area: string, EvsDat: any) : any =>{
 
 				const dataEntFunc=(mdataval: any) =>{
 					return EvsDat.getPerfEntityResult[mdataval]
 				};
-				const retdata=()=>{dataEntFunc(data[area])};
-				}	
-				
-			return retdata();	
-		};
+				return dataEntFnc(identDict[area])();
+};
 export const parseDateTime= (time: string) : any => { 
 	
 	
