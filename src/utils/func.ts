@@ -1,75 +1,74 @@
-import { catData } from '../utils/types';
+import { catData, identData } from '../utils/types';
 
 export const identDict= {
-			'com':		() => {return "comperf"},
-			'dep':		() => {return "depperf"},
-			'comf':		() => {return "com_errorcnt"},
-			'depf':		() => {return "dep_errorcnt"},
-			'sale':		() => {return "slipabv"},
-			'stTry':	() => {return "slipinvtry"},
-			'rsTry':	() => {return "slipinvreserv"},
-			'stHbw':	() => {return "slipinvhbw"},
-			'dpick':	() => {return "dpickuserperf"},
-			'dpcnt':	() => {return "dpickcnt"},
-			'drpck':	() => {return "drpckuserperf"},
-			'drcnt':	() => {return "drpckcnt"},
-			'cpsa':		() => {return "cpsautoperf"},
-			'cpsacnt':	() => {return "cpsautocnt"},
-			'cpsd':		() => {return "cdpsdspperf"},
-			'cpsdcnt':	() => {return "cdpsdspcnt"},
-			'wevarah':	() => {return "wevara_hour"},
-			'wevarad':	() => {return "wevara_day"},
-			'wepalh':	() => {return "wepal_hour"},
-			'wepald':	() => {return "wepal_day"},
-			'ocbfill':	() => {return "ocb_fillall"},
-			'ocbfill91':	() => {return "ocb_fill91"},
-			'ocbfill92':	() => {return "ocb_fill92"},
-			'ocbopen':	() => {return "ocb_openall"},
-			'ocbopen91':	() => {return "ocb_open91"},
-			'ocbopen92':	() => {return "ocb_open92"},
-			'inlaysabv':	() => {return "inlaysabv"},
-			'kkdpsinv':	() => {return "kkemptydpsinv"},
-			'oopen':	() => {return "oopen"},
-			'oopenn':	() => {return "oopen2"},
-			'dopen':	() => {return "dopen"},
-			'copen':	() => {return "copen"},
-			'dopenn':	() => {return "dopen2"},
-			'copenn':	() => {return "copen2"},
-			'default':	() => {return  'default'}
+			'primary',      () => {return new identData('primary','#16294C' , 'Primär','primary'},
+			'secondary',    () => {return new identData('secondary','#259ee7', 'Sekundär','secondary'},
+			'danger',       () => {return new identData('danger', '#db7712', 'Gefahr','danger'},
+			'light',        () => {return new identData('light', '#d8d8d8', 'Leicht','light'},
+			'white',        () => {return new identData('white', '#ffffff', 'Weiss','white'},
+			'dark',         () => {return new identData('dark', '#545454', 'Dunkel','dark'},
+			'kk',		() => {return new identData('kk', '#029DDD', 'Klappkisten','kk'},
+			'misc',		() => {return new identData('misc', '#93a2ba', 'Misc','misc'},
+			'slip',		() => {return new identData('slip', '#00067c', 'Slipsheet','slip'},
+			'default',	() => {return new identData('default', '#ffffff', 'Default','default'},
+			'we',		() => {return new identData('we','#c164c1', 'WE','we'},
+			'wa',		() => {return new identData('wa','#ccbd7c', 'WA','wa'},
+			'dps',		() => {return new identData('dps','#d17373', 'DPS','dps'},
+			'cps',		() => {return new identData('cps','#9bbb59' 'CPS','cps'},
+			'opm',		() => {return new identData('opm','#99b3dd' 'OPM','opm'},
+			'inlay':	() => {return new identData('inlay','#99b3dd' 'Inlay','inlay'},
+			'com':		() => {return new identData("com","#002f7c","COM Ko/h","comperf")},
+			'dep':		() => {return new identData('dep' , '#00707c', 'DEP Ko/h', "depperf"},
+			'comf':		() => {return new identData('comf', '#002f7c', 'COM Stoerungen 1000Ko/h', "com_errorcnt"},
+			'depf':		() => {return new identData('depf', '#00707c', 'DEP Stoerungen 1000Ko/h', "dep_errorcnt"},
+			'sale':		() => {return new identData('sale', '#00067c', 'Slipsheetverbrauch/Tag', "slipabv"},
+			'stTry',	() => {return new identData('stTry', '#00067c', 'Slipsheet Bestand Try', "slipinvtry"},
+			'rsTry',	() => {return new identData('rsTry', '#00067c', 'Slipsheet Bestand Try reserviert', "slipinvreserv"},
+			'stHbw',	() => {return new identData('stHbw', '#00067c', 'Slipsheet Bestand Hbw', "slipinvhbw"},
+			'dpick',	() => {return new identData('dpick','#7C0000', 'DPS Pick/h', "dpickuserperf"},
+			'dpcnt',	() => {return new identData('dpcnt' ,'#7C0000','DPS Pick User',"dpickcnt"},
+			'drpck',	() => {return new identData('drpck','#af3b3b', 'DPS Repack/h', "drpckuserperf"},
+			'drcnt',	() => {return new identData('drcnt','#af3b3b','DPS Repack User',"drpckcnt"},
+			'cpsa',		() => {return new identData('cpsa','#007c18', 'CPS Auto/h', "cpsautoperf"},
+			'cpsacnt',	() => {return new identData('cpsacnt',	'#007c18', 'CPS Auto User',"cpsautocnt"},
+			'cpsd',		() => {return new identData('cpsd',	'#467c00', 'CPS Display/h', "cdpsdspperf"},
+			'cpsdcnt',	() => {return new identData('cpsdcnt',	'#467c00', 'CPS Display User',"cdpsdspcnt"},
+			'wevarah',	() => {return new identData('wevarah',	'#c164c1', 'WE',"wevara_hour"},
+			'wevarad',	() => {return new identData('wevarad',	'#c164c1', 'WE',"wevara_day"},
+			'wepalh',	() => {return new identData('wepalh',	'#c164c1', 'WE',"wepal_hour"},
+			'wepald',	() => {return new identData('wepald',	'#c164c1', 'WE',"wepal_day"},
+			'ocbfill',	() => {return new identData('ocbfill',	'#ccbd7c', 'WA',"ocb_fillall"},
+			'ocbfill91',	() => {return new identData('ocbfill91','#ccbd7c', 'WA',"ocb_fill91"},
+			'ocbfill92',	() => {return new identData('ocbfill92','#ccbd7c', 'WA',"ocb_fill92"},
+			'ocbopen',	() => {return new identData('ocbopen',	'#ccbd7c', 'WA',"ocb_openall"},
+			'ocbopen91',	() => {return new identData('ocbopen91','#ccbd7c', 'WA',"ocb_open91"},
+			'ocbopen92',	() => {return new identData('ocbopen92','#ccbd7c', 'WA',"ocb_open92"},
+			'inlaysabv',	() => {return new identData('inlaysabv',"inlaysabv"},
+			'kkdpsinv',	() => {return new identData('kkdpsinv',	"kkemptydpsinv"},
+			'oopen',	() => {return new identData('oopen',	'#747474', 'Offene Auftragskolli heute'  ,"oopen"},
+			'oopenn',	() => {return new identData('oopenn',	'#999999', 'Offene Auftragskolli morgen' ,"oopen2"},
+			'dopen',	() => {return new identData('dopen',	'#747474', 'Offene Auftragskolli heute'  ,"dopen"},
+			'copen',	() => {return new identData('copen',	'#747474', 'Offene Auftragskolli heute'  ,"copen"},
+			'dopenn',	() => {return new identData('dopenn',	'#656565' , 'Offene Auftragskolli morgen',"dopen2"},
+			'copenn',	() => {return new identData('copenn',	'#454545' , 'Offene Auftragskolli morgen',"copen2"},
 			}; 
 			
 
 
 export const colorGet= (area: string,type: number) : string => {
 			let data={
-				'primary':    () => {return type==1 ? '#16292C' : 'Primär'},
-				'secondary':  () => {return type==1 ? '#259ee7': 'Sekundär'},
-				'danger':     () => {return type==1 ? '#db7712': 'Gefahr'},
-				'light':      () => {return type==1 ? '#d8d8d8': 'Leicht'},
-				'white':	() => {return type==1 ?  '#ffffff': 'Weiss'},
-				'dark':       () => {return type==1 ?  '#545454': 'Dunkel'},
+								'com':		() => {return type==1 ? '#002f7c': 'COM Ko/h'},
 				'dep':		() => {return type==1 ? '#00707c': 'DEP Ko/h'},
-				'com':		() => {return type==1 ? '#002f7c': 'COM Ko/h'},
 				'comf':		() => {return type==1 ? '#002f7c': 'COM Stoerungen 1000Ko/h'},
 				'depf':		() => {return type==1 ? '#00707c': 'DEP Stoerungen 1000Ko/h'},
-				'slip':		() => {return type==1 ? '#00067c': 'Slipsheet'},
-				'opm':		() => {return type==1 ? '#99b3dd': 'OPM'},
 				'sale':		() => {return type==1 ? '#00067c': 'Slipsheetverbrauch/Tag'},
 				'stTry':	() => {return type==1 ? '#00067c': 'Slipsheet Bestand Try'},
 				'rsTry':	() => {return type==1 ? '#00067c': 'Slipsheet Bestand Try reserviert'},
 				'stHbw':	() => {return type==1 ? '#00067c': 'Slipsheet Bestand Hbw'},
-				'dps':		() => {return type==1 ? '#d17373': 'DPS'},
-				'cps':		() => {return type==1 ? '#9bbb59': 'CPS'},
 				'dpick':	() => {return type==1 ? '#7C0000': 'DPS Pick/h'},
 				'drpck':	() => {return type==1 ? '#af3b3b': 'DPS Repack/h'},
 				'cpsa':		() => {return type==1 ? '#007c18': 'CPS Auto/h'},
 				'cpsd':		() => {return type==1 ? '#467c00': 'CPS Display/h'},
-				'we':		() => {return type==1 ? '#c164c1': 'WE'},
-				'wa':		() => {return type==1 ? '#ccbd7c': 'WA'},
-			 	'inlay':	() => {return type==1 ? '#C9AE91': 'Inlay'},
-				'kk':		() => {return type==1 ? '#029DDD': 'Klappkisten'},
-				'misc':		() => {return type==1 ? '#93a2ba': 'Misc'},
-				'default':	() => {return type==1 ? '#ffffff': 'Default'},
 				'oopen':	() => {return type==1 ? '#747474': 'Offene Auftragskolli heute'},
 				'oopenn':	() => {return type==1 ? '#999999': 'Offene Auftragskolli morgen'},
 				'dopen':	() => {return type==1 ? '#747474': 'Offene Auftragskolli heute'},
@@ -174,25 +173,25 @@ export const graphBar = (labeldata : any, perfdata : any, area : string )  : any
 	};
 
 
-export const perfdatafunc= (area: string, EvsDat: any) : any => {
+export const perfDataListFunc= (area: string, EvsDat: any) : any => {
 			
 					
-				const dataListFunc= (mdataval: any) =>{
-				return EvsDat.getPerfListResult.map((data)=>
+				const dataListFunc= (mdataval: any) : any =>{
+				return EvsDat.getPerfListResult.map((data) : any =>
 					{return {'date' : data.gendate,'val' : data[mdataval]}
 					}) 
 				};	
-				return dataListFunc(identDict[area])();
+				return dataListFunc(identDict[area]().ext);
 
 				
 		};
 
-export const perfdataEntFunc = (area: string, EvsDat: any) : any =>{
-
-				const dataEntFunc=(mdataval: any) =>{
-					return EvsDat.getPerfEntityResult[mdataval]
+export const perfDataEntFunc = (area: string, EvsDat: any) : any =>{
+				const dataEntFunc=(mdataval: any) : any =>{
+					return EvsDat.getPerfEntityResult[mdataval];
 				};
-				return dataEntFnc(identDict[area])();
+
+				return dataEntFunc(identDict[area]().ext);
 };
 export const parseDateTime= (time: string) : any => { 
 	

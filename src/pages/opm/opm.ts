@@ -5,7 +5,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EvscallProvider } from '../../providers/evscall/evscall';
 import { Chart } from 'chart.js';
-import { colorGet,graphOpt,newCat,perfdatafunc,parseDateTime } from '../../utils/func';
+import { colorGet,graphOpt,newCat,perfDataListFunc,perfDataEntFunc,parseDateTime } from '../../utils/func';
 import { catData } from '../../utils/types';
 /*
 *
@@ -76,7 +76,7 @@ export class OpmPage {
    this.EvsCall.getData().subscribe(EvsData=>{
 	this.EvsData= EvsData.current_observation;
 
-	this.CatCol.map((cat)=>{ cat.data=perfdatafunc(cat.name,EvsData,2) });
+	this.CatCol.map((cat)=>{ cat.data=perfDataEntFunc(cat.name,EvsData) });
 
 
 //	this.comCat.data=EvsData.getPerfEntityResult.comperf;
@@ -123,7 +123,7 @@ const actGraph= (area : string): void  =>{
 	let drawGraph= ( area : string): void =>{ 
 		this.EvsCall.getList().subscribe((EvsData)=>{
 			
-			var perfData = perfdatafunc(area, EvsData, 1);
+			var perfData = perfDataListFunc(area, EvsData);
 			var values =perfData.map((data)=>{return parseInt(data.val,10)});
 			var labeldata= perfData.map((data)=>{return parseDateTime(data.date)});	
 		        var avgPerf = Math.round(values.reduce((a,b)=>{return a+b})/values.length,0);

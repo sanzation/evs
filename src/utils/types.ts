@@ -16,10 +16,10 @@ interface Itime {
 
 }
 interface IidentData{
-	servicename: string;
 	name: string;
 	color: string;
 	info: string;	
+	ext: string;
 
 };
 
@@ -42,6 +42,18 @@ constructor()
 	this.min=0;
 	this.sec=0;
 	this.ms=0;	
+	}
+
+}
+
+export class identData implements IidentData{
+	constructor(name: string, color: string, info : string, servicename : string)
+	{
+	this.name=name;
+	this.color=color;
+	this.info=info;
+	this.ext=servicename;	
+	
 	}
 
 }
