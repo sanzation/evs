@@ -5,7 +5,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EvscallProvider } from '../../providers/evscall/evscall';
 import { Chart } from 'chart.js';
-import { colorGet,graphOpt,newCat,perfDataListFunc,perfDataEntFunc,parseDateTime } from '../../utils/func';
+import { colorGet,graphOpt,newCat,perfDataListFunc,perfDataEntFunc,parseDateTime,perfDataLastFunc } from '../../utils/func';
 import { catData } from '../../utils/types';
 /*
 *
@@ -80,16 +80,24 @@ export class OpmPage {
 
      });
 
+
+   this.EvsCall.getList().subscribe(EvsData=>{
+	this.EvsData= EvsData.current_observation;
+
+	this.CatCol.map((cat)=>{cat.perfDiff=Math.round(cat.data-perfDataLastFunc(cat.name,EvsData));
+				cat.perfDiffCol= cat.perfDiff>0 ? 'secondary' : 'danger'  ;
+
+
+	});
+     });
+
+
+
   }
 
 
 ionViewWillEnter()
 	{
-		this.CatCol.forEach( (cat) =>
-			{
-			cat.perfDiff=Math.random() * (1 + 2) - 2;
-			cat.perfDiffCol= cat.perfDiff>0 ? 'secondary' : 'danger'  ;
-			});
 
 	}
 

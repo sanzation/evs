@@ -1,69 +1,69 @@
 import { catData, identData } from '../utils/types';
 
 const identDict= {
-			'primary',      () => {return new identData('primary','#16294C' , 'Primär','primary'},
-			'secondary',    () => {return new identData('secondary','#259ee7', 'Sekundär','secondary'},
-			'danger',       () => {return new identData('danger', '#db7712', 'Gefahr','danger'},
-			'light',        () => {return new identData('light', '#d8d8d8', 'Leicht','light'},
-			'white',        () => {return new identData('white', '#ffffff', 'Weiss','white'},
-			'dark',         () => {return new identData('dark', '#545454', 'Dunkel','dark'},
-			'kk',		() => {return new identData('kk', '#029DDD', 'Klappkisten','kk'},
-			'misc',		() => {return new identData('misc', '#93a2ba', 'Misc','misc'},
-			'slip',		() => {return new identData('slip', '#00067c', 'Slipsheet','slip'},
-			'default',	() => {return new identData('default', '#ffffff', 'Default','default'},
-			'we',		() => {return new identData('we','#c164c1', 'WE','we'},
-			'wa',		() => {return new identData('wa','#ccbd7c', 'WA','wa'},
-			'dps',		() => {return new identData('dps','#d17373', 'DPS','dps'},
-			'cps',		() => {return new identData('cps','#9bbb59' 'CPS','cps'},
-			'opm',		() => {return new identData('opm','#99b3dd' 'OPM','opm'},
-			'inlay':	() => {return new identData('inlay','#99b3dd' 'Inlay','inlay'},
+			'primary':      () => {return new identData('primary','#16294C' , "Primaer",'primary')},
+			'secondary':    () => {return new identData('secondary','#259ee7', "Sekundaer",'secondary')},
+			'danger':       () => {return new identData('danger', '#db7712', 'Gefahr','danger')},
+			'light':        () => {return new identData('light', '#d8d8d8', 'Leicht','light')},
+			'white':        () => {return new identData('white', '#ffffff', 'Weiss','white')},
+			'dark':         () => {return new identData('dark', '#545454', 'Dunkel','dark')},
+			'kk':		() => {return new identData('kk', '#029DDD', 'Klappkisten','kk')},
+			'misc':		() => {return new identData('misc', '#93a2ba', 'Misc','misc')},
+			'slip':		() => {return new identData('slip', '#00067c', 'Slipsheet','slip')},
+			'default':	() => {return new identData('default', '#ffffff', 'Default','default')},
+			'we':		() => {return new identData('we','#c164c1', 'WE','we')},
+			'wa':		() => {return new identData('wa','#ccbd7c', 'WA','wa')},
+			'dps':		() => {return new identData('dps','#d17373', 'DPS','dps')},
+			'cps':		() => {return new identData('cps','#9bbb59','CPS','cps')},
+			'opm':		() => {return new identData('opm','#99b3dd','OPM','opm')},
+			'inlay':	() => {return new identData('inlay','#99b3dd','Inlay','inlay')},
 			'com':		() => {return new identData("com","#002f7c","COM Ko/h","comperf")},
-			'dep':		() => {return new identData('dep' , '#00707c', 'DEP Ko/h', "depperf"},
-			'comf':		() => {return new identData('comf', '#002f7c', 'COM Stoerungen 1000Ko/h', "com_errorcnt"},
-			'depf':		() => {return new identData('depf', '#00707c', 'DEP Stoerungen 1000Ko/h', "dep_errorcnt"},
-			'sale':		() => {return new identData('sale', '#00067c', 'Slipsheetverbrauch/Tag', "slipabv"},
-			'stTry',	() => {return new identData('stTry', '#00067c', 'Slipsheet Bestand Try', "slipinvtry"},
-			'rsTry',	() => {return new identData('rsTry', '#00067c', 'Slipsheet Bestand Try reserviert', "slipinvreserv"},
-			'stHbw',	() => {return new identData('stHbw', '#00067c', 'Slipsheet Bestand Hbw', "slipinvhbw"},
-			'dpick',	() => {return new identData('dpick','#7C0000', 'DPS Pick/h', "dpickuserperf"},
-			'dpcnt',	() => {return new identData('dpcnt' ,'#7C0000','DPS Pick User',"dpickcnt"},
-			'drpck',	() => {return new identData('drpck','#af3b3b', 'DPS Repack/h', "drpckuserperf"},
-			'drcnt',	() => {return new identData('drcnt','#af3b3b','DPS Repack User',"drpckcnt"},
-			'cpsa',		() => {return new identData('cpsa','#007c18', 'CPS Auto/h', "cpsautoperf"},
-			'cpsacnt',	() => {return new identData('cpsacnt',	'#007c18', 'CPS Auto User',"cpsautocnt"},
-			'cpsd',		() => {return new identData('cpsd',	'#467c00', 'CPS Display/h', "cdpsdspperf"},
-			'cpsdcnt',	() => {return new identData('cpsdcnt',	'#467c00', 'CPS Display User',"cdpsdspcnt"},
-			'wevarah',	() => {return new identData('wevarah',	'#c164c1', 'WE Automatikquote%/h',"wevara_hour"},
-			'wevarad',	() => {return new identData('wevarad',	'#c164c1', 'WE Automatikquote%/Tag',"wevara_day"},
-			'wepalh',	() => {return new identData('wepalh',	'#c164c1', 'WE Paletten/h',"wepal_hour"},
-			'wepald',	() => {return new identData('wepald',	'#c164c1', 'WE Paketten/Tag',"wepal_day"},
-			'ocbfill',	() => {return new identData('ocbfill',	'#ccbd7c', 'WA Füllgrad%',"ocb_fillall"},
-			'ocbfill91',	() => {return new identData('ocbfill91','#ccbd7c', 'WA Füllgrad% 91',"ocb_fill91"},
-			'ocbfill92',	() => {return new identData('ocbfill92','#ccbd7c', 'WA Füllgrad% 92',"ocb_fill92"},
-			'ocbopen',	() => {return new identData('ocbopen',	'#ccbd7c', 'WA Offene Tu',"ocb_openall"},
-			'ocbopen91',	() => {return new identData('ocbopen91','#ccbd7c', 'WA Offene Tu 91',"ocb_open91"},
-			'ocbopen92',	() => {return new identData('ocbopen92','#ccbd7c', 'WA Offene Tu 92',"ocb_open92"},
-			'inlaysabv',	() => {return new identData('inlaysabv','#99b3dd', 'Inlay',"inlaysabv"},
-			'kkdpsinv',	() => {return new identData('kkdpsinv',	'#99b3dd', 'Inlay',"kkemptydpsinv"},
-			'oopen',	() => {return new identData('oopen',	'#747474', 'Offene Auftragskolli heute'  ,"oopen"},
-			'oopenn',	() => {return new identData('oopenn',	'#999999', 'Offene Auftragskolli morgen' ,"oopen2"},
-			'dopen',	() => {return new identData('dopen',	'#747474', 'Offene Auftragskolli heute'  ,"dopen"},
-			'copen',	() => {return new identData('copen',	'#747474', 'Offene Auftragskolli heute'  ,"copen"},
-			'dopenn',	() => {return new identData('dopenn',	'#656565' , 'Offene Auftragskolli morgen',"dopen2"},
-			'copenn',	() => {return new identData('copenn',	'#454545' , 'Offene Auftragskolli morgen',"copen2"},
+			'dep':		() => {return new identData('dep' , '#00707c', 'DEP Ko/h', "depperf")},
+			'comf':		() => {return new identData('comf', '#002f7c', 'COM Stoerungen 1000Ko/h', "com_errorcnt")},
+			'depf':		() => {return new identData('depf', '#00707c', 'DEP Stoerungen 1000Ko/h', "dep_errorcnt")},
+			'sale':		() => {return new identData('sale', '#00067c', 'Slipsheetverbrauch/Tag', "slipabv")},
+			'stTry':	() => {return new identData('stTry', '#00067c', 'Slipsheet Bestand Try', "slipinvtry")},
+			'rsTry':	() => {return new identData('rsTry', '#00067c', 'Slipsheet Bestand Try reserviert', "slipinvreserv")},
+			'stHbw':	() => {return new identData('stHbw', '#00067c', 'Slipsheet Bestand Hbw', "slipinvhbw")},
+			'dpick':	() => {return new identData('dpick','#7C0000', 'DPS Pick/h', "dpickuserperf")},
+			'dpcnt':	() => {return new identData('dpcnt' ,'#7C0000','DPS Pick User',"dpickcnt")},
+			'drpck':	() => {return new identData('drpck','#af3b3b', 'DPS Repack/h', "drpckuserperf")},
+			'drcnt':	() => {return new identData('drcnt','#af3b3b','DPS Repack User',"drpckcnt")},
+			'cpsa':		() => {return new identData('cpsa','#007c18', 'CPS Auto/h', "cpsautoperf")},
+			'cpsacnt':	() => {return new identData('cpsacnt',	'#007c18', 'CPS Auto User',"cpsautocnt")},
+			'cpsd':		() => {return new identData('cpsd',	'#467c00', 'CPS Display/h', "cdpsdspperf")},
+			'cpsdcnt':	() => {return new identData('cpsdcnt',	'#467c00', 'CPS Display User',"cdpsdspcnt")},
+			'wevarah':	() => {return new identData('wevarah',	'#c164c1', 'WE Automatikquote%/h',"wevara_hour")},
+			'wevarad':	() => {return new identData('wevarad',	'#c164c1', 'WE Automatikquote%/Tag',"wevara_day")},
+			'wepalh':	() => {return new identData('wepalh',	'#c164c1', 'WE Paletten/h',"wepal_hour")},
+			'wepald':	() => {return new identData('wepald',	'#c164c1', 'WE Paketten/Tag',"wepal_day")},
+			'ocbfill':	() => {return new identData('ocbfill',	'#ccbd7c', 'WA Füllgrad%',"ocb_fillall")},
+			'ocbfill91':	() => {return new identData('ocbfill91','#ccbd7c', 'WA Füllgrad% 91',"ocb_fill91")},
+			'ocbfill92':	() => {return new identData('ocbfill92','#ccbd7c', 'WA Füllgrad% 92',"ocb_fill92")},
+			'ocbopen':	() => {return new identData('ocbopen',	'#ccbd7c', 'WA Offene Tu',"ocb_openall")},
+			'ocbopen91':	() => {return new identData('ocbopen91','#ccbd7c', 'WA Offene Tu 91',"ocb_open91")},
+			'ocbopen92':	() => {return new identData('ocbopen92','#ccbd7c', 'WA Offene Tu 92',"ocb_open92")},
+			'inlaysabv':	() => {return new identData('inlaysabv','#99b3dd', 'Inlay',"inlaysabv")},
+			'kkdpsinv':	() => {return new identData('kkdpsinv',	'#99b3dd', 'Inlay',"kkemptydpsinv")},
+			'oopen':	() => {return new identData('oopen',	'#747474', 'Offene Auftragskolli heute'  ,"oopen")},
+			'oopenn':	() => {return new identData('oopenn',	'#999999', 'Offene Auftragskolli morgen' ,"oopen2")},
+			'dopen':	() => {return new identData('dopen',	'#747474', 'Offene Auftragskolli heute'  ,"dopen")},
+			'copen':	() => {return new identData('copen',	'#747474', 'Offene Auftragskolli heute'  ,"copen")},
+			'dopenn':	() => {return new identData('dopenn',	'#656565' , 'Offene Auftragskolli morgen',"dopen2")},
+			'copenn':	() => {return new identData('copenn',	'#454545' , 'Offene Auftragskolli morgen',"copen2")},
 			}; 
 			
 
 
 export const getColor= (area: string) : string => {
-					return (identDict[area].color||identDict['default'].color)();
+					return (identDict[area]().color||identDict['default']().color);
 		}
 
 export const getExt= (area: string) : string => {
-					return (identDict[area].ext||identDict['default'].ext)();
+					return (identDict[area]().ext||identDict['default']().ext);
 		}
 export const getInfo= (area: string) : string => {
-					return (identDict[area].info||identDict['default'].info)();
+					return (identDict[area]().info||identDict['default']().info);
 		}
 				
 export const graphOpt = (labeldata : any, perfdata : any, area : string, info : string, infosec : string )  : any =>
@@ -74,7 +74,7 @@ export const graphOpt = (labeldata : any, perfdata : any, area : string, info : 
 				,
 			datasets: [
 			    {
-				    label: getColor(area)+" Avg: "+info+" Max: "+infosec,
+				    label: getInfo(area)+" Avg: "+info+" Max: "+infosec,
 				fill: false,
 				lineTension: 0.1,
 				backgroundColor: getColor(area),
@@ -166,9 +166,16 @@ export const perfDataEntFunc = (area: string, EvsDat: any) : any =>{
 				const dataEntFunc=(mdataval: any) : any =>{
 					return EvsDat.getPerfEntityResult[mdataval];
 				};
-
 				return dataEntFunc(getExt(area));
 };
+
+export const perfDataLastFunc = (area: string, EvsDat: any) : any =>{
+				const dataListFunc= (mdataval: any) : any =>{
+					return EvsDat.getPerfListResult[EvsDat.getPerfListResult.length-1][mdataval];
+				};
+				return dataListFunc(getExt(area));
+};
+
 export const parseDateTime= (time: string) : any => { 
 	
 	
