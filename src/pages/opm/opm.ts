@@ -35,7 +35,8 @@ export class OpmPage extends ParentPage{
 	rsTryCat: catData;
 	stHbwCat: catData;
 	saleCat: catData;
-
+	
+	timeleft: string;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private EvsCall : EvscallProvider) {
@@ -66,4 +67,19 @@ export class OpmPage extends ParentPage{
 
 
   }
+
+const calcTimeleft= (perf: number, open:number) : string =>{
+	var retstring : string;
+	if(perf==0){
+		retstring='n/a';
+	}else{
+		retstring=open/perf;	
+	}
+
+return retstring; 
+
+} 	
+const decToStr= ()=>{
+	
+}	
 } 
