@@ -1,12 +1,11 @@
 /* node */
 
 
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EvscallProvider } from '../../providers/evscall/evscall';
-import { Chart } from 'chart.js';
-import { colorGet,graphOpt,newCat,perfDataListFunc,perfDataEntFunc,parseDateTime,perfDataLastFunc } from '../../utils/func';
 import { catData } from '../../utils/types';
+import { ParentPage } from '../parent/parent';
 /*
 *
  * Generated class for the OpmPage page.
@@ -24,12 +23,7 @@ import { catData } from '../../utils/types';
   selector: 'page-opm',
   templateUrl: 'opm.html'
 })
-export class OpmPage {
-	//graph
-	@ViewChild('lineCanvas') lineCanvas;
-	lineChart:any;
-	//data
-	EvsData:any;
+export class OpmPage extends ParentPage{
 
 	comCat: catData;
 	depCat: catData;
@@ -42,11 +36,12 @@ export class OpmPage {
 	stHbwCat: catData;
 	saleCat: catData;
 
-	CatCol: Array<catData>;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private EvsCall : EvscallProvider) {
-	this.CatCol=new Array<catData>();  
+	super(navCtrl,navParams,EvsCall);
+
+
 	this.comCat=new catData('com');
 	this.depCat =new catData('dep');  
 	this.comfCat=new catData('comf');
@@ -71,65 +66,4 @@ export class OpmPage {
 
 
   }
-  ionViewDidLoad() {
-
-   this.EvsCall.getData().subscribe(EvsData=>{
-	this.EvsData= EvsData.current_observation;
-
-	this.CatCol.map((cat)=>{ cat.data=perfDataEntFunc(cat.name,EvsData) });
-
-     });
-
-
-   this.EvsCall.getList().subscribe(EvsData=>{
-	this.EvsData= EvsData.current_observation;
-
-	this.CatCol.map((cat)=>{cat.perfDiff=Math.round(cat.data-perfDataLastFunc(cat.name,EvsData));
-				cat.perfDiffCol= cat.perfDiff>0 ? 'secondary' : 'danger'  ;
-
-
-	});
-     });
-
-
-
-  }
-
-
-ionViewWillEnter()
-	{
-
-	}
-
-const actSelect=(area : string): void =>
-	{
-	
-	this.CatCol.forEach( (cat) => {		
-	cat.select = area ==cat.name ? '#f0f0f0' : '#ffffff';
-	});
-	
-	if(this.lineChart==null){} 
-		else{this.lineChart.destroy();}
-			
-	this.actGraph(area);
-	}	
-
-
-const actGraph= (area : string): void  =>{
-	let drawGraph= ( area : string): void =>{ 
-		this.EvsCall.getList().subscribe((EvsData)=>{
-			
-			var perfData = perfDataListFunc(area, EvsData);
-			var values =perfData.map((data)=>{return parseInt(data.val,10)});
-			var labeldata= perfData.map((data)=>{return parseDateTime(data.date)});	
-		        var avgPerf = Math.round(values.reduce((a,b)=>{return a+b})/values.length,0);
-		        var maxPerf = values.reduce((a,b)=>{return a>b? a : b});
-			this.lineChart =
-				 new Chart(this.lineCanvas.nativeElement,graphOpt(labeldata, values, area, avgPerf, maxPerf));
-		});
-
-	}
-		drawGraph(area);
-}
-
-}
+} 

@@ -1,11 +1,12 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EvscallProvider } from '../../providers/evscall/evscall';
 import { Chart } from 'chart.js';
 
 
-import { colorGet,graphBar,newCat } from '../../utils/func';
+import { graphBar } from '../../utils/func';
 import { catData } from '../../utils/types';
+import { ParentPage } from '../parent/parent';
 /**
  * Generated class for the MiscPage page.
  *
@@ -18,21 +19,18 @@ import { catData } from '../../utils/types';
   selector: 'page-misc',
   templateUrl: 'misc.html',
 })
-export class MiscPage {
-	@ViewChild('lineCanvas') lineCanvas;
-	barChart:any;
-	EvsData: any;
+export class MiscPage extends ParentPage{
+
 	hbwCat: catData;
 	tryCat: catData;
 	excCat: catData;
 	sebCat: catData;
 	dpsCat: catData;
 
-	CatCol: Array<catData>;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private EvsCall : EvscallProvider) {
-	this.CatCol=new Array<catData>();  
+	super(navCtrl, navParams, EvsCall);  
 	this.hbwCat=new catData('hbw');
 	this.tryCat=new catData('try');  
 	this.excCat=new catData('exc');
@@ -52,17 +50,17 @@ ionViewDidLoad(){
 	this.EvsCall.getFill().subscribe(EvsData=>{
 	this.EvsData= EvsData.current_observation;
 
-	this.hbwCat.data=EvsData.getFillListResult[1].locfill/100;
-	this.hbwCat.datasec=EvsData.getFillListResult[1].chanfill/100;
-	this.tryCat.data=EvsData.getFillListResult[2].locfill/100;
-	this.tryCat.datasec=EvsData.getFillListResult[2].chanfill/100;
-        this.excCat.data=EvsData.getFillListResult[3].locfill/100;   
-        this.excCat.datasec=EvsData.getFillListResult[3].chanfill/100;   
-	this.sebCat.data=EvsData.getFillListResult[4].locfill/100;   
-	this.sebCat.datasec=EvsData.getFillListResult[4].chanfill/100;   
+//	this.hbwCat.data=EvsData.getFillListResult[1].locfill/100;
+//	this.hbwCat.datasec=EvsData.getFillListResult[1].chanfill/100;
+//	this.tryCat.data=EvsData.getFillListResult[2].locfill/100;
+//	this.tryCat.datasec=EvsData.getFillListResult[2].chanfill/100;
+//        this.excCat.data=EvsData.getFillListResult[3].locfill/100;   
+//        this.excCat.datasec=EvsData.getFillListResult[3].chanfill/100;   
+//	this.sebCat.data=EvsData.getFillListResult[4].locfill/100;   
+//	this.sebCat.datasec=EvsData.getFillListResult[4].chanfill/100;   
 
 	this.CatCol= this.CatCol.map( (cat) : catData => {
-	var obj = EvsData.getFillResult.find( (data) => data.area.ToLower()===cat.name);
+	var obj = EvsData.getFillResult.find( (data) => {data.area.ToLower()===cat.name});
 	cat.data=obj.locfill/100;
     	cat.datasec=obj.chanfill/100;
 	return cat;	
@@ -82,20 +80,20 @@ ionViewDidLoad(){
 
 
 }
-const actSelect=(area : string): void =>
-	{
-	
-	this.CatCol.forEach( (cat) => {		
-	cat.select = area ==cat.name ? '#f0f0f0' : '#ffffff';
-	});
-	
-	if(this.lineChart==null){} 
-		else{this.lineChart.destroy();}
-			
-	this.actGraph(area);
-	}	
-
-
+//const actSelect=(area : string): void =>
+//	{
+//	
+//	this.CatCol.forEach( (cat) => {		
+//	cat.select = area ==cat.name ? '#f0f0f0' : '#ffffff';
+//	});
+//	
+//	if(this.lineChart==null){} 
+//		else{this.lineChart.destroy();}
+//			
+//	this.actGraph(area);
+//	}	
+//
+//
 const actGraph= (area : string): void  =>{
 	let drawGraph= ( area : string): void =>{ 
 		const perfdatafunc= (area: string) : any => {

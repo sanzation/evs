@@ -7,6 +7,7 @@ import { Chart } from 'chart.js';
 import { colorGet,graphOpt,newCat } from '../../utils/func';
 import { catData } from '../../utils/types';
 
+import { ParentPage } from '../parent/parent';
 /*
 *
  * Generated class for the CpsPage page.
@@ -20,10 +21,7 @@ import { catData } from '../../utils/types';
   selector: 'page-cps',
   templateUrl: 'cps.html'
 })
-export class CpsPage {
-	@ViewChild('lineCanvas') lineCanvas;
-	lineChart:any;
-	EvsData:any;	
+export class CpsPage extends ParentPage {
 
 	cpickCat: catData;
 	cdspCat: catData;
@@ -32,11 +30,11 @@ export class CpsPage {
 	oopenCat: catData;
 	oopennCat: catData;
 
-	CatCol: Array<catData>;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private EvsCall : EvscallProvider) {
-	this.CatCol=new Array<catData>();  
+
+	super(navCtrl,navParams,EvsCall);
 	this.cpickCat=new catData('cpick');
 	this.cdspCat =new catData('cdsp');  
 	this.cpuserCat=new catData('cpuser');
@@ -53,71 +51,5 @@ export class CpsPage {
 
 
   }
-  ionViewDidLoad() {
-
-   this.EvsCall.getData().subscribe(EvsData=>{
-	this.EvsData= EvsData.current_observation;
-	console.log(EvsData);
-	this.cpickCat.data=EvsData.getPerfEntityResult.cpsautoperf;
-	this.cdspCat.data=EvsData.getPerfEntityResult.cpsdspperf;
-	this.cpuserCat.data=EvsData.getPerfEntityResult.cpsautocnt;
-	this.cduserCat.data=EvsData.getPerfEntityResult.cpsdspcnt;
-	this.oopenCat.data=EvsData.getPerfEntityResult.copen;
-	this.oopennCat.data=EvsData.getPerfEntityResult.copen2;
-
-
-
-     });
-
-
-  }
-
-
-ionViewWillEnter()
-	{
-		this.CatCol.forEach( (cat) =>
-			{
-			cat.perfDiff=Math.random() * (1 + 2) - 2;
-			cat.perfDiffCol= cat.perfDiff>0 ? 'secondary' : 'danger'  ;
-			});
-
-	}
-
-const actSelect=(area : string): void =>
-	{
-	
-	this.CatCol.forEach( (cat) => {		
-	cat.select = area ==cat.name ? '#f0f0f0' : '#ffffff';
-	});
-	
-	if(this.lineChart==null){} 
-		else{this.lineChart.destroy();}
-			
-	this.actGraph(area);
-	}	
-
-
-const actGraph= (area : string): void  =>{
-	let drawGraph= ( area : string): void =>{ 
-		const perfdatafunc= (area: string) : any => {
-			let data= {
-			'dpick': () => {return  [1234,8700,1233,7999];},
-			'drpck': () => {return  [5674,122,4505,423];},
-			'oopen': () => {return  [96964,43434,59544,13490];},
-			'default': () => {return  [0,0,0,0];}
-			}; 
-		
-			return (data[area]||data['default'])();	
-		}
-	        var perfdata = perfdatafunc(area);
-		var labeldata  = 		
-			["22:00","23:00","00:00","01:00"];			
-		
-		this.lineChart =
-			 new Chart(this.lineCanvas.nativeElement,graphOpt(labeldata, perfdata, area)
-		);
-	}
-		drawGraph(area);
 }
 
-}

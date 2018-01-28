@@ -7,6 +7,7 @@ import { Chart } from 'chart.js';
 
 import { colorGet,graphOpt,newCat } from '../../utils/func';
 import { catData } from '../../utils/types';
+import { ParentPage } from '../parent/parent';
 /*
 *
  * Generated class for the WaPage page.
@@ -20,10 +21,7 @@ import { catData } from '../../utils/types';
   selector: 'page-wa',
   templateUrl: 'wa.html'
 })
-export class WaPage {
-	@ViewChild('lineCanvas') lineCanvas;
-	lineChart:any;
-	EvsData:any;	
+export class WaPage extends ParentPage {
 
 	fillCat: catData;
 	fill91Cat: catData;
@@ -32,11 +30,11 @@ export class WaPage {
 	open91Cat: catData;
 	open92Cat: catData;
 
-	CatCol: Array<catData>;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private EvsCall : EvscallProvider) {
-	this.CatCol=new Array<catData>();  
+	super(navCtrl, navParams, EvsCall) ;
+
 	this.fillCat=new catData('fill');
 	this.fill91Cat =new catData('fill91');  
 	this.fill92Cat=new catData('fill92');
@@ -53,70 +51,4 @@ export class WaPage {
 
 
   }
-  ionViewDidLoad() {
-
-   this.EvsCall.getData().subscribe(EvsData=>{
-	this.EvsData= EvsData.current_observation;
-	console.log(EvsData);
-
-	this.fillCat.data=EvsData.getPerfEntityResult.ocb_fillall;
-	this.fill91Cat.data=EvsData.getPerfEntityResult.ocb_fill91;   
-	this.fill92Cat.data=EvsData.getPerfEntityResult.ocb_fill92;   
-	this.openCat.data=EvsData.getPerfEntityResult.ocb_openall;   
-	this.open91Cat.data=EvsData.getPerfEntityResult.ocb_open91;   
-	this.open92Cat.data=EvsData.getPerfEntityResult.ocb_open92;   
-	  
-     });
-
-
-  }
-
-
-ionViewWillEnter()
-	{
-		this.CatCol.forEach( (cat) =>
-			{
-			cat.perfDiff=Math.random() * (1 + 2) - 2;
-			cat.perfDiffCol= cat.perfDiff>0 ? 'secondary' : 'danger'  ;
-			});
-
-	}
-
-const actSelect=(area : string): void =>
-	{
-	
-	this.CatCol.forEach( (cat) => {		
-	cat.select = area ==cat.name ? '#f0f0f0' : '#ffffff';
-	});
-	
-	if(this.lineChart==null){} 
-		else{this.lineChart.destroy();}
-			
-	this.actGraph(area);
-	}	
-
-
-const actGraph= (area : string): void  =>{
-	let drawGraph= ( area : string): void =>{ 
-		const perfdatafunc= (area: string) : any => {
-			let data= {
-			'fill': () => {return  [1234,8700,1233,7999];},
-			'fill91': () => {return  [5674,122,4505,423];},
-			'open': () => {return  [96964,43434,59544,13490];},
-			'default': () => {return  [0,0,0,0];}
-			}; 
-		
-			return (data[area]||data['default'])();	
-		}
-	        var perfdata = perfdatafunc(area);
-		var labeldata  = 		
-			["22:00","23:00","00:00","01:00"];			
-		
-		this.lineChart =
-			 new Chart(this.lineCanvas.nativeElement,graphOpt(labeldata, perfdata, area)
-		);
-	}
-		drawGraph(area);
-}
-
 }

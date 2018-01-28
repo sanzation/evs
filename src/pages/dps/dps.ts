@@ -6,6 +6,8 @@ import { EvscallProvider } from '../../providers/evscall/evscall';
 import { Chart } from 'chart.js';
 import { colorGet,graphOpt,newCat } from '../../utils/func';
 import { catData } from '../../utils/types';
+
+import { ParentPage } from '../parent/parent';
 /*
 *
  * Generated class for the DpsPage page.
@@ -19,10 +21,7 @@ import { catData } from '../../utils/types';
   selector: 'page-dps',
   templateUrl: 'dps.html'
 })
-export class DpsPage {
-	@ViewChild('lineCanvas') lineCanvas;
-	lineChart:any;
-	EvsData:any;	
+export class DpsPage extends ParentPage{
 
 	dpickCat: catData;
 	drpckCat: catData;
@@ -35,11 +34,12 @@ export class DpsPage {
 	kkHbwCat: catData;
 	kkDpsCat: catData;
 
-	CatCol: Array<catData>;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private EvsCall : EvscallProvider) {
-	this.CatCol=new Array<catData>();  
+
+	super(navCtrl,navParams,EvsCall);
+
 	this.dpickCat=new catData('dpick');
 	this.drpckCat =new catData('drpck');  
 	this.dpuserCat=new catData('dpuser');
@@ -63,74 +63,6 @@ export class DpsPage {
 	this.CatCol.push(this.kkDpsCat);
 
 
-  }
-  ionViewDidLoad() {
-
-   this.EvsCall.getData().subscribe(EvsData=>{
-	this.EvsData= EvsData.current_observation;
-	console.log(EvsData);
-
-	this.dpickCat.data=EvsData.getPerfEntityResult.dpickuserperf;
-	this.drpckCat.data=EvsData.getPerfEntityResult.drpckuserperf;
-	this.dpuserCat.data=EvsData.getPerfEntityResult.dpickcnt;
-	this.druserCat.data=EvsData.getPerfEntityResult.drpckcnt;
-	this.oopenCat.data=EvsData.getPerfEntityResult.dopen;
-	this.oopennCat.data=EvsData.getPerfEntityResult.dopen2;
-	this.stInlCat.data=EvsData.getPerfEntityResult.inlaysinv;
-	this.saInlCat.data=EvsData.getPerfEntityResult.inlaysabv;
-	this.kkHbwCat.data=EvsData.getPerfEntityResult.kkstackhbwinv;
-	this.kkDpsCat.data=EvsData.getPerfEntityResult.kkemptydpsinv;
-     });
-
-
-  }
-
-
-ionViewWillEnter()
-	{
-		this.CatCol.forEach( (cat) =>
-			{
-			cat.perfDiff=Math.random() * (1 + 2) - 2;
-			cat.perfDiffCol= cat.perfDiff>0 ? 'secondary' : 'danger'  ;
-			});
-
-	}
-
-const actSelect=(area : string): void =>
-	{
-	
-	this.CatCol.forEach( (cat) => {		
-	cat.select = area ==cat.name ? '#f0f0f0' : '#ffffff';
-	});
-	
-	if(this.lineChart==null){} 
-		else{this.lineChart.destroy();}
-			
-	this.actGraph(area);
-	}	
-
-
-const actGraph= (area : string): void  =>{
-	let drawGraph= ( area : string): void =>{ 
-		const perfdatafunc= (area: string) : any => {
-			let data= {
-			'dpick': () => {return  [1234,8700,1233,7999];},
-			'drpck': () => {return  [5674,122,4505,423];},
-			'oopen': () => {return  [96964,43434,59544,13490];},
-			'default': () => {return  [0,0,0,0];}
-			}; 
-		
-			return (data[area]||data['default'])();	
-		}
-	        var perfdata = perfdatafunc(area);
-		var labeldata  = 		
-			["22:00","23:00","00:00","01:00"];			
-		
-		this.lineChart =
-			 new Chart(this.lineCanvas.nativeElement,graphOpt(labeldata, perfdata, area)
-		);
-	}
-		drawGraph(area);
 }
 
 }

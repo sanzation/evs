@@ -114,7 +114,7 @@ export const graphOpt = (labeldata : any, perfdata : any, area : string, info : 
 export const newCat = (cat: catData, catCol: catData[]): catData[] => {return new catData()};
 
 
-export const graphBar = (labeldata : any, perfdata : any, area : string )  : any =>
+export const graphBar = (labeldata : any, perfData : any, area : string )  : any =>
 	{ return{ 
 		    type: 'horizontalBar',
 		    data: {
