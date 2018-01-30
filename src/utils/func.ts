@@ -204,3 +204,38 @@ const formatTime= (time : Date, gettype: string) : string => {
 
 	return (str[gettype]||str[hour])();
 } 
+export const calcTimeleft= (perf: number, open:number) : string =>{
+	var retstring : string;
+	if(perf==0){
+		retstring='n/a';
+	}else{
+		retstring=open/perf;	
+	}
+
+return decToStr(retstring); 
+
+} 	
+const decToStr= (n : number) : string =>{
+	let min : number;
+	let hour : number;
+	let sec : number;
+	let deca : number;
+	let decb : number;
+	hour=Math.floor(n);
+	deca=(n-hour)*0.6*100;
+	min=Math.floor(deca);
+	decb=(deca-min)*0.6*100;
+	sec=Math.floor(decb);
+
+
+		return `${formatDec(hour)}:${formatDec(min)}:${formatDec(sec)}`;	
+}
+
+const formatDec = (num : number) : string =>{
+	return num<10
+       	?
+	`0${num}`
+	:
+       	`${num}`;
+
+}

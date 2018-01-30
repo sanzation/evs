@@ -22,11 +22,13 @@ export class ParentPage {
 	lineChart:any;
 	EvsData:any;
 	CatCol: Array<catData>;
+	timeleft: string;			
+	
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 	this.CatCol=new Array<catData>();  
   }
 
- ionViewDidLoad() {
+ ionViewWillEnter() {
    this.EvsCall.getData().subscribe(EvsData=>{
 	this.EvsData= EvsData.current_observation;
 	this.CatCol.map((cat)=>{ cat.data=perfDataEntFunc(cat.name,EvsData) });

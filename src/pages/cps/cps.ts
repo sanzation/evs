@@ -1,10 +1,9 @@
 /* node */
 
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EvscallProvider } from '../../providers/evscall/evscall';
-import { Chart } from 'chart.js';
-import { colorGet,graphOpt,newCat } from '../../utils/func';
+import { calcTimeleft } from '../../utils/func';
 import { catData } from '../../utils/types';
 
 import { ParentPage } from '../parent/parent';
@@ -51,5 +50,10 @@ export class CpsPage extends ParentPage {
 
 
   }
+
+	
+ionViewDidEnter() {
+		this.timeleft=calcTimeleft(this.comCat.data,this.oopenCat.data);
+	}
 }
 

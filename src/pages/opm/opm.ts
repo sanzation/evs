@@ -6,6 +6,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EvscallProvider } from '../../providers/evscall/evscall';
 import { catData } from '../../utils/types';
 import { ParentPage } from '../parent/parent';
+import { calcTimeleft } from '../../utils/func';
+
 /*
 *
  * Generated class for the OpmPage page.
@@ -36,7 +38,7 @@ export class OpmPage extends ParentPage{
 	stHbwCat: catData;
 	saleCat: catData;
 	
-	timeleft: string;
+
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private EvsCall : EvscallProvider) {
@@ -67,19 +69,8 @@ export class OpmPage extends ParentPage{
 
 
   }
-
-const calcTimeleft= (perf: number, open:number) : string =>{
-	var retstring : string;
-	if(perf==0){
-		retstring='n/a';
-	}else{
-		retstring=open/perf;	
+ionViewDidEnter() {
+		this.timeleft=calcTimeleft(this.comCat.data,this.oopenCat.data);
 	}
-
-return retstring; 
-
-} 	
-const decToStr= ()=>{
 	
-}	
 } 

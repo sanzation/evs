@@ -22,7 +22,6 @@ export class EvscallProvider {
 	cam : string="/getCamList";
 
   constructor(public http: Http) {
-    console.log('der provider juckt');
   }
 	getData(){
 	return this.http.get(`${this.test}${this.ent}`)
