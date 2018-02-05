@@ -24,13 +24,18 @@ export class ParentPage {
 	CatCol: Array<catData>;
 	timeleft: string;			
 	
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private EvsCall : EvscallProvider) {
 	this.CatCol=new Array<catData>();  
+	 setInterval(()=>{this.load();},60000);
   }
 
+
  ionViewWillEnter() {
-	 console.log('parent page ion view will enter');
-   this.EvsCall.getData().subscribe(EvsData=>{
+	 this.load();
+     }
+const load= () : void =>{
+	console.log('load data');
+this.EvsCall.getData().subscribe(EvsData=>{
 	this.EvsData= EvsData.current_observation;
 	this.CatCol.map((cat)=>{ cat.data=perfDataEntFunc(cat.name,EvsData) });
      });
@@ -41,7 +46,9 @@ export class ParentPage {
 				cat.perfDiffCol= cat.perfDiff>0 ? 'secondary' : 'danger'  ;
 	});
      });
-  }
+
+
+}	
 
 const actSelect=(area : string): void =>
 	{

@@ -173,7 +173,6 @@ export const perfDataEntFunc = (area: string, EvsDat: any) : any =>{
 };
 
 export const perfDataLastFunc = (area: string, EvsDat: any) : any =>{
-				console.log(area);
 				const dataListFunc= (mdataval: any) : any =>{
 					return EvsDat.getPerfListResult[EvsDat.getPerfListResult.length-1][mdataval];
 				};
