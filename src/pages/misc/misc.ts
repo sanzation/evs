@@ -27,12 +27,12 @@ export class MiscPage extends ParentPage{
 	sebCat: catData;
 	dpsCat: catData;
 
-
+	spacer: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private EvsCall : EvscallProvider) {
 	super(navCtrl, navParams, EvsCall);  
 	this.hbwCat=new catData('hbw');
-	this.tryCat=new catData('try');  
+	this.tryCat=new catData('opm');  
 	this.excCat=new catData('exc');
 	this.sebCat=new catData('seb');
 	this.dpsCat=new catData('dps');
@@ -42,28 +42,23 @@ export class MiscPage extends ParentPage{
 	this.CatCol.push(this.excCat);
 	this.CatCol.push(this.sebCat);
 	this.CatCol.push(this.dpsCat);
-
+	this.spacer="  -  ";
 
   }
-ionViewDidLoad(){
+ionViewWillEnter(){
 
 	this.EvsCall.getFill().subscribe(EvsData=>{
 	this.EvsData= EvsData.current_observation;
 
-//	this.hbwCat.data=EvsData.getFillListResult[1].locfill/100;
-//	this.hbwCat.datasec=EvsData.getFillListResult[1].chanfill/100;
-//	this.tryCat.data=EvsData.getFillListResult[2].locfill/100;
-//	this.tryCat.datasec=EvsData.getFillListResult[2].chanfill/100;
-//        this.excCat.data=EvsData.getFillListResult[3].locfill/100;   
-//        this.excCat.datasec=EvsData.getFillListResult[3].chanfill/100;   
-//	this.sebCat.data=EvsData.getFillListResult[4].locfill/100;   
-//	this.sebCat.datasec=EvsData.getFillListResult[4].chanfill/100;   
 
 	this.CatCol= this.CatCol.map( (cat) : catData => {
-	var obj = EvsData.getFillResult.find( (data) => {data.area.ToLower()===cat.name});
-	cat.data=obj.locfill/100;
-    	cat.datasec=obj.chanfill/100;
-	return cat;	
+	if(cat.name!=='dps'){	
+		var obj = EvsData.getFillListResult.find( (data) => {return data.area.toLowerCase()===cat.name});
+		console.log(obj);	
+		cat.data=obj.locfill;
+		cat.datasec=obj.chanfill;
+		return cat;	
+		}
 	}
 	)
 	;
@@ -74,26 +69,27 @@ ionViewDidLoad(){
   this.EvsCall.getData().subscribe(EvsData=>{
 	this.EvsData= EvsData.current_observation;
 
-	this.dpsCat.data=EvsData.getPerfEntityResult.kkinvdpsinv/56000;   
+	this.dpsCat.data=Math.round(EvsData.getPerfEntityResult.kkinvdpsinv/560);
+	this.dpsCat.datasec=this.dpsCat.data;  
      });
 
 
 
 }
-//const actSelect=(area : string): void =>
-//	{
-//	
-//	this.CatCol.forEach( (cat) => {		
-//	cat.select = area ==cat.name ? '#f0f0f0' : '#ffffff';
-//	});
-//	
-//	if(this.lineChart==null){} 
-//		else{this.lineChart.destroy();}
-//			
-//	this.actGraph(area);
-//	}	
-//
-//
+const actSelect=(area : string): void =>
+	{
+	
+	this.CatCol.forEach( (cat) => {		
+	cat.select = area ==cat.name ? '#f0f0f0' : '#ffffff';
+	});
+	
+	if(this.lineChart==null){} 
+		else{this.lineChart.destroy();}
+			
+	this.actGraph(area);
+	}	
+
+
 const actGraph= (area : string): void  =>{
 	let drawGraph= ( area : string): void =>{ 
 		const perfdatafunc= (area: string) : any => {

@@ -41,10 +41,10 @@ export class DpsPage extends ParentPage{
 
 	this.dpickCat=new catData('dpick');
 	this.drpckCat =new catData('drpck');  
-	this.dpuserCat=new catData('dpuser');
-	this.druserCat=new catData('druser');
-	this.oopenCat=new catData('oopen');
-	this.oopennCat=new catData('oopenn');
+	this.dpuserCat=new catData('dpcnt');
+	this.druserCat=new catData('drcnt');
+	this.oopenCat=new catData('dopen');
+	this.oopennCat=new catData('dopenn');
 	this.stInlCat=new catData('stInl');
 	this.saInlCat=new catData('saInl');
 	this.kkHbwCat=new catData('kkHbw');

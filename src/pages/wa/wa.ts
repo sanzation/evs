@@ -35,12 +35,12 @@ export class WaPage extends ParentPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private EvsCall : EvscallProvider) {
 	super(navCtrl, navParams, EvsCall) ;
 
-	this.fillCat=new catData('fill');
-	this.fill91Cat =new catData('fill91');  
-	this.fill92Cat=new catData('fill92');
-	this.openCat=new catData('open');
-	this.open91Cat=new catData('open91');
-	this.open92Cat=new catData('open92');
+	this.fillCat=new catData('ocbfill');
+	this.fill91Cat =new catData('ocbfill91');  
+	this.fill92Cat=new catData('ocbfill92');
+	this.openCat=new catData('ocbopen');
+	this.open91Cat=new catData('ocbopen91');
+	this.open92Cat=new catData('ocbopen92');
 
 	this.CatCol.push(this.fillCat);
 	this.CatCol.push(this.fill91Cat);

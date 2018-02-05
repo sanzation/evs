@@ -31,10 +31,10 @@ const identDict= {
 			'drcnt':	() => {return new identData('drcnt','#af3b3b','DPS Repack User',"drpckcnt")},
 			'cpsa':		() => {return new identData('cpsa','#007c18', 'CPS Auto/h', "cpsautoperf")},
 			'cpsacnt':	() => {return new identData('cpsacnt',	'#007c18', 'CPS Auto User',"cpsautocnt")},
-			'cpsd':		() => {return new identData('cpsd',	'#467c00', 'CPS Display/h', "cdpsdspperf")},
-			'cpsdcnt':	() => {return new identData('cpsdcnt',	'#467c00', 'CPS Display User',"cdpsdspcnt")},
-			'wevarah':	() => {return new identData('wevarah',	'#c164c1', 'WE Automatikquote%/h',"wevara_hour")},
-			'wevarad':	() => {return new identData('wevarad',	'#c164c1', 'WE Automatikquote%/Tag',"wevara_day")},
+			'cpsd':		() => {return new identData('cpsd',	'#467c00', 'CPS Display/h', "cpsdspperf")},
+			'cpsdcnt':	() => {return new identData('cpsdcnt',	'#467c00', 'CPS Display User',"cpsdspcnt")},
+			'wevarh':	() => {return new identData('wevarh',	'#c164c1', 'WE Automatikquote%/h',"wevara_hour")},
+			'wevard':	() => {return new identData('wevard',	'#c164c1', 'WE Automatikquote%/Tag',"wevara_day")},
 			'wepalh':	() => {return new identData('wepalh',	'#c164c1', 'WE Paletten/h',"wepal_hour")},
 			'wepald':	() => {return new identData('wepald',	'#c164c1', 'WE Paketten/Tag',"wepal_day")},
 			'ocbfill':	() => {return new identData('ocbfill',	'#ccbd7c', 'WA Füllgrad%',"ocb_fillall")},
@@ -43,8 +43,10 @@ const identDict= {
 			'ocbopen':	() => {return new identData('ocbopen',	'#ccbd7c', 'WA Offene Tu',"ocb_openall")},
 			'ocbopen91':	() => {return new identData('ocbopen91','#ccbd7c', 'WA Offene Tu 91',"ocb_open91")},
 			'ocbopen92':	() => {return new identData('ocbopen92','#ccbd7c', 'WA Offene Tu 92',"ocb_open92")},
-			'inlaysabv':	() => {return new identData('inlaysabv','#99b3dd', 'Inlay',"inlaysabv")},
-			'kkdpsinv':	() => {return new identData('kkdpsinv',	'#99b3dd', 'Inlay',"kkemptydpsinv")},
+			'saInl':	() => {return new identData('saInl','#99b3dd', 'Inlay Abverkauf/Tag',"inlaysabv")},
+			'stInl':	() => {return new identData('stInl',	'#99b3dd', 'Inlay Bestand',"inlaysinv")},
+			'kkDps':	() => {return new identData('kkDps',	'#99b3dd', 'Leer-Klappkisten DPS',"kkemptydpsinv")},
+			'kkHbw':	() => {return new identData('kkHbw',	'#99b3dd', 'Leer-Klappkistenpaletten HBW',"kkstackhbwinv")},
 			'oopen':	() => {return new identData('oopen',	'#747474', 'Offene Auftragskolli heute'  ,"oopen")},
 			'oopenn':	() => {return new identData('oopenn',	'#999999', 'Offene Auftragskolli morgen' ,"oopen2")},
 			'dopen':	() => {return new identData('dopen',	'#747474', 'Offene Auftragskolli heute'  ,"dopen")},
@@ -56,14 +58,15 @@ const identDict= {
 
 
 export const getColor= (area: string) : string => {
-					return (identDict[area]().color||identDict['default']().color);
+					return (identDict[area]().color);
 		}
 
 export const getExt= (area: string) : string => {
-					return (identDict[area]().ext||identDict['default']().ext);
+					return (identDict[area]().ext);
 		}
+
 export const getInfo= (area: string) : string => {
-					return (identDict[area]().info||identDict['default']().info);
+					return (identDict[area]().info);
 		}
 				
 export const graphOpt = (labeldata : any, perfdata : any, area : string, info : string, infosec : string )  : any =>
@@ -170,6 +173,7 @@ export const perfDataEntFunc = (area: string, EvsDat: any) : any =>{
 };
 
 export const perfDataLastFunc = (area: string, EvsDat: any) : any =>{
+				console.log(area);
 				const dataListFunc= (mdataval: any) : any =>{
 					return EvsDat.getPerfListResult[EvsDat.getPerfListResult.length-1][mdataval];
 				};

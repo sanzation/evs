@@ -26,6 +26,7 @@
 				<ion-col col-auto>
 					<h3 class="area">Platz</h3>
 				</ion-col>
+				<ion-col col-auto>{{spacer}}</ion-col>
 				<ion-col col-auto>
 					<h3 class="area">Kanal</h3>
 				</ion-col>
@@ -37,13 +38,14 @@
 					<p class="area">HBW</p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="hbw">{{hbwCat.data}}</h1>
+					<h1 class="hbw">{{hbwCat.data}}%</h1>
 				</ion-col>
+				<ion-col col-auto>{{spacer}}</ion-col>
 				<ion-col col-auto>
-					<h1 class="hbw">{{hbwCat.datasec}}</h1>
+					<h1 class="hbw">{{hbwCat.datasec}}%</h1>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="hbwCat.perfDiffColor">{{hbwCat.perfDiff}}</ion-badge>
+					<!--ion-badge [color]="hbwCat.perfDiffCol">{{hbwCat.perfDiff}}</ion-badge-->
 				</ion-col>
 			</ion-row>
 			<ion-row [style.backgroundColor]="tryCat.select" (click)="actSelect('tryCat')">
@@ -51,13 +53,14 @@
 					<p class="area">Tray</p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="try">{{tryCat.data}}</h1>
+					<h1 class="try">{{tryCat.data}}%</h1>
 				</ion-col>
+				<ion-col col-auto>{{spacer}}</ion-col>
 				<ion-col col-auto>
-					<h1 class="try">{{tryCat.datasec}}</h1>
+					<h1 class="try">{{tryCat.datasec}}%</h1>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="tryCat.perfDiffColor">{{tryCat.perfDiff}}</ion-badge>
+					<!--ion-badge [color]="tryCat.perfDiffCol">{{tryCat.perfDiff}}</ion-badge-->
 				</ion-col>
 			</ion-row>
 			<ion-row [style.backgroundColor]="excCat.select" (click)="actSelect('excCat')">
@@ -65,13 +68,14 @@
 					<p class="area">EXC</p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="exc">{{excCat.data}}</h1>
+					<h1 class="exc">{{excCat.data}}%</h1>
 				</ion-col>
+				<ion-col col-auto>{{spacer}}</ion-col>
 				<ion-col col-auto>
-					<h1 class="exc">{{excCat.datasec}}</h1>
+					<h1 class="exc">{{excCat.datasec}}%</h1>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="excCat.perfDiffColor">{{excCat.perfDiff}}</ion-badge>
+					<!--ion-badge [color]="excCat.perfDiffCol">{{excCat.perfDiff}}</ion-badge-->
 				</ion-col>
 			</ion-row>
 			<ion-row [style.backgroundColor]="sebCat.select" (click)="actSelect('sebCat')">
@@ -79,13 +83,14 @@
 					<p class="area">SEB</p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="seb">{{sebCat.data}}</h1>
+					<h1 class="seb">{{sebCat.data}}%</h1>
 				</ion-col>
+				<ion-col col-auto>{{spacer}}</ion-col>
 				<ion-col col-auto>
-					<h1 class="seb">{{sebCat.datasec}}</h1>
+					<h1 class="seb">{{sebCat.datasec}}%</h1>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="sebCat.perfDiffColor">{{sebCat.perfDiff}}</ion-badge>
+					<!--ion-badge [color]="sebCat.perfDiffCol">{{sebCat.perfDiff}}</ion-badge-->
 				</ion-col>
 			</ion-row>
 			<ion-row [style.backgroundColor]="dpsCat.select" (click)="actSelect('dps')">
@@ -93,13 +98,14 @@
 					<p class="area">DPS</p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="dps">{{dpsCat.data}}</h1>
+					<h1 class="dps">{{dpsCat.data}}%</h1>
 				</ion-col>
+				<ion-col col-auto>{{spacer}}</ion-col>
 				<ion-col col-auto>
-					<h1 class="dps">{{dpsCat.datasec}}</h1>
+					<h1 class="dps">{{dpsCat.datasec}}%</h1>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="dpsCat.perfDiffColor">{{dpsCat.perfDiff}}</ion-badge>
+					<!--ion-badge [color]="dpsCat.perfDiffCol">{{dpsCat.perfDiff}}</ion-badge-->
 				</ion-col>
 			</ion-row>
 	</ion-card-content>

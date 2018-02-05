@@ -34,12 +34,12 @@ export class CpsPage extends ParentPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private EvsCall : EvscallProvider) {
 
 	super(navCtrl,navParams,EvsCall);
-	this.cpickCat=new catData('cpick');
-	this.cdspCat =new catData('cdsp');  
-	this.cpuserCat=new catData('cpuser');
-	this.cduserCat=new catData('cduser');
-	this.oopenCat=new catData('oopen');
-	this.oopennCat=new catData('oopenn');
+	this.cpickCat=new catData('cpsa');
+	this.cdspCat =new catData('cpsd');  
+	this.cpuserCat=new catData('cpsacnt');
+	this.cduserCat=new catData('cpsdcnt');
+	this.oopenCat=new catData('copen');
+	this.oopennCat=new catData('copenn');
 
 	this.CatCol.push(this.cpickCat);
 	this.CatCol.push(this.cdspCat);
@@ -53,7 +53,7 @@ export class CpsPage extends ParentPage {
 
 	
 ionViewDidEnter() {
-		this.timeleft=calcTimeleft(this.comCat.data,this.oopenCat.data);
+		this.timeleft=calcTimeleft(this.cpickCat.data,this.oopenCat.data);
 	}
 }
 

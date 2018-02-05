@@ -29,6 +29,7 @@ export class ParentPage {
   }
 
  ionViewWillEnter() {
+	 console.log('parent page ion view will enter');
    this.EvsCall.getData().subscribe(EvsData=>{
 	this.EvsData= EvsData.current_observation;
 	this.CatCol.map((cat)=>{ cat.data=perfDataEntFunc(cat.name,EvsData) });

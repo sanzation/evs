@@ -28,11 +28,11 @@
 					<p class="unit">Kolli/h</p>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="dpickCat.perfDiffColor">{{dpickCat.perfDiff}}</ion-badge>
+					<ion-badge [color]="dpickCat.perfDiffCol">{{dpickCat.perfDiff}}</ion-badge>
 				</ion-col>
 				
 			</ion-row>
-			<ion-row [style.backgroundColor]="dpuserCat.select" (click)="actSelect('dpuser')">
+			<ion-row [style.backgroundColor]="dpuserCat.select" (click)="actSelect('dpcnt')">
 				<ion-col class="colo">
 					<p class="area"> </p>
 				</ion-col>  
@@ -43,7 +43,7 @@
 					<p class="unit">User</p>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="dpickCat.perfDiffColor">{{dpickCat.perfDiff}}</ion-badge>
+					<ion-badge [color]="dpuserCat.perfDiffCol">{{dpuserCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
 		
@@ -58,12 +58,12 @@
 					<p class="unit">Kolli/h</p>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="dpickCat.perfDiffColor">{{dpickCat.perfDiff}}</ion-badge>
+					<ion-badge [color]="drpckCat.perfDiffCol">{{drpckCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
 	
 		
-			<ion-row [style.backgroundColor]="druserCat.select" (click)="actSelect('druser')">
+			<ion-row [style.backgroundColor]="druserCat.select" (click)="actSelect('drcnt')">
 				<ion-col class="colo">
 					<p class="area"> </p>
 				</ion-col>  
@@ -74,7 +74,7 @@
 					<p class="unit">User</p>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="dpickCat.perfDiffColor">{{dpickCat.perfDiff}}</ion-badge>
+					<ion-badge [color]="druserCat.perfDiffCol">{{druserCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
 	</ion-card-content>	
@@ -86,7 +86,7 @@
 		<h1 class="category">Auftraege</h1>
 		</ion-card-header>
 		<ion-card-content>
-			<ion-row [style.backgroundColor]="oopenCat.select" (click)="actSelect('oopen')">
+			<ion-row [style.backgroundColor]="oopenCat.select" (click)="actSelect('copen')">
 				<ion-col class="colo">
 					<p class="area">Offen heute</p>
 				</ion-col>  
@@ -97,10 +97,10 @@
 					<p class="unit">Kolli</p>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="dpickCat.perfDiffColor">{{dpickCat.perfDiff}}</ion-badge>
+					<ion-badge [color]="oopenCat.perfDiffCol">{{oopenCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
-			<ion-row [style.backgroundColor]="oopennCat.select" (click)="actSelect('oopenn')">
+			<ion-row [style.backgroundColor]="oopennCat.select" (click)="actSelect('copenn')">
 				<ion-col class="colo">
 					<p class="area">Offen morgen</p>
 				</ion-col>  
@@ -111,7 +111,7 @@
 					<p class="unit">Kolli</p>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="dpickCat.perfDiffColor">{{dpickCat.perfDiff}}</ion-badge>
+					<ion-badge [color]="oopennCat.perfDiffCol">{{oopennCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
 			<ion-row>
@@ -119,13 +119,12 @@
 					<p class="area">fertig in ~</p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="dpick">00:00:00</h1>
+					<h1 class="dpick">{{timeleft}}</h1>
 				</ion-col>
 				<ion-col col-auto>
 					<p class="unit"> </p>
 				</ion-col>
 				<ion-col>
-				       	<ion-badge>+1220</ion-badge>
 				</ion-col>
 			</ion-row>
 		</ion-card-content>
@@ -149,7 +148,7 @@
 						<ion-col col-auto><h1 class="inlay">{{saInlCat.data}}</h1></ion-col>
 						<ion-col><p class="unit">Bedarf/Tag</p></ion-col>
 						</ion-row>
-					<ion-row [style.backgroundColor]="kkHbwCat.select" (click)="actSelect('kkHbwCat')">
+					<ion-row [style.backgroundColor]="kkHbwCat.select" (click)="actSelect('kkHbw')">
 						<ion-col class="colo">
 						<h2 class="area">Klappkisten Leergut</h2>
 						</ion-col>
@@ -157,7 +156,7 @@
 						<ion-col><p class="unit">Pal im HBW</p></ion-col>
 						</ion-row>
 					
-					<ion-row [style.backgroundColor]="kkDpsCat.select" (click)="actSelect('kkDpsCat')">
+					<ion-row [style.backgroundColor]="kkDpsCat.select" (click)="actSelect('kkDps')">
 						<ion-col></ion-col>
 						<ion-col col-auto><h1 class="kk">{{kkDpsCat.data}}</h1></ion-col>
 						<ion-col><p class="unit">Leerkisten DPS</p></ion-col>

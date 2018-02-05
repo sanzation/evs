@@ -20,7 +20,7 @@
 		<h1 class="category">Leistung</h1>
 		</ion-card-header>
 	<ion-card-content>
-			<ion-row [style.backgroundColor]="cpickCat.select" (click)="actSelect('cpick')">
+			<ion-row [style.backgroundColor]="cpickCat.select" (click)="actSelect('cpsa')">
 				<ion-col class="colo">
 					<p class="area">CPS Auto</p>
 				</ion-col>  
@@ -31,11 +31,11 @@
 					<p class="unit">Kolli/h</p>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="cpickCat.perfDiffColor">{{cpickCat.perfDiff}}</ion-badge>
+					<ion-badge [color]="cpickCat.perfDiffCol">{{cpickCat.perfDiff}}</ion-badge>
 				</ion-col>
 				
 			</ion-row>
-			<ion-row [style.backgroundColor]="cpuserCat.select" (click)="actSelect('cpuser')">
+			<ion-row [style.backgroundColor]="cpuserCat.select" (click)="actSelect('cpsacnt')">
 				<ion-col class="colo">
 					<p class="area"> </p>
 				</ion-col>  
@@ -46,11 +46,11 @@
 					<p class="unit">User</p>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="cpuserCat.perfDiffColor">{{cpuserCat.perfDiff}}</ion-badge>
+					<ion-badge [color]="cpuserCat.perfDiffCol">{{cpuserCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
 		
-			<ion-row [style.backgroundColor]="cdspCat.select" (click)="actSelect('cdsp')">
+			<ion-row [style.backgroundColor]="cdspCat.select" (click)="actSelect('cpsd')">
 				<ion-col class="colo">
 					 <p class="area">CPS Display</p>
 				</ion-col>  
@@ -61,12 +61,12 @@
 					<p class="unit">Displays/h</p>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="cdspCat.perfDiffColor">{{cdspCat.perfDiff}}</ion-badge>
+					<ion-badge [color]="cdspCat.perfDiffCol">{{cdspCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
 	
 		
-			<ion-row [style.backgroundColor]="cduserCat.select" (click)="actSelect('cduser')">
+			<ion-row [style.backgroundColor]="cduserCat.select" (click)="actSelect('cpsdcnt')">
 				<ion-col class="colo">
 					<p class="area"> </p>
 				</ion-col>  
@@ -77,7 +77,7 @@
 					<p class="unit">User</p>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="cduserCat.perfDiffColor">{{cduserCat.perfDiff}}</ion-badge>
+					<ion-badge [color]="cduserCat.perfDiffCol">{{cduserCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
 	</ion-card-content>	
@@ -89,7 +89,7 @@
 		<h1 class="category">Auftraege</h1>
 		</ion-card-header>
 		<ion-card-content>
-			<ion-row [style.backgroundColor]="oopenCat.select" (click)="actSelect('oopen')">
+			<ion-row [style.backgroundColor]="oopenCat.select" (click)="actSelect('copen')">
 				<ion-col class="colo">
 					<p class="area">Offen heute</p>
 				</ion-col>  
@@ -100,12 +100,12 @@
 					<p class="unit">Kolli</p>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="oopenCat.perfDiffColor">{{oopenCat.perfDiff}}</ion-badge>
+					<ion-badge [color]="oopenCat.perfDiffCol">{{oopenCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
 		
 		
-			<ion-row [style.backgroundColor]="oopennCat.select" (click)="actSelect('oopenn')">
+			<ion-row [style.backgroundColor]="oopennCat.select" (click)="actSelect('copenn')">
 				<ion-col class="colo">
 					<p class="area">Offen morgen</p>
 				</ion-col>  
@@ -116,7 +116,7 @@
 					<p class="unit">Kolli</p>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="oopennCat.perfDiffColor">{{oopennCat.perfDiff}}</ion-badge>
+					<ion-badge [color]="oopennCat.perfDiffCol">{{oopennCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
 			<ion-row>
@@ -124,13 +124,12 @@
 					<p class="area">fertig in ~</p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="cpsauto">00:00:00</h1>
+					<h1 class="cpsauto">{{timeleft}}</h1>
 				</ion-col>
 				<ion-col col-auto>
 					<p class="unit"> </p>
 				</ion-col>
 				<ion-col>
-				       	<ion-badge>+1220</ion-badge>
 				</ion-col>
 			</ion-row>
 		</ion-card-content>

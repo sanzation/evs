@@ -19,7 +19,7 @@
 		<h1 class="category">Fuellgrad</h1>
 		</ion-card-header>
 	<ion-card-content>
-			<ion-row [style.backgroundColor]="fillCat.select" (click)="actSelect('fill')">
+			<ion-row [style.backgroundColor]="fillCat.select" (click)="actSelect('ocbfill')">
 				<ion-col class="colo">
 					<p class="area">Gesamt</p>
 				</ion-col>  
@@ -30,11 +30,11 @@
 					<p class="unit">%</p>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="fillCat.perfDiffColor">{{fillCat.perfDiff}}</ion-badge>
+					<ion-badge [color]="fillCat.perfDiffCol">{{fillCat.perfDiff}}</ion-badge>
 				</ion-col>
 				
 			</ion-row>
-			<ion-row [style.backgroundColor]="fill91Cat.select" (click)="actSelect('fill91')">
+			<ion-row [style.backgroundColor]="fill91Cat.select" (click)="actSelect('ocbfill91')">
 				<ion-col class="colo">
 					<p class="subarea">OCB91</p>
 				</ion-col>  
@@ -45,10 +45,10 @@
 					<p class="unit">%</p>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="fill91Cat.perfDiffColor">{{fill91Cat.perfDiff}}</ion-badge>
+					<ion-badge [color]="fill91Cat.perfDiffCol">{{fill91Cat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
-			<ion-row [style.backgroundColor]="fill92Cat.select" (click)="actSelect('fill92')">
+			<ion-row [style.backgroundColor]="fill92Cat.select" (click)="actSelect('ocbfill92')">
 				<ion-col class="colo">
 					<p class="subarea">OCB92</p>
 				</ion-col>  
@@ -59,7 +59,7 @@
 					<p class="unit">%</p>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="fill92Cat.perfDiffColor">{{fill92Cat.perfDiff}}</ion-badge>
+					<ion-badge [color]="fill92Cat.perfDiffCol">{{fill92Cat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
 	</ion-card-content>
@@ -69,7 +69,7 @@
 		<h1 class="category">Auslagerung offen</h1>
 		</ion-card-header>
 	<ion-card-content>
-			<ion-row [style.backgroundColor]="openCat.select" (click)="actSelect('open')">
+			<ion-row [style.backgroundColor]="openCat.select" (click)="actSelect('ocbopen')">
 				<ion-col class="colo">
 					<p class="area">Gesamt</p>
 				</ion-col>  
@@ -80,11 +80,11 @@
 					<p class="unit">TU</p>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="openCat.perfDiffColor">{{openCat.perfDiff}}</ion-badge>
+					<ion-badge [color]="openCat.perfDiffCol">{{openCat.perfDiff}}</ion-badge>
 				</ion-col>
 				
 			</ion-row>
-			<ion-row [style.backgroundColor]="open91Cat.select" (click)="actSelect('open91')">
+			<ion-row [style.backgroundColor]="open91Cat.select" (click)="actSelect('ocbopen91')">
 				<ion-col class="colo">
 					<p class="subarea">OCB91</p>
 				</ion-col>  
@@ -95,10 +95,10 @@
 					<p class="unit">TU</p>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="open91Cat.perfDiffColor">{{open91Cat.perfDiff}}</ion-badge>
+					<ion-badge [color]="open91Cat.perfDiffCol">{{open91Cat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
-			<ion-row [style.backgroundColor]="open92Cat.select" (click)="actSelect('open92')">
+			<ion-row [style.backgroundColor]="open92Cat.select" (click)="actSelect('ocbopen92')">
 				<ion-col class="colo">
 					<p class="subarea">OCB92</p>
 				</ion-col>  
@@ -109,7 +109,7 @@
 					<p class="unit">TU</p>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="open92Cat.perfDiffColor">{{open92Cat.perfDiff}}</ion-badge>
+					<ion-badge [color]="open92Cat.perfDiffCol">{{open92Cat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
 	</ion-card-content>	
