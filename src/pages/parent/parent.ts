@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { EvscallProvider } from '../../providers/evscall/evscall';
 import { Chart } from 'chart.js';
-import { colorGet,graphOpt,newCat,perfDataListFunc,perfDataEntFunc,parseDateTime,perfDataLastFunc } from '../../utils/func';
+import { perfDataListFunc,perfDataEntFunc,parseDateTime,perfDataLastFunc, graphOpt } from '../../utils/func';
 import { catData } from '../../utils/types';
 /**
  * Generated class for the ParentPage page.
@@ -14,8 +14,8 @@ import { catData } from '../../utils/types';
 
 @IonicPage()
 @Component({
-  selector: 'page-parent'//,
-  //templateUrl: 'parent.html',
+  selector: 'page-parent',
+  templateUrl: 'parent.html'
 })
 export class ParentPage {
 	@ViewChild('lineCanvas') lineCanvas;
@@ -24,7 +24,7 @@ export class ParentPage {
 	CatCol: Array<catData>;
 	timeleft: string;			
 	
-  constructor(public navCtrl: NavController, public navParams: NavParams,private EvsCall : EvscallProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public EvsCall : EvscallProvider) {
 	this.CatCol=new Array<catData>();  
 	 setInterval(()=>{this.load();},60000);
   }
@@ -33,7 +33,7 @@ export class ParentPage {
  ionViewWillEnter() {
 	 this.load();
      }
-const load= () : void =>{
+load= () : void =>{
 	console.log('load data');
 this.EvsCall.getData().subscribe(EvsData=>{
 	this.EvsData= EvsData.current_observation;
@@ -50,7 +50,7 @@ this.EvsCall.getData().subscribe(EvsData=>{
 
 }	
 
-const actSelect=(area : string): void =>
+actSelect=(area : string): void =>
 	{
 	this.CatCol.forEach( (cat) => {		
 	cat.select = area ==cat.name ? '#f0f0f0' : '#ffffff';
@@ -62,15 +62,15 @@ const actSelect=(area : string): void =>
 	this.actGraph(area);
 	}	
 
-const actGraph= (area : string): void  =>{
+actGraph= (area : string): void  =>{
 	let drawGraph= ( area : string): void =>{ 
 		this.EvsCall.getList().subscribe((EvsData)=>{
 			
 			var perfData = perfDataListFunc(area, EvsData);
 			var values =perfData.map((data)=>{return parseInt(data.val,10)});
 			var labeldata= perfData.map((data)=>{return parseDateTime(data.date)});	
-		        var avgPerf = Math.round(values.reduce((a,b)=>{return a+b})/values.length,0);
-		        var maxPerf = values.reduce((a,b)=>{return a>b? a : b});
+		        var avgPerf : string =`${Math.round(values.reduce((a,b)=>{return a+b})/values.length,0)}`;
+		        var maxPerf : string =`${values.reduce((a,b)=>{return a>b? a : b})}`;
 			this.lineChart =
 				 new Chart(this.lineCanvas.nativeElement,graphOpt(labeldata, values, area, avgPerf, maxPerf));
 		});

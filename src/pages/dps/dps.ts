@@ -35,7 +35,7 @@ export class DpsPage extends ParentPage{
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private EvsCall : EvscallProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public EvsCall : EvscallProvider) {
 
 	super(navCtrl,navParams,EvsCall);
 

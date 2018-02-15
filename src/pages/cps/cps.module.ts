@@ -4,10 +4,13 @@ import { CpsPage } from './cps';
 
 @NgModule({
   declarations: [
-    CpsPage,
+   // CpsPage,
   ],
   imports: [
     IonicPageModule.forChild(CpsPage),
   ],
+  //exports: [
+//	  CpsPage
+ // ]	
 })
 export class CpsPageModule {}

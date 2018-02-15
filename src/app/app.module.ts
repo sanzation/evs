@@ -13,6 +13,7 @@ import { DpsPage } from '../pages/dps/dps';
 import { CpsPage } from '../pages/cps/cps';
 import { WaPage } from '../pages/wa/wa';
 import { WePage } from '../pages/we/we';
+import { ParentPage } from '../pages/parent/parent';
 import { MiscPage } from '../pages/misc/misc';
 import { EvscallProvider } from '../providers/evscall/evscall';
 import { catData } from '../utils/types';
@@ -27,11 +28,13 @@ import { catData } from '../utils/types';
     CpsPage, 
     WaPage, 
     WePage, 
-    MiscPage
+    MiscPage,
+    ParentPage  
   ],
   imports: [
     BrowserModule,
     HttpModule,
+//CpsPageModule,  
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -44,7 +47,8 @@ import { catData } from '../utils/types';
     CpsPage, 
     WaPage, 
     WePage, 
-    MiscPage
+    MiscPage,
+    ParentPage  
 
     ],
   providers: [

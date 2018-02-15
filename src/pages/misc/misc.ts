@@ -29,7 +29,7 @@ export class MiscPage extends ParentPage{
 
 	spacer: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private EvsCall : EvscallProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public EvsCall : EvscallProvider) {
 	super(navCtrl, navParams, EvsCall);  
 	this.hbwCat=new catData('hbw');
 	this.tryCat=new catData('opm');  
@@ -76,7 +76,7 @@ ionViewWillEnter(){
 
 
 }
-const actSelect=(area : string): void =>
+ actSelect=(area : string): void =>
 	{
 	
 	this.CatCol.forEach( (cat) => {		
@@ -90,21 +90,18 @@ const actSelect=(area : string): void =>
 	}	
 
 
-const actGraph= (area : string): void  =>{
+ actGraph= (area : string): void  =>{
 	let drawGraph= ( area : string): void =>{ 
 		const perfdatafunc= (area: string) : any => {
-			let data= {
-			'default': () => {return 
-		      	[
+			let data= [
 			this.hbwCat.data,this.hbwCat.datasec,
 			this.tryCat.data,this.tryCat.datasec,
 			this.excCat.data,this.excCat.datasec,
 			this.sebCat.data,this.sebCat.datasec,
 			this.dpsCat.data,this.dpsCat.datasec
-			]	
-			}}; 
+			]; 
 		
-			return (data[area]||data['default'])();	
+			return (data);	
 		}
 	        var perfdata = perfdatafunc(area);
 		var labeldata  = 		

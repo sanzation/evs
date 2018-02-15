@@ -5,7 +5,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EvscallProvider } from '../../providers/evscall/evscall';
 import { Chart } from 'chart.js';
 
-import { colorGet,graphOpt,newCat } from '../../utils/func';
 import { catData } from '../../utils/types';
 import { ParentPage } from '../parent/parent';
 /*
@@ -32,7 +31,7 @@ export class WaPage extends ParentPage {
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private EvsCall : EvscallProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public EvsCall : EvscallProvider) {
 	super(navCtrl, navParams, EvsCall) ;
 
 	this.fillCat=new catData('ocbfill');

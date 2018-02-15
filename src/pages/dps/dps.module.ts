@@ -4,7 +4,7 @@ import { DpsPage } from './dps';
 
 @NgModule({
   declarations: [
-    DpsPage,
+//    DpsPage,
   ],
   imports: [
     IonicPageModule.forChild(DpsPage),

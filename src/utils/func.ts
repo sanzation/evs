@@ -114,7 +114,7 @@ export const graphOpt = (labeldata : any, perfdata : any, area : string, info : 
 }		;	
 
 
-export const newCat = (cat: catData, catCol: catData[]): catData[] => {return new catData()};
+export const newCat = (cat: catData, catCol: catData[]): catData[] => {return catCol.push(new catData())};
 
 
 export const graphBar = (labeldata : any, perfData : any, area : string )  : any =>
@@ -205,12 +205,12 @@ const formatTime= (time : Date, gettype: string) : string => {
 		};
 
 
-	return (str[gettype]||str[hour])();
+	return (str[gettype]||str["hour"])();
 } 
 export const calcTimeleft= (perf: number, open:number) : string =>{
-	var retstring : string;
+	var retstring : number;
 	if(perf==0){
-		retstring='n/a';
+		retstring=0;
 	}else{
 		retstring=open/perf;	
 	}

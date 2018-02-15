@@ -1,29 +1,13 @@
-interface IcatData{
-		perfDiff: any;
-		perfDiffCol: string;
-		name: string;
-		select: string;
-		data: any;
-		datasec: any;
 
-	};
-interface Itime {
-	date: number;
-	hours: number;
-	min: number;
-	sec: number;
-	ms: number;
-
-}
-interface IidentData{
+export class catData{
+	perfDiff: any;
+	perfDiffCol: string;
 	name: string;
-	color: string;
-	info: string;	
-	ext: string;
+	select: string;
+	data: any;
+	datasec: any;
 
-};
 
-export class catData implements IcatData{
 	constructor(name: string)
 	{
 	this.perfDiff=0;
@@ -34,7 +18,13 @@ export class catData implements IcatData{
 	this.datasec=0;	
 	}
 }
-export class evsTime implements Itime{
+export class evsTime{
+	date: number;
+	hours: number;
+	min: number;
+	sec: number;
+	ms: number;
+
 constructor()
 	{
 	this.date=0;
@@ -46,7 +36,14 @@ constructor()
 
 }
 
-export class identData implements IidentData{
+export class identData{
+
+
+	name: string;
+	color: string;
+	info: string;	
+	ext: string;
+
 	constructor(name: string, color: string, info : string, servicename : string)
 	{
 	this.name=name;
