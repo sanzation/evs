@@ -65,7 +65,7 @@
 					<h1 class="com">{{comfCat.data}}</h1>
 				</ion-col>
 				<ion-col col-auto>
-					<p class="unit">Stoerungen/1000 Kolli</p>
+					<p class="unit">pro 1K Kolli</p>
 				</ion-col>
 				<ion-col>
 					<ion-badge [color]="comfCat.perfDiffCol">{{comfCat.perfDiff}}</ion-badge>
@@ -81,7 +81,7 @@
 					<h1 class="dep">{{depfCat.data}}</h1>
 				</ion-col>
 				<ion-col col-auto>
-					<p class="unit">Stoerungen/1000 Kolli</p>
+					<p class="unit">pro 1K Kolli</p>
 				</ion-col>
 				<ion-col>
 
@@ -93,13 +93,13 @@
 
 		<ion-card>
 		<ion-card-header>
-		<h1 class="category">Auftraege</h1>
+		<h1 class="category">Auftraege offen</h1>
 		</ion-card-header>
 		<ion-card-content>
 			<ion-row [style.backgroundColor]="oopenCat.select" (click)="actSelect('oopen')">
 
 				<ion-col class="colo">
-					<p class="area">Offen heute</p>
+					<p class="area">heute</p>
 				</ion-col>  
 				<ion-col col-auto>
 					<h1 class="com">{{oopenCat.data}}</h1>
@@ -116,7 +116,7 @@
 		
 			<ion-row [style.backgroundColor]="oopennCat.select" (click)="actSelect('oopenn')">
 				<ion-col class="colo">
-					<p class="area">Offen morgen</p>
+					<p class="area">morgen</p>
 				</ion-col>  
 				<ion-col col-auto>
 					<h1 class="com">{{oopennCat.data}}</h1>
@@ -130,7 +130,7 @@
 			</ion-row>
 			<ion-row>
 				<ion-col class="colo">
-					<p class="area">fertig in ~</p>
+					<p class="area">Restzeit</p>
 				</ion-col>  
 				<ion-col col-auto>
 					<h1 class="com">{{timeleft}}</h1>

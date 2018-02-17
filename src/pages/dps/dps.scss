@@ -1,30 +1,9 @@
 page-dps {
-.row
-{
-	align-items: center;
-		
-}
-.colo
-{
-	text-align: center;	
-}
-.category
-{
-	color:color($colors, white);
-}
 
-.unit 
-{
-	left-padding: 9px;
-}
 .card-header{
 	background: url(../img/city.jpg);
 }
 
-.card{
-width: auto;
-border-radius: 5px;
-}
 
 .dpick
 {
@@ -48,21 +27,5 @@ border-radius: 5px;
 {
 	color: color($colors, kk);
 }
-.toolbar-title{
-	color: color($colors,white );
-}
- .bar-button
-{
- 	color: color($colors, white);
 
-}
-.area
-{
-	font-size: 22px;
-}
-.badge
-{
-	padding: 6px 8px;
-
-}
 }

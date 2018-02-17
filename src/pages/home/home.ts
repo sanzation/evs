@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { DetailPage } from '../detail/detail';
 import { OpmPage } from '../opm/opm';
 import { DpsPage } from '../dps/dps';
 import { CpsPage } from '../cps/cps';
@@ -21,7 +20,7 @@ export class HomePage {
    }
 
   pushOpm(){
-   this.navCtrl.push(OpmPage );
+   this.navCtrl.push(OpmPage);
   }
   pushDps(){
    this.navCtrl.push(DpsPage);

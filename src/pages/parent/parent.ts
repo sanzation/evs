@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component,  ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { EvscallProvider } from '../../providers/evscall/evscall';
@@ -69,7 +69,7 @@ actGraph= (area : string): void  =>{
 			var perfData = perfDataListFunc(area, EvsData);
 			var values =perfData.map((data)=>{return parseInt(data.val,10)});
 			var labeldata= perfData.map((data)=>{return parseDateTime(data.date)});	
-		        var avgPerf : string =`${Math.round(values.reduce((a,b)=>{return a+b})/values.length,0)}`;
+		        var avgPerf : string =`${Math.round(values.reduce((a,b)=>{return a+b})/values.length)}`;
 		        var maxPerf : string =`${values.reduce((a,b)=>{return a>b? a : b})}`;
 			this.lineChart =
 				 new Chart(this.lineCanvas.nativeElement,graphOpt(labeldata, values, area, avgPerf, maxPerf));

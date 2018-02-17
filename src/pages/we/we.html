@@ -16,12 +16,17 @@
 <ion-content padding>	
 <ion-card>
 		<ion-card-header>
-		<h1 class="category">Leistung</h1>
+		<h1 class="category">Kennzahlen</h1>
 		</ion-card-header>
 	<ion-card-content>
-			<ion-row [style.backgroundColor]="wepalhCat.select" (click)="actSelect('wepalh')">
+			<ion-row>
 				<ion-col class="colo">
 					<p class="area">Durchsatz</p>
+				</ion-col>  
+			</ion-row>
+			<ion-row [style.backgroundColor]="wepalhCat.select" (click)="actSelect('wepalh')">
+				<ion-col col-3 class="colo">
+					<p class="area"></p>
 				</ion-col>  
 				<ion-col col-auto>
 					<h1 class="pal">{{wepalhCat.data}}</h1>
@@ -35,7 +40,7 @@
 				
 			</ion-row>
 			<ion-row [style.backgroundColor]="wepaldCat.select" (click)="actSelect('wepald')">
-				<ion-col class="colo">
+				<ion-col col-3 class="colo">
 					<p class="area"> </p>
 				</ion-col>  
 				<ion-col col-auto>
@@ -48,16 +53,20 @@
 					<ion-badge [color]="wepaldCat.perfDiffCol">{{wepaldCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
-		
-			<ion-row [style.backgroundColor]="wevarhCat.select" (click)="actSelect('wevarh')">
+			<ion-row>	
 				<ion-col class="colo">
 					 <p class="area">Automatikquote</p>
+				</ion-col>
+			</ion-row>      	
+			<ion-row [style.backgroundColor]="wevarhCat.select" (click)="actSelect('wevarh')">
+				<ion-col col-3 class="colo">
+					 <p class="area">   </p>
 				</ion-col>  
 				<ion-col col-auto>
 					<h1 class="var">{{wevarhCat.data}}</h1>
 				</ion-col>
 				<ion-col col-auto>
-					<p class="unit">% Variante A/h</p>
+					<p class="unit">% Stunde</p>
 				</ion-col>
 				<ion-col>
 					<ion-badge [color]="wevarhCat.perfDiffCol">{{wevarhCat.perfDiff}}</ion-badge>
@@ -66,14 +75,14 @@
 	
 		
 			<ion-row [style.backgroundColor]="wevardCat.select" (click)="actSelect('wevard')">
-				<ion-col class="colo">
-					<p class="area"> </p>
+				<ion-col col-3 class="colo">
+					<p class="area">   </p>
 				</ion-col>  
 				<ion-col col-auto>
 					<h1 class="var">{{wevardCat.data}}</h1>
 				</ion-col>
 				<ion-col col-auto>
-					<p class="unit">% Variante A/Tag</p>
+					<p class="unit">% Tag</p>
 				</ion-col>
 				<ion-col>
 					<ion-badge [color]="wevardCat.perfDiffCol">{{wevardCat.perfDiff}}</ion-badge>

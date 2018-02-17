@@ -7,7 +7,6 @@ import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { DetailPage } from '../pages/detail/detail';
 import { OpmPage } from '../pages/opm/opm';
 import { DpsPage } from '../pages/dps/dps';
 import { CpsPage } from '../pages/cps/cps';
@@ -16,13 +15,11 @@ import { WePage } from '../pages/we/we';
 import { ParentPage } from '../pages/parent/parent';
 import { MiscPage } from '../pages/misc/misc';
 import { EvscallProvider } from '../providers/evscall/evscall';
-import { catData } from '../utils/types';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    DetailPage,
     OpmPage,
     DpsPage, 
     CpsPage, 
@@ -34,14 +31,12 @@ import { catData } from '../utils/types';
   imports: [
     BrowserModule,
     HttpModule,
-//CpsPageModule,  
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    DetailPage,
     OpmPage,
     DpsPage, 
     CpsPage, 

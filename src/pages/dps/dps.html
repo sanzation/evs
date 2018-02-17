@@ -19,7 +19,7 @@
 	<ion-card-content>
 			<ion-row [style.backgroundColor]="dpickCat.select" (click)="actSelect('dpick')">
 				<ion-col class="colo">
-					<p class="area">DPS Pick</p>
+					<p class="area">Pick</p>
 				</ion-col>  
 				<ion-col col-auto>
 					<h1 class="dpick">{{dpickCat.data}}</h1>
@@ -49,7 +49,7 @@
 		
 			<ion-row [style.backgroundColor]="drpckCat.select" (click)="actSelect('drpck')">
 				<ion-col class="colo">
-					 <p class="area">DPS Repack</p>
+					 <p class="area">Repack</p>
 				</ion-col>  
 				<ion-col col-auto>
 					<h1 class="drpck">{{drpckCat.data}}</h1>
@@ -83,12 +83,12 @@
 
 		<ion-card>
 		<ion-card-header>
-		<h1 class="category">Auftraege</h1>
+		<h1 class="category">Auftraege offen</h1>
 		</ion-card-header>
 		<ion-card-content>
 			<ion-row [style.backgroundColor]="oopenCat.select" (click)="actSelect('copen')">
 				<ion-col class="colo">
-					<p class="area">Offen heute</p>
+					<p class="area">heute</p>
 				</ion-col>  
 				<ion-col col-auto>
 					<h1 class="dpick">{{oopenCat.data}}</h1>
@@ -102,7 +102,7 @@
 			</ion-row>
 			<ion-row [style.backgroundColor]="oopennCat.select" (click)="actSelect('copenn')">
 				<ion-col class="colo">
-					<p class="area">Offen morgen</p>
+					<p class="area">morgen</p>
 				</ion-col>  
 				<ion-col col-auto>
 					<h1 class="dpick">{{oopennCat.data}}</h1>
@@ -116,7 +116,7 @@
 			</ion-row>
 			<ion-row>
 				<ion-col class="colo">
-					<p class="area">fertig in ~</p>
+					<p class="area">Restzeit</p>
 				</ion-col>  
 				<ion-col col-auto>
 					<h1 class="dpick">{{timeleft}}</h1>
