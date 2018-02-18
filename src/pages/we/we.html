@@ -21,7 +21,7 @@
 	<ion-card-content>
 			<ion-row>
 				<ion-col class="colo">
-					<p class="area">Durchsatz</p>
+					<p class="area">Paletten</p>
 				</ion-col>  
 			</ion-row>
 			<ion-row [style.backgroundColor]="wepalhCat.select" (click)="actSelect('wepalh')">
@@ -32,7 +32,7 @@
 					<h1 class="pal">{{wepalhCat.data}}</h1>
 				</ion-col>
 				<ion-col col-auto>
-					<p class="unit">Paletten/h</p>
+					<p class="unit">Stunde</p>
 				</ion-col>
 				<ion-col>
 					<ion-badge [color]="wepalhCat.perfDiffCol">{{wepalhCat.perfDiff}}</ion-badge>
@@ -47,7 +47,7 @@
 					<h1 class="pal">{{wepaldCat.data}}</h1>
 				</ion-col>
 				<ion-col col-auto>
-					<p class="unit">Paletten/Tag</p>
+					<p class="unit">Tag</p>
 				</ion-col>
 				<ion-col>
 					<ion-badge [color]="wepaldCat.perfDiffCol">{{wepaldCat.perfDiff}}</ion-badge>
