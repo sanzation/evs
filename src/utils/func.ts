@@ -120,7 +120,7 @@ export const newCat = (cat: catData, catCol: catData[]): catData[] => {catCol.pu
 
 export const graphBar = (labeldata : any, perfData : any, area : string )  : any =>
 	{ return{ 
-		    type: 'horizontalBar',
+		    type: 'bar',
 		    data: {
 			labels: labeldata,
 			datasets: [
@@ -146,7 +146,26 @@ export const graphBar = (labeldata : any, perfData : any, area : string )  : any
 				    borderWidth: 1
 			    }
 			]
-		    }
+		    },
+		options: {
+                    maintainAspectRatio: false,
+			legend: {
+			    display: true,
+			    position: 'top',
+				    labels: {
+					fontColor: 'rgb(0, 0, 0)',
+					    }
+				},
+			scales:{
+				xAxes: [{
+				    stacked: true
+				}],
+				yAxes: [{
+				stacked: true
+				}]
+			    }
+                }
+
 	 
 		}
 

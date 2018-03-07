@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EvscallProvider } from '../../providers/evscall/evscall';
 import { Chart } from 'chart.js';
 
 
 import { graphBar } from '../../utils/func';
+import { perfDataListFunc,perfDataEntFunc,parseDateTime,perfDataLastFunc, graphOpt } from '../../utils/func';
 import { catData } from '../../utils/types';
-import { ParentPage } from '../parent/parent';
 /**
  * Generated class for the MiscPage page.
  *
@@ -19,7 +19,11 @@ import { ParentPage } from '../parent/parent';
   selector: 'page-misc',
   templateUrl: 'misc.html',
 })
-export class MiscPage extends ParentPage{
+export class MiscPage{
+	@ViewChild('lineCanvas') lineCanvas;
+	lineChart:any;
+	EvsData:any;
+	CatCol: Array<catData>;
 
 	hbwCat: catData;
 	tryCat: catData;
@@ -30,7 +34,9 @@ export class MiscPage extends ParentPage{
 	spacer: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public EvsCall : EvscallProvider) {
-	super(navCtrl, navParams, EvsCall);  
+	//super(navCtrl, navParams, EvsCall);  
+	this.CatCol=new Array<catData>();  
+	 setInterval(()=>{this.load();},60000);
 	this.hbwCat=new catData('hbw');
 	this.tryCat=new catData('opm');  
 	this.excCat=new catData('exc');
@@ -47,6 +53,10 @@ export class MiscPage extends ParentPage{
   }
 ionViewWillEnter(){
 
+	this.load();
+}	
+load= () : void =>{
+
 	this.EvsCall.getFill().subscribe(EvsData=>{
 	this.EvsData= EvsData.current_observation;
 
@@ -54,32 +64,37 @@ ionViewWillEnter(){
 	this.CatCol= this.CatCol.map( (cat) : catData => {
 	if(cat.name!=='dps'){	
 		var obj = EvsData.getFillListResult.find( (data) => {return data.area.toLowerCase()===cat.name});
-		console.log(obj);	
 		cat.data=obj.locfill;
 		cat.datasec=obj.chanfill;
 		return cat;	
 		}
+	else
+		{
+		
+		  this.EvsCall.getData().subscribe(EvsData=>{
+			this.EvsData= EvsData.current_observation;
+
+			cat.data=Math.round(EvsData.getPerfEntityResult.kkinvdpsinv/560);
+			cat.datasec=cat.data;  
+		     });
+		
+		return cat;
+		}
+
 	}
 	)
 	;
 	
-	  
-	console.log(this.hbwCat.data);
      });
-  this.EvsCall.getData().subscribe(EvsData=>{
-	this.EvsData= EvsData.current_observation;
 
-	this.dpsCat.data=Math.round(EvsData.getPerfEntityResult.kkinvdpsinv/560);
-	this.dpsCat.datasec=this.dpsCat.data;  
-     });
 
 
 
 }
  actSelect=(area : string): void =>
 	{
-	
-	this.CatCol.forEach( (cat) => {		
+	this.CatCol.forEach( (cat) => {
+
 	cat.select = area ==cat.name ? '#f0f0f0' : '#ffffff';
 	});
 	
