@@ -118,43 +118,18 @@ export const newCat = (cat: catData, catCol: catData[]): catData[] => {catCol.pu
 									return catCol;};
 
 
-export const graphBar = (labeldata : any, perfData : any, area : string )  : any =>
+export const graphBar = (data : any, area : string )  : any =>
 	{ return{ 
 		    type: 'bar',
-		    data: {
-			labels: labeldata,
-			datasets: [
-			    {
-				label: area,
-				data: perfData,
-				backgroundColor: [
-				'rgba(255, 99, 132, 0.2)',
-				'rgba(54, 162, 235, 0.2)',
-				'rgba(255, 206, 86, 0.2)',
-				'rgba(75, 192, 192, 0.2)',
-				'rgba(153, 102, 255, 0.2)',
-				'rgba(255, 159, 64, 0.2)'
-				    ],
-				borderColor: [
-				'rgba(255,99,132,1)',
-				'rgba(54, 162, 235, 1)',
-				'rgba(255, 206, 86, 1)',
-				'rgba(75, 192, 192, 1)',
-				'rgba(153, 102, 255, 1)',
-				'rgba(255, 159, 64, 1)'
-				    ],
-				    borderWidth: 1
-			    }
-			]
-		    },
+		    data: data, 
 		options: {
-                    maintainAspectRatio: false,
-			legend: {
-			    display: true,
-			    position: 'top',
-				    labels: {
-					fontColor: 'rgb(0, 0, 0)',
-					    }
+			    maintainAspectRatio: false,
+				legend: {
+				    display: true,
+				    position: 'top',
+					    labels: {
+						fontColor: 'rgb(0, 0, 0)',
+						    }
 				},
 			scales:{
 				xAxes: [{

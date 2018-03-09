@@ -107,28 +107,40 @@ load= () : void =>{
 
  actGraph= (area : string): void  =>{
 	let drawGraph= ( area : string): void =>{ 
-		const perfdatafunc= (area: string) : any => {
-			let data= [
-			this.hbwCat.data,this.hbwCat.datasec,
-			this.tryCat.data,this.tryCat.datasec,
-			this.excCat.data,this.excCat.datasec,
-			this.sebCat.data,this.sebCat.datasec,
-			this.dpsCat.data,this.dpsCat.datasec
-			]; 
-		
-			return (data);	
-		}
-	        var perfdata = perfdatafunc(area);
-		var labeldata  = 		
-			[`${this.hbwCat.name} Platz`,`${this.hbwCat.name} Kanal`,
-			   `${this.tryCat.name} Platz`,`${this.tryCat.name} Kanal`,
-				`${this.excCat.name} Platz`,`${this.excCat.name} Kanal`,
-				`${this.sebCat.name} Platz`,`${this.sebCat.name} Kanal`,
-				`${this.dpsCat.name} Platz`,`${this.dpsCat.name} Kanal`
-			];			
+
+		var data = {
+		  labels: [`${this.hbwCat.name}`,
+			        `${this.tryCat.name}`,
+				`${this.excCat.name}`,
+				`${this.sebCat.name}`,
+				`${this.dpsCat.name}`],
+		  datasets: [{
+		    label: "Platz",
+		    backgroundColor: "lightblue",
+		    data: [
+		   this.hbwCat.data,
+		   this.tryCat.data,
+		   this.excCat.data,
+		   this.sebCat.data,
+		   this.dpsCat.data
+				    ]
+
+		  }, {
+		    label: "Kanal",
+		    backgroundColor: "lightcoral",
+		    data: [
+			this.hbwCat.datasec,
+			this.tryCat.datasec,
+			this.excCat.datasec,
+			this.sebCat.datasec,
+			this.dpsCat.datasec
+					    ]
+		  }
+		  ]
+		};
 		
 		this.lineChart =
-			 new Chart(this.lineCanvas.nativeElement,graphBar(labeldata, perfdata, area)
+			 new Chart(this.lineCanvas.nativeElement,graphBar(data, area)
 		);
 	}
 		drawGraph(area);
