@@ -53,6 +53,10 @@ const identDict= {
 			'copen':	() => {return new identData('copen',	'#747474', 'Offene Auftragskolli heute'  ,"copen")},
 			'dopenn':	() => {return new identData('dopenn',	'#656565' , 'Offene Auftragskolli morgen',"dopen2")},
 			'copenn':	() => {return new identData('copenn',	'#454545' , 'Offene Auftragskolli morgen',"copen2")},
+			'hbw':		() => {return new identData('hbw',	'#cc33ff' , 'Hochregal Fuellgrad',"#ac00e6")},
+			'try':		() => {return new identData('try',	'#ffcc99' , 'Traylager Fuellgrad',"#ffa64d")},
+			'exc':		() => {return new identData('exc',	'#ff6600' , 'Exchanger Fuellgrad',"#b34700")},
+			'seb':		() => {return new identData('seb',	'#33cccc' , 'Sequencer Fuellgrad',"#248f8f")},
 			}; 
 			
 
@@ -126,27 +130,56 @@ export const graphBar = (data : any, area : string )  : any =>
 			plugins: {
 					datalabels: {
 						display: true,
-					        align: 'end',	
+					        anchor: 'end',	
+						align: 'top',
 						font: {
-							weight: 'bold'
+							size: 11,
+							weight: 600 
 						},
-						offset: 8,
-						formatter: Math.round
+						backgroundColor: "gray",
+						color: "white",
+						borderRadius: 4,
+						offset: -3,
+						borderWidth: 1,
+						borderColor: "black",
+						formatter: function(value) {
+						    return Math.round(value) + '%';
+}
 					}
 				},
 			maintainAspectRatio: false,
-			legend: {
-				    display: true,
-				    position: 'top',
-					    labels: {
-						fontColor: 'rgb(0, 0, 0)',
-						    }
-				},
+			legend: false,
 			scales:{
-				xAxes: [{
-				    stacked: false
-				}],
+				xAxes: 
+				[
+				 {
+					  id:'xAxis1',
+					  type:"category",
+					  ticks:{
+					    callback:function(label){
+					      var cat = label.split(";")[0];
+					      var typeo = label.split(";")[1];
+					      var typet = label.split(";")[2];
+					        return [typeo+' | '+typet,cat];
+					    }
+					  }					},
+				/*	{
+					  id:'xAxis2',
+					  type:"category",
+					  gridLines: {
+					    drawOnChartArea: false, // only want the grid lines for one axis to show up
+					  },
+					  ticks:{
+					    callback:function(label){
+					      var month = label.split(";")[0];
+					      return month; 
+					    }
+					  }
+
+					}*/
+				],
 				yAxes: [{
+				id:'yAxis1',
 				stacked: false
 				}]
 			    }

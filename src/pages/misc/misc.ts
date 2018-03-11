@@ -5,7 +5,7 @@ import { Chart } from 'chart.js';
 import 'chartjs-plugin-datalabels';
 
 import { graphBar } from '../../utils/func';
-import { perfDataListFunc,perfDataEntFunc,parseDateTime,perfDataLastFunc, graphOpt } from '../../utils/func';
+import { perfDataListFunc,perfDataEntFunc,parseDateTime,perfDataLastFunc, graphOpt ,getColor, getInfo, getExt} from '../../utils/func';
 import { catData } from '../../utils/types';
 /**
  * Generated class for the MiscPage page.
@@ -32,6 +32,7 @@ export class MiscPage{
 	dpsCat: catData;
 
 	spacer: string;
+	showfoot: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public EvsCall : EvscallProvider) {
 	//super(navCtrl, navParams, EvsCall);  
@@ -49,6 +50,7 @@ export class MiscPage{
 	this.CatCol.push(this.sebCat);
 	this.CatCol.push(this.dpsCat);
 	this.spacer="  -  ";
+	this.showfoot="none";  
 
   }
 ionViewWillEnter(){
@@ -91,44 +93,62 @@ load= () : void =>{
 
 
 }
- actSelect=(area : string): void =>
+export const actSelect=(area : string): void =>
 	{
+
 	this.CatCol.forEach( (cat) => {
 
 	cat.select = area ==cat.name ? '#f0f0f0' : '#ffffff';
 	});
-	
 	if(this.lineChart==null){} 
 		else{this.lineChart.destroy();}
-			
+	
+	if(this.showfoot){
+	
+	this.showfoot="inline";
+	}		
+
 	this.actGraph(area);
 	}	
 
 
  actGraph= (area : string): void  =>{
 	let drawGraph= ( area : string): void =>{ 
-
 		var data = {
-		  labels: [`${this.hbwCat.name}`,
-			        `${this.tryCat.name}`,
-				`${this.excCat.name}`,
-				`${this.sebCat.name}`,
-				`${this.dpsCat.name}`],
+		  labels: [     `${getInfo(this.hbwCat.name)};Platz;Kanal`,
+			        `${getInfo(this.tryCat.name)};Platz;Kanal`,
+				`${getInfo(this.excCat.name)};Platz;Kanal`,
+				`${getInfo(this.sebCat.name)};Platz;Kanal`,
+				`DPS Fuellgrad;Platz;Kanal`
+		           ],
 		  datasets: [{
 		    label: "Platz",
-		    backgroundColor: "lightblue",
+		    backgroundColor: [
+				getColor(this.hbwCat.name),
+				getColor(this.tryCat.name),
+				getColor(this.excCat.name),
+				getColor(this.sebCat.name),
+				"#0066ff"
+			        ],
+
 		    data: [
-			   this.hbwCat.data,
-			   this.tryCat.data,
-			   this.excCat.data,
-			   this.sebCat.data,
-			   this.dpsCat.data
+				   this.hbwCat.data,
+				   this.tryCat.data,
+				   this.excCat.data,
+				   this.sebCat.data,
+				   this.dpsCat.data
 				    ],
-		    dataLabels: {
-				}
 		  }, {
 		    label: "Kanal",
-		    backgroundColor: "lightcoral",
+		    backgroundColor: [
+				getExt(this.hbwCat.name),
+				getExt(this.tryCat.name),
+				getExt(this.excCat.name),
+				getExt(this.sebCat.name),
+				"#0047b3"
+			        ],
+
+
 		    data: [
 				this.hbwCat.datasec,
 				this.tryCat.datasec,
@@ -137,8 +157,6 @@ load= () : void =>{
 				this.dpsCat.datasec
 					    ],
 
-		    dataLabels: {
-				}
 		  }
 		  ]
 		};
@@ -146,7 +164,11 @@ load= () : void =>{
 		this.lineChart =
 			 new Chart(this.lineCanvas.nativeElement,graphBar(data, area)
 		);
+
+		
+		
 	}
+
 		drawGraph(area);
 }
 }
