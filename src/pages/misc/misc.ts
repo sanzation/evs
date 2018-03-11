@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EvscallProvider } from '../../providers/evscall/evscall';
 import { Chart } from 'chart.js';
-
+import 'chartjs-plugin-datalabels';
 
 import { graphBar } from '../../utils/func';
 import { perfDataListFunc,perfDataEntFunc,parseDateTime,perfDataLastFunc, graphOpt } from '../../utils/func';
@@ -38,7 +38,7 @@ export class MiscPage{
 	this.CatCol=new Array<catData>();  
 	 setInterval(()=>{this.load();},60000);
 	this.hbwCat=new catData('hbw');
-	this.tryCat=new catData('opm');  
+	this.tryCat=new catData('try');  
 	this.excCat=new catData('exc');
 	this.sebCat=new catData('seb');
 	this.dpsCat=new catData('dps');
@@ -118,23 +118,27 @@ load= () : void =>{
 		    label: "Platz",
 		    backgroundColor: "lightblue",
 		    data: [
-		   this.hbwCat.data,
-		   this.tryCat.data,
-		   this.excCat.data,
-		   this.sebCat.data,
-		   this.dpsCat.data
-				    ]
-
+			   this.hbwCat.data,
+			   this.tryCat.data,
+			   this.excCat.data,
+			   this.sebCat.data,
+			   this.dpsCat.data
+				    ],
+		    dataLabels: {
+				}
 		  }, {
 		    label: "Kanal",
 		    backgroundColor: "lightcoral",
 		    data: [
-			this.hbwCat.datasec,
-			this.tryCat.datasec,
-			this.excCat.datasec,
-			this.sebCat.datasec,
-			this.dpsCat.datasec
-					    ]
+				this.hbwCat.datasec,
+				this.tryCat.datasec,
+				this.excCat.datasec,
+				this.sebCat.datasec,
+				this.dpsCat.datasec
+					    ],
+
+		    dataLabels: {
+				}
 		  }
 		  ]
 		};

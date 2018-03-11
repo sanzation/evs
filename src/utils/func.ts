@@ -123,8 +123,19 @@ export const graphBar = (data : any, area : string )  : any =>
 		    type: 'bar',
 		    data: data, 
 		options: {
-			    maintainAspectRatio: false,
-				legend: {
+			plugins: {
+					datalabels: {
+						display: true,
+					        align: 'end',	
+						font: {
+							weight: 'bold'
+						},
+						offset: 8,
+						formatter: Math.round
+					}
+				},
+			maintainAspectRatio: false,
+			legend: {
 				    display: true,
 				    position: 'top',
 					    labels: {
@@ -133,10 +144,10 @@ export const graphBar = (data : any, area : string )  : any =>
 				},
 			scales:{
 				xAxes: [{
-				    stacked: true
+				    stacked: false
 				}],
 				yAxes: [{
-				stacked: true
+				stacked: false
 				}]
 			    }
                 }
