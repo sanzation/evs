@@ -32,7 +32,8 @@ export class MiscPage{
 	dpsCat: catData;
 
 	spacer: string;
-	showfoot: string;
+	showheight: string;
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public EvsCall : EvscallProvider) {
 	//super(navCtrl, navParams, EvsCall);  
@@ -50,7 +51,6 @@ export class MiscPage{
 	this.CatCol.push(this.sebCat);
 	this.CatCol.push(this.dpsCat);
 	this.spacer="  -  ";
-	this.showfoot="none";  
 
   }
 ionViewWillEnter(){
@@ -93,24 +93,24 @@ load= () : void =>{
 
 
 }
-export const actSelect=(area : string): void =>
+actSelect=(area : string): void =>
 	{
-
+	this.showheight='20%';
 	this.CatCol.forEach( (cat) => {
 
 	cat.select = area ==cat.name ? '#f0f0f0' : '#ffffff';
 	});
-	if(this.lineChart==null){} 
-		else{this.lineChart.destroy();}
 	
-	if(this.showfoot){
-	
-	this.showfoot="inline";
-	}		
 
+	//if(this.lineChart==null){ 
+	//} 
+	//else{
+	//this.lineChart.destroy();
+	
+	//	}
+		
 	this.actGraph(area);
 	}	
-
 
  actGraph= (area : string): void  =>{
 	let drawGraph= ( area : string): void =>{ 

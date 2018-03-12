@@ -112,11 +112,11 @@
 </ion-card>
 
 </ion-content>
-<ion-footer [ngStyle]="{display:showfoot}"  class="graphfooter">
+<ion-footer  [style.height]="showheight" class="graphfooter">
 	<ion-card class="graphcard">
 	      <!--ion-card-header> <h1 class="category">Graph</h1></ion-card-header-->
 	      <ion-card-content>
-		<canvas class="graphcanvas" #lineCanvas></canvas>
+		<canvas  class="graphcanvas" #lineCanvas></canvas>
 	      </ion-card-content>
 	</ion-card>
 </ion-footer>

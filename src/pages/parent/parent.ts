@@ -22,7 +22,8 @@ export class ParentPage {
 	lineChart:any;
 	EvsData:any;
 	CatCol: Array<catData>;
-	timeleft: string;			
+	timeleft: string;	
+	showheight: string;	
 	
   constructor(public navCtrl: NavController, public navParams: NavParams,public EvsCall : EvscallProvider) {
 	this.CatCol=new Array<catData>();  
@@ -52,6 +53,7 @@ this.EvsCall.getData().subscribe(EvsData=>{
 
 actSelect=(area : string): void =>
 	{
+	this.showheight='20%';	
 	this.CatCol.forEach( (cat) => {		
 	cat.select = area ==cat.name ? '#f0f0f0' : '#ffffff';
 	});

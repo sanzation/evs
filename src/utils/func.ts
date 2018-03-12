@@ -148,6 +148,7 @@ export const graphBar = (data : any, area : string )  : any =>
 					}
 				},
 			maintainAspectRatio: false,
+			responsive: true,
 			legend: false,
 			scales:{
 				xAxes: 
