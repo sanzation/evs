@@ -1,0 +1,13 @@
+{
+  "name": "EvsApp",
+  "app_id": "26dc7052",
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      
+    }
+  ],
+  "integrations": {
+    "cordova": {}
+  }
+}
