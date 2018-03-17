@@ -5,7 +5,7 @@ import { Chart } from 'chart.js';
 import 'chartjs-plugin-datalabels';
 
 import { graphBar } from '../../utils/func';
-import { perfDataListFunc,perfDataEntFunc,parseDateTime,perfDataLastFunc, graphOpt ,getColor, getInfo, getExt} from '../../utils/func';
+import { getColor, getInfo, getExt} from '../../utils/func';
 import { catData } from '../../utils/types';
 /**
  * Generated class for the MiscPage page.
