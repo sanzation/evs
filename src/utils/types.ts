@@ -14,8 +14,8 @@ export class catData{
 	this.perfDiffCol='primary';
 	this.select=' ';
 	this.name=name;	
-	this.data=16;	
-	this.datasec=3;	
+	this.data=0;	
+	this.datasec=0;	
 	}
 }
 export class evsTime{
