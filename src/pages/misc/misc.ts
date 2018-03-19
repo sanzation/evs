@@ -25,11 +25,11 @@ export class MiscPage{
 	EvsData:any;
 	CatCol: Array<catData>;
 
+	dpsCat: catData;
 	hbwCat: catData;
 	tryCat: catData;
 	excCat: catData;
 	sebCat: catData;
-	dpsCat: catData;
 
 	spacer: string;
 	showheight: string;
@@ -39,17 +39,17 @@ export class MiscPage{
 	//super(navCtrl, navParams, EvsCall);  
 	this.CatCol=new Array<catData>();  
 	 setInterval(()=>{this.load();},60000);
+	this.dpsCat=new catData('dps');
 	this.hbwCat=new catData('hbw');
 	this.tryCat=new catData('try');  
 	this.excCat=new catData('exc');
 	this.sebCat=new catData('seb');
-	this.dpsCat=new catData('dps');
 
+	this.CatCol.push(this.dpsCat);
 	this.CatCol.push(this.hbwCat);
 	this.CatCol.push(this.tryCat);
 	this.CatCol.push(this.excCat);
 	this.CatCol.push(this.sebCat);
-	this.CatCol.push(this.dpsCat);
 	this.spacer="  -  ";
 
   }
@@ -58,40 +58,32 @@ ionViewWillEnter(){
 	this.load();
 }	
 load= () : void =>{
+	this.EvsCall.getData().subscribe(EvsData=>{
+			this.EvsData= EvsData.current_observation;
+			this.dpsCat.data=Math.round(EvsData.getPerfEntityResult.kkinvdpsinv/560);
+			this.dpsCat.datasec=this.dpsCat.data;  
+		     });
 
 	this.EvsCall.getFill().subscribe(EvsData=>{
-	this.EvsData= EvsData.current_observation;
+		this.EvsData= EvsData.current_observation;
 
 
 	this.CatCol= this.CatCol.map( (cat) : catData => {
-	if(cat.name!=='dps'){	
-		var obj = EvsData.getFillListResult.find( (data) => {return data.area.toLowerCase()===cat.name});
-		cat.data=obj.locfill;
-		cat.datasec=obj.chanfill;
-		return cat;	
+		if(cat.name=='dps'){
+			console.log(cat);
+			return cat;
 		}
-	else
+		else
 		{
-		
-		  this.EvsCall.getData().subscribe(EvsData=>{
-			this.EvsData= EvsData.current_observation;
-
-			cat.data=Math.round(EvsData.getPerfEntityResult.kkinvdpsinv/560);
-			cat.datasec=cat.data;  
-		     });
-		
-		return cat;
+			console.log(cat);
+			var obj = EvsData.getFillListResult.find( (data) => {return data.area.toLowerCase()===cat.name});
+			cat.data=obj.locfill;
+			cat.datasec=obj.chanfill;
+			return cat;	
 		}
-
-	}
-	)
-	;
-	
-     });
-
-
-
-
+		
+	});
+   }	
 }
 actSelect=(area : string): void =>
 	{

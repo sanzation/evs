@@ -15,7 +15,7 @@ export class EvscallProvider {
 
 	
 	//test : string="http://localhost:8100/api";
-	test : string="http://sbs07r2bck02.sbs07wmsdom.local:38317";
+	test : string="http://evs.sbs07wmsdom.local:38317/EvsDataServiceWeb";
 
 	ent : string="/getDataEnt";
 	list : string="/getDataList";
