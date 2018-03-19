@@ -67,23 +67,22 @@ load= () : void =>{
 	this.EvsCall.getFill().subscribe(EvsData=>{
 		this.EvsData= EvsData.current_observation;
 
-
-	this.CatCol= this.CatCol.map( (cat) : catData => {
-		if(cat.name=='dps'){
-			console.log(cat);
-			return cat;
-		}
-		else
-		{
+		this.CatCol= this.CatCol.map( (cat) : catData => {
+			if(cat.name==='dps'){
+				console.log(cat);
+				return cat;
+			}
+			else
+			{
 			console.log(cat);
 			var obj = EvsData.getFillListResult.find( (data) => {return data.area.toLowerCase()===cat.name});
 			cat.data=obj.locfill;
 			cat.datasec=obj.chanfill;
 			return cat;	
-		}
+			}
 		
-	});
-   }	
+		});
+	   });	
 }
 actSelect=(area : string): void =>
 	{
