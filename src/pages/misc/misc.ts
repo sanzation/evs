@@ -33,7 +33,8 @@ export class MiscPage{
 
 	spacer: string;
 	showheight: string;
-
+	stateInfo: string;
+	state: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public EvsCall : EvscallProvider) {
 	//super(navCtrl, navParams, EvsCall);  
@@ -62,7 +63,13 @@ load= () : void =>{
 			this.EvsData= EvsData.current_observation;
 			this.dpsCat.data=Math.round(EvsData.getPerfEntityResult.kkinvdpsinv/560);
 			this.dpsCat.datasec=this.dpsCat.data;  
-		     });
+			this.stateInfo=`Aktualisiert: ${this.EvsData.getPerfEntityResult.gendate}`;
+			this.state="stateok";
+		     },
+	error => {this.stateInfo=`Error: ${error.status} Info: ${error.statusText}`;
+		  this.state="stateerr";
+		 }
+	);
 
 	this.EvsCall.getFill().subscribe(EvsData=>{
 		this.EvsData= EvsData.current_observation;
