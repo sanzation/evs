@@ -14,8 +14,12 @@ import 'rxjs/add/operator/map';
 export class EvscallProvider {
 
 	
-	//test : string="http://10.29.32.68:8100/api";
-	test : string="http://evs.sbs07wmsdom.local:38317/EvsDataServiceWeb"
+	//test : string="http://localhost:8100/api";
+	test : string="http://evs.sbs07wmsdom.local:38317/EvsDataServiceWeb";
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0c48fef051ca97f3e6c760445b4d760eb71faeec
 	ent : string="/getDataEnt";
 	list : string="/getDataList";
 	rou : string="/getRouList";

@@ -42,7 +42,7 @@ load= () : void =>{
 this.EvsCall.getData().subscribe(EvsData=>{
 	this.EvsData= EvsData.current_observation;
 	this.CatCol.map((cat)=>{ cat.data=perfDataEntFunc(cat.name,EvsData) });
-	this.stateInfo=`Aktualisiert: ${this.EvsData.getPerfEntityResult.gendate}`;
+	this.stateInfo=`Aktualisiert: ${parseDateTime(perfDataEntFunc('gen',EvsData))}`;
 	this.state="stateok";
      },
 	error => {this.stateInfo=`Error: ${error.status} Info: ${error.statusText}`;

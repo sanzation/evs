@@ -15,7 +15,7 @@ const identDict= {
 			'wa':		() => {return new identData('wa','#ccbd7c', 'WA','wa')},
 			'dps':		() => {return new identData('dps','#d17373', 'DPS','dps')},
 			'cps':		() => {return new identData('cps','#9bbb59','CPS','cps')},
-			'opm':		() => {return new identData('opm','#99b3dd','OPM','opm')},
+			'opmm':		() => {return new identData('opm','#99b3dd','OPM','opm')},
 			'inlay':	() => {return new identData('inlay','#99b3dd','Inlay','inlay')},
 			'com':		() => {return new identData("com","#002f7c","COM Ko/h","comperf")},
 			'dep':		() => {return new identData('dep' , '#00707c', 'DEP Ko/h', "depperf")},
@@ -54,9 +54,10 @@ const identDict= {
 			'dopenn':	() => {return new identData('dopenn',	'#656565' , 'Offene Auftragskolli morgen',"dopen2")},
 			'copenn':	() => {return new identData('copenn',	'#454545' , 'Offene Auftragskolli morgen',"copen2")},
 			'hbw':		() => {return new identData('hbw',	'#cc33ff' , 'Hochregal Fuellgrad',"#ac00e6")},
-			'try':		() => {return new identData('try',	'#ffcc99' , 'Traylager Fuellgrad',"#ffa64d")},
+			'opm':		() => {return new identData('opm',	'#ffcc99' , 'Traylager Fuellgrad',"#ffa64d")},
 			'exc':		() => {return new identData('exc',	'#ff6600' , 'Exchanger Fuellgrad',"#b34700")},
 			'seb':		() => {return new identData('seb',	'#33cccc' , 'Sequencer Fuellgrad',"#248f8f")},
+			'gen':		() => {return new identData('gen',	'#33cccc' , 'Gendate',"gendate")}
 			}; 
 			
 
@@ -105,6 +106,9 @@ export const graphOpt = (labeldata : any, perfdata : any, area : string, info : 
 			],
 		    },
 		 options: {
+			 plugins: {
+			     datalabels:{display: false}
+			 }, 
                     maintainAspectRatio: false,
 			legend: {
 			    display: true,

@@ -5,7 +5,7 @@ import { Chart } from 'chart.js';
 import 'chartjs-plugin-datalabels';
 
 import { graphBar } from '../../utils/func';
-import { getColor, getInfo, getExt} from '../../utils/func';
+import { getColor, getInfo, getExt, parseDateTime, perfDataEntFunc} from '../../utils/func';
 import { catData } from '../../utils/types';
 /**
  * Generated class for the MiscPage page.
@@ -42,7 +42,7 @@ export class MiscPage{
 	 setInterval(()=>{this.load();},60000);
 	this.dpsCat=new catData('dps');
 	this.hbwCat=new catData('hbw');
-	this.tryCat=new catData('try');  
+	this.tryCat=new catData('opm');  
 	this.excCat=new catData('exc');
 	this.sebCat=new catData('seb');
 
@@ -63,7 +63,7 @@ load= () : void =>{
 			this.EvsData= EvsData.current_observation;
 			this.dpsCat.data=Math.round(EvsData.getPerfEntityResult.kkinvdpsinv/560);
 			this.dpsCat.datasec=this.dpsCat.data;  
-			this.stateInfo=`Aktualisiert: ${this.EvsData.getPerfEntityResult.gendate}`;
+			this.stateInfo=`Aktualisiert: ${parseDateTime(perfDataEntFunc('gen',EvsData))}`;
 			this.state="stateok";
 		     },
 	error => {this.stateInfo=`Error: ${error.status} Info: ${error.statusText}`;
