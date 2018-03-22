@@ -25,8 +25,10 @@ export class EvscallProvider {
   constructor(public http: Http) {
   }
 	getData(){
-	return this.http.get(`${this.test}${this.ent}`)
-		.map(res => res.json());
+	return this.http
+		.get(`${this.test}${this.ent}`)
+		.map(res => res.json())
+		;
 	
 	}
 	
@@ -51,5 +53,7 @@ export class EvscallProvider {
 		.map(res => res.json());
 	
 	}
+	
+
 }
 

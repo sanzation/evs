@@ -21,9 +21,12 @@ export class ParentPage {
 	@ViewChild('lineCanvas') lineCanvas;
 	lineChart:any;
 	EvsData:any;
+	ErrorData: any;
 	CatCol: Array<catData>;
 	timeleft: string;	
 	showheight: string;	
+	stateInfo: string;
+	state: string;
 	
   constructor(public navCtrl: NavController, public navParams: NavParams,public EvsCall : EvscallProvider) {
 	this.CatCol=new Array<catData>();  
@@ -39,7 +42,13 @@ load= () : void =>{
 this.EvsCall.getData().subscribe(EvsData=>{
 	this.EvsData= EvsData.current_observation;
 	this.CatCol.map((cat)=>{ cat.data=perfDataEntFunc(cat.name,EvsData) });
-     });
+	this.stateInfo=`Aktualisiert: ${this.EvsData.getPerfEntityResult.gendate}`;
+	this.state="stateok";
+     },
+	error => {this.stateInfo=`Error: ${error.status} Info: ${error.statusText}`;
+		  this.state="stateerr";
+		 }
+	);
 
    this.EvsCall.getList().subscribe(EvsData=>{
 	this.EvsData= EvsData.current_observation;
@@ -80,5 +89,4 @@ actGraph= (area : string): void  =>{
 	}
 		drawGraph(area);
 }
-
 }

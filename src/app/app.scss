@@ -12,6 +12,16 @@
 {
 	color: color($colors, light);
 }
+.stateok
+{
+	color: color($colors, light);
+	text-align: right;
+}
+.stateerr
+{
+	color: color($colors, danger);
+	text-align: right;
+}
 .card-md h1
 {
 	color: color($colors, light);
