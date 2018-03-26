@@ -48,7 +48,7 @@
 					<!--ion-badge [color]="hbwCat.perfDiffCol">{{hbwCat.perfDiff}}</ion-badge-->
 				</ion-col>
 			</ion-row>
-			<ion-row [style.backgroundColor]="tryCat.select" (click)="actSelect('try')">
+			<ion-row [style.backgroundColor]="tryCat.select" (click)="actSelect('opm')">
 				<ion-col class="colo">
 					<p class="area">Tray</p>
 				</ion-col>  
@@ -116,7 +116,7 @@
 	<ion-card class="graphcard">
 	      <!--ion-card-header> <h1 class="category">Graph</h1></ion-card-header-->
 	      <ion-card-content>
-		<canvas  class="graphcanvas" #lineCanvas></canvas>
+			<canvas  class="graphcanvas" #lineCanvas></canvas>
 	      </ion-card-content>
 	</ion-card>
 </ion-footer>

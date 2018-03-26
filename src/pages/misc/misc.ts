@@ -76,12 +76,10 @@ load= () : void =>{
 
 		this.CatCol= this.CatCol.map( (cat) : catData => {
 			if(cat.name==='dps'){
-				console.log(cat);
 				return cat;
 			}
 			else
 			{
-			console.log(cat);
 			var obj = EvsData.getFillListResult.find( (data) => {return data.area.toLowerCase()===cat.name});
 			cat.data=obj.locfill;
 			cat.datasec=obj.chanfill;
@@ -93,7 +91,7 @@ load= () : void =>{
 }
 actSelect=(area : string): void =>
 	{
-	this.showheight='20%';
+	this.showheight='30%';
 	this.CatCol.forEach( (cat) => {
 
 	cat.select = area ==cat.name ? '#f0f0f0' : '#ffffff';
@@ -113,11 +111,11 @@ actSelect=(area : string): void =>
  actGraph= (area : string): void  =>{
 	let drawGraph= ( area : string): void =>{ 
 		var data = {
-		  labels: [     `${getInfo(this.hbwCat.name)};Platz;Kanal`,
-			        `${getInfo(this.tryCat.name)};Platz;Kanal`,
-				`${getInfo(this.excCat.name)};Platz;Kanal`,
-				`${getInfo(this.sebCat.name)};Platz;Kanal`,
-				`DPS Fuellgrad;Platz;Kanal`
+		  labels: [     `${getInfo(this.hbwCat.name)};Loc;Cha`,
+			        `${getInfo(this.tryCat.name)};Loc;Cha`,
+				`${getInfo(this.excCat.name)};Loc;Cha`,
+				`${getInfo(this.sebCat.name)};Loc;Cha`,
+				`DPS;Loc;Cha`
 		           ],
 		  datasets: [{
 		    label: "Platz",

@@ -6,6 +6,7 @@ import { CpsPage } from '../cps/cps';
 import { WaPage } from '../wa/wa';
 import { WePage } from '../we/we';
 import { MiscPage } from '../misc/misc';
+import { CamsPage } from '../cams/cams';
 
 @Component({
   selector: 'page-home',
@@ -36,6 +37,9 @@ export class HomePage {
    }
    pushMisc(){
    this.navCtrl.push(MiscPage);
+   }
+   pushCams(){
+   this.navCtrl.push(CamsPage);
    }
 }
 

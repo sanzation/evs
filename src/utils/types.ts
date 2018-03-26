@@ -54,3 +54,9 @@ export class identData{
 	}
 
 }
+
+export class camData{
+	constructor(public name: string, public url: string){
+	}
+
+}

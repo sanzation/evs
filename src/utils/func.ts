@@ -53,10 +53,10 @@ const identDict= {
 			'copen':	() => {return new identData('copen',	'#747474', 'Offene Auftragskolli heute'  ,"copen")},
 			'dopenn':	() => {return new identData('dopenn',	'#656565' , 'Offene Auftragskolli morgen',"dopen2")},
 			'copenn':	() => {return new identData('copenn',	'#454545' , 'Offene Auftragskolli morgen',"copen2")},
-			'hbw':		() => {return new identData('hbw',	'#cc33ff' , 'Hochregal Fuellgrad',"#ac00e6")},
-			'opm':		() => {return new identData('opm',	'#ffcc99' , 'Traylager Fuellgrad',"#ffa64d")},
-			'exc':		() => {return new identData('exc',	'#ff6600' , 'Exchanger Fuellgrad',"#b34700")},
-			'seb':		() => {return new identData('seb',	'#33cccc' , 'Sequencer Fuellgrad',"#248f8f")},
+			'hbw':		() => {return new identData('hbw',	'#cc33ff' , 'HBW',"#ac00e6")},
+			'opm':		() => {return new identData('opm',	'#ffcc99' , 'TRY',"#ffa64d")},
+			'exc':		() => {return new identData('exc',	'#ff6600' , 'EXC',"#b34700")},
+			'seb':		() => {return new identData('seb',	'#33cccc' , 'SEB',"#248f8f")},
 			'gen':		() => {return new identData('gen',	'#33cccc' , 'Gendate',"gendate")}
 			}; 
 			
@@ -165,7 +165,7 @@ export const graphBar = (data : any, area : string )  : any =>
 					      var cat = label.split(";")[0];
 					      var typeo = label.split(";")[1];
 					      var typet = label.split(";")[2];
-					        return [typeo+' | '+typet,cat];
+					        return [typeo+'|'+typet,cat];
 					    }
 					  }					},
 				/*	{
