@@ -14,7 +14,10 @@ import { WaPage } from '../pages/wa/wa';
 import { WePage } from '../pages/we/we';
 import { ParentPage } from '../pages/parent/parent';
 import { MiscPage } from '../pages/misc/misc';
+import { CamsPage } from '../pages/cams/cams';
+import { CamDetailPage } from '../pages/cam-detail/cam-detail';
 import { EvscallProvider } from '../providers/evscall/evscall';
+import { EvstestProvider } from '../providers/evstest/evstest';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import { EvscallProvider } from '../providers/evscall/evscall';
     WaPage, 
     WePage, 
     MiscPage,
-    ParentPage  
+    ParentPage,
+    CamsPage,
+    CamDetailPage	  
   ],
   imports: [
     BrowserModule,
@@ -43,7 +48,9 @@ import { EvscallProvider } from '../providers/evscall/evscall';
     WaPage, 
     WePage, 
     MiscPage,
-    ParentPage  
+    ParentPage, 
+    CamsPage,
+    CamDetailPage
 
     ],
   providers: [

@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Cams</ion-title><div [class]="state">{{stateInfo}}</div>
+    <ion-title>Kameras</ion-title><div [class]="state">{{stateInfo}}</div>
   </ion-navbar>
 
 </ion-header>
@@ -15,7 +15,7 @@
 
 <ion-content padding>
 	<ion-list>
-	  <button ion-item *ngFor="let cam of camList" (click)="camSelected(cam)">
+	  <button ion-item *ngFor="let cam of camList" (click)="camSelect(cam)">
 	    {{ cam.name }}
 	  </button>  
 	</ion-list>

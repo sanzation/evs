@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { EvscallProvider } from '../../providers/evscall/evscall';
+import { camData } from '../../utils/types';
+import { CamDetailPage } from '../cam-detail/cam-detail';
 /**
  * Generated class for the CamsPage page.
  *
@@ -15,9 +17,14 @@ import { EvscallProvider } from '../../providers/evscall/evscall';
   templateUrl: 'cams.html',
 })
 export class CamsPage {
-	camList : any;
+	camList : Array<camData>;
+	stateInfo: string;
+	state: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public EvsCall : EvscallProvider) {
+	 this.camList =new Array<camData>();
+	 setInterval(()=>{this.load();},60000);
+
   }
 
 ionViewWillEnter(){
@@ -27,7 +34,9 @@ ionViewWillEnter(){
 load= () : void =>{
 	this.EvsCall.getCam().subscribe(EvsData=>{
 			this.EvsData= EvsData.current_observation;
-			this.camList=EvsData.getCamListResult;
+			this.camList=EvsData.getCamListResult.map((data)=>{ return new camData(data.name,data.url)});
+			this.stateInfo=`Aktualisiert: ${parseDateTime(perfDataEntFunc('gen',EvsData))}`;
+			this.state="stateok";
 		     },
 	error => {this.stateInfo=`Error: ${error.status} Info: ${error.statusText}`;
 		  this.state="stateerr";
@@ -35,8 +44,8 @@ load= () : void =>{
 	);
 	
 }
-camSelect(cam : Cam){
-
+camSelect(cam : camData){
+ this.navCtrl.push(CamDetailPage, {first: cam}); 
 }	
 
 }

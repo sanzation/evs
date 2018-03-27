@@ -21,6 +21,7 @@ export class EvscallProvider {
 	rou : string="/getRouList";
 	fill : string="/getFillList";
 	cam : string="/getCamList";
+	op : string="/getOpList";
 
   constructor(public http: Http) {
   }
@@ -46,14 +47,18 @@ export class EvscallProvider {
 	getCam(){
 	return this.http.get(`${this.test}${this.cam}`)
 		.map(res => res.json());
-	
+
+
 	}
 	getFill(){
 	return this.http.get(`${this.test}${this.fill}`)
 		.map(res => res.json());
-	
 	}
-	
+
+	getOp(){
+	return this.http.get(`${this.test}${this.op}`)
+		.map(res => res.json());
+	}
 
 }
 
