@@ -41,7 +41,8 @@ load=(type : string) : void => {
 		  this.state="stateerr";
 		 }
 	);*/
-	this.opList=EvsCall.getOp(type);
+	
+	this.opList=this.EvsCall.getOp(type);
 }	
 
 }

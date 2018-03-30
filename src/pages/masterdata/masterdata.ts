@@ -27,6 +27,7 @@ export class MasterdataPage extends OpparentPage {
 
   ionViewWillEnter() {
 	this.load('masterdata');
+	console.log(this.opList);  
   }
 
 }

@@ -73,8 +73,6 @@ export class opData{
 	comment: string; // Like-Item Gruppenfehler Strategie OPM auf Lagerbestand
 	opcnt: number; // 633
 	gendate: string; //sysdate
-	icon: string; // ios-alert
-	iconcol: string;
 	
 	constructor(ident: string,type : string, source : string,
 	comment : string, opcnt : number, gendate : string
@@ -85,25 +83,7 @@ export class opData{
 		this.comment=comment; 
 		this.opcnt=opcnt; 
 		this.gendate=gendate; 
-		
-		switch(type){
-			case 'error':	
-			this.icon='ion-alert';
-			this.iconcol='#af1f0c';       	
-			break;			
-			case 'info':	
-			this.icon='ion-information'; 
-			this.iconcol='#4286f4';       	
-			break;			
-			case 'stats':	
-			this.icon='ion-stats-bars'; 
-			this.iconcol='1e1e1e';       	
-			break;
-			default:
-			this.icon='ion-more';			
-			this.iconcol='#515050';       	
-		}
-		
+	
 	}
 
 }

@@ -12,11 +12,11 @@
 <ion-content padding>
 <ion-list>
 	  <ion-item *ngFor="let op of opList">
-		  <ion-icon name={{op.icon}} item-start></ion-icon>
+		  <ion-icon class="opsymbol" [name]="op.type" item-start></ion-icon><ion-badge class="opcnt">{{op.opcnt}}</ion-badge>
 		  <h2>{{op.ident}}</h2>
-		<p>{{op.comment}}</p>
-		<p>{{op.gendate}} -- {{op.source}}</p>
-		<ion-badge color={{op.iconcol}}>{{op.opcnt}}</ion-badge>	
+		  <p class="opccoment">{{op.comment}}</p>
+		<p>Gendate: {{op.gendate}} -- Quelle: {{op.source}}</p>
+			
 	  </ion-item>  
 </ion-list>
 

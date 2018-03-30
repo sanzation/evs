@@ -64,3 +64,45 @@ border-radius: 5px;
 .chart-wrapper
 {
 }
+.opcomment{
+	float: left;
+}
+.opcnt{
+	background-color: color($colors, secondary);
+	float: right;
+	padding: 2px 2px;
+	border-radius: 2px;
+}
+.opsymbol{
+	padding: 5px 5px 5px 5px;
+}
+.ion-md-alert{
+	color: color($colors, danger);
+}
+.ion-ios-alert{
+	color: color($colors, danger);
+}
+.ion-md-close-circle{
+	color: color($colors, danger);
+}
+.ion-ios-close-circle{
+	color: color($colors, danger);
+}
+.ion-md-information-circle{
+	color: color($colors, dep);
+}
+.ion-ios-information-circle{
+	color: color($colors, dep);
+}
+.ion-md-stats{
+	color: color($colors, com);
+}
+.ion-ios-stats{
+	color: color($colors, com);
+}
+.ion-md-warning{
+	color: color($colors, dps);
+}
+.ion-ios-warning{
+	color: color($colors, dps);
+}
