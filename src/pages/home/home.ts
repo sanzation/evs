@@ -7,6 +7,10 @@ import { WaPage } from '../wa/wa';
 import { WePage } from '../we/we';
 import { MiscPage } from '../misc/misc';
 import { CamsPage } from '../cams/cams';
+import { MasterdataPage } from '../masterdata/masterdata';
+import { StockPage } from '../stock/stock';
+import { ExpendablePage } from '../expendable/expendable';
+import { MaterialflowPage } from '../materialflow/materialflow';
 
 @Component({
   selector: 'page-home',
@@ -40,6 +44,22 @@ export class HomePage {
    }
    pushCams(){
    this.navCtrl.push(CamsPage);
+   }
+
+   pushMasterdata(){
+   this.navCtrl.push(MasterdataPage);
+   }
+
+   pushStock(){
+   this.navCtrl.push(StockPage);
+   }
+
+   pushExpendable(){
+   this.navCtrl.push(ExpendablePage);
+   }
+
+   pushMaterialflow(){
+   this.navCtrl.push(MaterialflowPage);
    }
 }
 

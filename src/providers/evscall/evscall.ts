@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { opData } from '../../utils/types';
 
 /*
   Generated class for the EvscallProvider provider.
@@ -55,9 +56,15 @@ export class EvscallProvider {
 		.map(res => res.json());
 	}
 
-	getOp(){
-	return this.http.get(`${this.test}${this.op}`)
-		.map(res => res.json());
+	getOp(type: string){
+	//return this.http.get(`${this.test}${this.op}/${type}`)
+	//	.map(res => res.json());
+         let opL : Array<opData>= new Array<opData>();	
+	opL.push(new opData('Like-Item Gruppenfehler','error','ZMA1050','Like-Item Gruppenfehler Strategie OPM auf Lagerbestand',434,'19.03.1234 23:24'));
+	opL.push(new opData('Artikelanzahl','stats','script','Artikelanzahl: OPM - 1234',1434,'19.03.1234 23:24'));
+
+	return	opL;
+									
 	}
 
 }

@@ -38,7 +38,6 @@ export class ParentPage {
 	 this.load();
      }
 load= () : void =>{
-	console.log('load data');
 this.EvsCall.getData().subscribe(EvsData=>{
 	this.EvsData= EvsData.current_observation;
 	this.CatCol.map((cat)=>{ cat.data=perfDataEntFunc(cat.name,EvsData) });

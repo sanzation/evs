@@ -13,11 +13,15 @@ import { CpsPage } from '../pages/cps/cps';
 import { WaPage } from '../pages/wa/wa';
 import { WePage } from '../pages/we/we';
 import { ParentPage } from '../pages/parent/parent';
+import { OpparentPage } from '../pages/opparent/opparent';
 import { MiscPage } from '../pages/misc/misc';
 import { CamsPage } from '../pages/cams/cams';
 import { CamDetailPage } from '../pages/cam-detail/cam-detail';
+import { MasterdataPage } from '../pages/masterdata/masterdata';
+import { StockPage } from '../pages/stock/stock';
+import { ExpendablePage } from '../pages/expendable/expendable';
+import { MaterialflowPage } from '../pages/materialflow/materialflow';
 import { EvscallProvider } from '../providers/evscall/evscall';
-import { EvstestProvider } from '../providers/evstest/evstest';
 
 @NgModule({
   declarations: [
@@ -30,8 +34,14 @@ import { EvstestProvider } from '../providers/evstest/evstest';
     WePage, 
     MiscPage,
     ParentPage,
+    OpparentPage,  
     CamsPage,
-    CamDetailPage	  
+    CamDetailPage,
+    MasterdataPage,
+    StockPage,
+    ExpendablePage,
+    MaterialflowPage	  
+
   ],
   imports: [
     BrowserModule,
@@ -49,8 +59,13 @@ import { EvstestProvider } from '../providers/evstest/evstest';
     WePage, 
     MiscPage,
     ParentPage, 
+    OpparentPage,	  
     CamsPage,
-    CamDetailPage
+    CamDetailPage,
+    MasterdataPage,
+    StockPage,
+    ExpendablePage,
+    MaterialflowPage	  
 
     ],
   providers: [

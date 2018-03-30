@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EvscallProvider } from '../../providers/evscall/evscall';
 import { camData } from '../../utils/types';
 import { CamDetailPage } from '../cam-detail/cam-detail';
+import { parseDateTime, perfDataEntFunc } from '../../utils/func';
 /**
  * Generated class for the CamsPage page.
  *
@@ -19,6 +20,7 @@ import { CamDetailPage } from '../cam-detail/cam-detail';
 export class CamsPage {
 	camList : Array<camData>;
 	stateInfo: string;
+	EvsData:any;
 	state: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public EvsCall : EvscallProvider) {
