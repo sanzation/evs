@@ -1,0 +1,41 @@
+page-opdetail {
+	
+.note{
+	font-size: 10.5px !important;
+	vertical-align: middle;
+	display: inline-block;
+	flex-basis: 0%;
+	flex-grow: 1;
+	flex-shrink: 1;
+	overflow: hidden;
+	overflow-wrap: break-word;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	text-align: right;
+
+}
+.opicon {
+	 vertical-align: middle;
+}
+
+.text{
+	  vertical-align: middle;
+}
+.col{
+	padding-top: 2px;
+	padding-left: 4px;
+	padding-right: 4px;
+	padding-bottom: 2px;
+}
+.grid{
+
+	padding-top: 2px;
+	padding-left: 6px;
+	padding-right: 2px;
+	padding-bottom: 2px;
+}
+
+
+}

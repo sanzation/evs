@@ -17,6 +17,7 @@ import { OpparentPage } from '../pages/opparent/opparent';
 import { MiscPage } from '../pages/misc/misc';
 import { CamsPage } from '../pages/cams/cams';
 import { CamDetailPage } from '../pages/cam-detail/cam-detail';
+import { OpdetailPage } from '../pages/opdetail/opdetail';
 import { MasterdataPage } from '../pages/masterdata/masterdata';
 import { StockPage } from '../pages/stock/stock';
 import { ExpendablePage } from '../pages/expendable/expendable';
@@ -40,7 +41,9 @@ import { EvscallProvider } from '../providers/evscall/evscall';
     MasterdataPage,
     StockPage,
     ExpendablePage,
-    MaterialflowPage	  
+    MaterialflowPage,
+    OpdetailPage
+
 
   ],
   imports: [
@@ -65,8 +68,8 @@ import { EvscallProvider } from '../providers/evscall/evscall';
     MasterdataPage,
     StockPage,
     ExpendablePage,
-    MaterialflowPage	  
-
+    MaterialflowPage,	  
+    OpdetailPage	  
     ],
   providers: [
     StatusBar,

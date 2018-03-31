@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EvscallProvider } from '../../providers/evscall/evscall';
 import { opData } from '../../utils/types';
 import { parseDateTime, perfDataEntFunc } from '../../utils/func';
+import { OpdetailPage } from '../opdetail/opdetail';
 /**
  * Generated class for the OpparentPage page.
  *
@@ -43,6 +44,9 @@ load=(type : string) : void => {
 	);*/
 	
 	this.opList=this.EvsCall.getOp(type);
+}
+opSelect(op : opData){
+	this.navCtrl.push(OpdetailPage,{first: op});
 }	
 
 }

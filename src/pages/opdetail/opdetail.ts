@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { camData } from '../../utils/types';
+import { opData } from '../../utils/types';
+
 /**
- * Generated class for the CamDetailPage page.
+ * Generated class for the OpdetailPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,20 +12,19 @@ import { camData } from '../../utils/types';
 
 @IonicPage()
 @Component({
-  selector: 'page-cam-detail',
-  templateUrl: 'cam-detail.html',
+  selector: 'page-opdetail',
+  templateUrl: 'opdetail.html',
 })
-export class CamDetailPage {
+export class OpdetailPage {
 
-	  cam : camData;
+	op: opData;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-	  
-	  this.cam=navParams.get("first");
-	  
-	  }
+	  this.op=navParams.get("first");
+  }
 
   ionViewDidLoad() {
+
   }
 
 }

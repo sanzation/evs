@@ -61,7 +61,7 @@ export class EvscallProvider {
 	//	.map(res => res.json());
          let opL : Array<opData>= new Array<opData>();	
 	opL.push(new opData('Like-Item Gruppenfehler','close-circle','ZMA1050','Like-Item Gruppenfehler Strategie OPM auf Lagerbestand',434,'19.03.1234 23:24'));
-	opL.push(new opData('Artikelanzahl','stats','script','Artikelanzahl: OPM - 1234',1434,'19.03.1234 23:24'));
+	opL.push(new opData('Artikelanzahl','stats','script','Artikelanzahl: OPM - 1234 <br> DPS - 1233 CPS - 12344  CPSMAN 21344',1434,'19.03.1234 23:24'));
 
 	return	opL;
 									
