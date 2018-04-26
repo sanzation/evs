@@ -26,7 +26,7 @@ export class DpsPage extends ParentPage{
 	drpckCat: catData;
 	dpuserCat: catData;
 	druserCat: catData;
-	dprio: catData;
+	dprioCat: catData;
 	oopenCat: catData;
 	oopennCat: catData;
 	stInlCat: catData;

@@ -41,8 +41,8 @@ export class WaPage extends ParentPage {
 	this.openCat=new catData('ocbopen');
 	this.open91Cat=new catData('ocbopen91');
 	this.open92Cat=new catData('ocbopen92');
-	this.waprioCat=new catData('waprio91');
-	this.waprioCat=new catData('waprio92');
+	this.waprio91Cat=new catData('waprio91');
+	this.waprio92Cat=new catData('waprio92');
 
 	this.CatCol.push(this.fillCat);
 	this.CatCol.push(this.fill91Cat);
