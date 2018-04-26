@@ -26,6 +26,8 @@ export class CpsPage extends ParentPage {
 	cdspCat: catData;
 	cpuserCat: catData;
 	cduserCat: catData;
+	caprioCat: catData;
+	cdprioCat: catData;
 	oopenCat: catData;
 	oopennCat: catData;
 
@@ -38,6 +40,8 @@ export class CpsPage extends ParentPage {
 	this.cdspCat =new catData('cpsd');  
 	this.cpuserCat=new catData('cpsacnt');
 	this.cduserCat=new catData('cpsdcnt');
+	this.caprioCat=new catData('caprio');
+	this.cdprioCat=new catData('cdprio');
 	this.oopenCat=new catData('copen');
 	this.oopennCat=new catData('copenn');
 
@@ -45,6 +49,8 @@ export class CpsPage extends ParentPage {
 	this.CatCol.push(this.cdspCat);
 	this.CatCol.push(this.cpuserCat);
 	this.CatCol.push(this.cduserCat);
+	this.CatCol.push(this.caprioCat);
+	this.CatCol.push(this.cdprioCat);
 	this.CatCol.push(this.oopenCat);
 	this.CatCol.push(this.oopennCat);
 

@@ -26,6 +26,7 @@ export class DpsPage extends ParentPage{
 	drpckCat: catData;
 	dpuserCat: catData;
 	druserCat: catData;
+	dprio: catData;
 	oopenCat: catData;
 	oopennCat: catData;
 	stInlCat: catData;
@@ -43,6 +44,7 @@ export class DpsPage extends ParentPage{
 	this.drpckCat =new catData('drpck');  
 	this.dpuserCat=new catData('dpcnt');
 	this.druserCat=new catData('drcnt');
+	this.dprioCat=new catData('dprio');
 	this.oopenCat=new catData('dopen');
 	this.oopennCat=new catData('dopenn');
 	this.stInlCat=new catData('stInl');
@@ -54,6 +56,7 @@ export class DpsPage extends ParentPage{
 	this.CatCol.push(this.drpckCat);
 	this.CatCol.push(this.dpuserCat);
 	this.CatCol.push(this.druserCat);
+	this.CatCol.push(this.dprioCat);
 	this.CatCol.push(this.oopenCat);
 	this.CatCol.push(this.oopennCat);
 	this.CatCol.push(this.stInlCat);

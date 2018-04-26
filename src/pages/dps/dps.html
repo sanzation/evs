@@ -86,7 +86,20 @@
 		<h1 class="category">Auftraege offen</h1>
 		</ion-card-header>
 		<ion-card-content>
-			<ion-row [style.backgroundColor]="oopenCat.select" (click)="actSelect('copen')">
+			<ion-row>
+				<ion-col class="colo">
+					<p class="area">Priozeit</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="dpick">{{dprio.data}}</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit"></p>
+				</ion-col>
+				<ion-col>
+				</ion-col>
+			</ion-row>
+			<ion-row [style.backgroundColor]="oopenCat.select" (click)="actSelect('dopen')">
 				<ion-col class="colo">
 					<p class="area">heute</p>
 				</ion-col>  
@@ -100,7 +113,7 @@
 					<ion-badge [color]="oopenCat.perfDiffCol">{{oopenCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
-			<ion-row [style.backgroundColor]="oopennCat.select" (click)="actSelect('copenn')">
+			<ion-row [style.backgroundColor]="oopennCat.select" (click)="actSelect('dopenn')">
 				<ion-col class="colo">
 					<p class="area">morgen</p>
 				</ion-col>  

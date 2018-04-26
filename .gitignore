@@ -13,6 +13,7 @@ log.txt
 npm-debug.log*
 *.jpg
 *.jpeg
+api.json
 
 .idea/
 .sourcemaps/

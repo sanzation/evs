@@ -31,6 +31,7 @@ export class OpmPage extends ParentPage{
 	depCat: catData;
 	comfCat: catData;
 	depfCat: catData;
+	oprioCat: catData;
 	oopenCat: catData;
 	oopennCat: catData;
 	stTryCat: catData;
@@ -49,6 +50,7 @@ export class OpmPage extends ParentPage{
 	this.depCat =new catData('dep');  
 	this.comfCat=new catData('comf');
 	this.depfCat=new catData('depf');
+	this.oprioCat=new catData('oprio');  
 	this.oopenCat=new catData('oopen');
 	this.oopennCat=new catData('oopenn');
 	this.stTryCat=new catData('stTry');
@@ -60,6 +62,7 @@ export class OpmPage extends ParentPage{
 	this.CatCol.push(this.depCat);
 	this.CatCol.push(this.comfCat);
 	this.CatCol.push(this.depfCat);
+	this.CatCol.push(this.oprioCat);  
 	this.CatCol.push(this.oopenCat);
 	this.CatCol.push(this.oopennCat);
 	this.CatCol.push(this.stTryCat);

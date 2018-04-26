@@ -89,6 +89,35 @@
 		<h1 class="category">Auftraege offen</h1>
 		</ion-card-header>
 		<ion-card-content>
+			<ion-row>
+				<ion-col class="colo">
+					<p class="area">Prio Cps Auto</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="cpsauto">{{caprioCat.data}}</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit"> </p>
+				</ion-col>
+				<ion-col>
+				</ion-col>
+			</ion-row>
+
+			<ion-row>
+				<ion-col class="colo">
+					<p class="area">Prio Cps Display</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="cpsauto">{{cdprioCat.data}}</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit"> </p>
+				</ion-col>
+				<ion-col>
+				</ion-col>
+			</ion-row>
+
+
 			<ion-row [style.backgroundColor]="oopenCat.select" (click)="actSelect('copen')">
 				<ion-col class="colo">
 					<p class="area">heute</p>
