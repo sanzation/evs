@@ -17,7 +17,7 @@
 <ion-card>
 		<ion-card-header>
 			<div class="card-header-div"></div>
-		<h1 class="category">Leistung</h1>
+		<h1 class="category">CPS-Auto</h1>
 		</ion-card-header>
 	<ion-card-content>
 			<ion-row [style.backgroundColor]="cpickCat.select" (click)="actSelect('cpsa')">
@@ -35,21 +35,87 @@
 				</ion-col>
 				
 			</ion-row>
-			<ion-row [style.backgroundColor]="cpuserCat.select" (click)="actSelect('cpsacnt')">
+			<ion-row [style.backgroundColor]="causerCat.select" (click)="actSelect('cpsacnt')">
 				<ion-col class="colo">
 					<p class="area"> </p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="cpsauto">{{cpuserCat.data}}</h1>
+					<h1 class="cpsauto">{{causerCat.data}}</h1>
 				</ion-col>
 				<ion-col col-auto>
 					<p class="unit">User</p>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="cpuserCat.perfDiffCol">{{cpuserCat.perfDiff}}</ion-badge>
+					<ion-badge [color]="causerCat.perfDiffCol">{{causerCat.perfDiff}}</ion-badge>
+				</ion-col>
+			</ion-row>
+			<ion-row>
+			<ion-col class="colo">
+					<p class="area">CPS Auto heute</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="cpsauto">{{caopenCat.data}}</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit">Kolli</p>
+				</ion-col>
+				<ion-col>
+					<ion-badge [color]="caopenCat.perfDiffCol">{{caopenCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
 		
+		
+			<ion-row [style.backgroundColor]="caopennCat.select" (click)="actSelect('caopenn')">
+				<ion-col class="colo">
+					<p class="area">morgen</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="cpsauto">{{caopennCat.data}}</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit">Kolli</p>
+				</ion-col>
+				<ion-col>
+					<ion-badge [color]="caopennCat.perfDiffCol">{{caopennCat.perfDiff}}</ion-badge>
+				</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col class="colo">
+					<p class="area">Restzeit</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="cpsauto">{{timeleft}}</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit"> </p>
+				</ion-col>
+				<ion-col>
+				</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col class="colo">
+					<p class="area">Prio Cps Auto</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="cpsauto">{{caprioCat.data}}</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit"> </p>
+				</ion-col>
+				<ion-col>
+				</ion-col>
+			</ion-row>
+
+	</ion-card-content>	
+	</ion-card>
+
+	<ion-card>
+		<ion-card-header>
+			<div class="card-header-div"></div>
+		<h1 class="category">CPS-Display</h1>
+		</ion-card-header>
+	<ion-card-content>
+	
 			<ion-row [style.backgroundColor]="cdspCat.select" (click)="actSelect('cpsd')">
 				<ion-col class="colo">
 					 <p class="area">Display</p>
@@ -80,72 +146,35 @@
 					<ion-badge [color]="cduserCat.perfDiffCol">{{cduserCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
-	</ion-card-content>	
-
-		</ion-card>
-
-		<ion-card>
-		<ion-card-header>
-		<h1 class="category">Auftraege offen</h1>
-		</ion-card-header>
-		<ion-card-content>
-			<ion-row>
+			<ion-row [style.backgroundColor]="caopenCat.select" (click)="actSelect('caopen')">
+					<ion-row [style.backgroundColor]="cdopenCat.select" (click)="actSelect('cdopen')">
 				<ion-col class="colo">
-					<p class="area">Prio Cps Auto</p>
+					<p class="area">CPS Display heute</p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="cpsauto">{{caprioCat.data}}</h1>
+					<h1 class="cpsdsp">{{cdopenCat.data}}</h1>
 				</ion-col>
 				<ion-col col-auto>
-					<p class="unit"> </p>
+					<p class="unit">Displays</p>
 				</ion-col>
 				<ion-col>
-				</ion-col>
-			</ion-row>
-
-			<ion-row>
-				<ion-col class="colo">
-					<p class="area">Prio Cps Display</p>
-				</ion-col>  
-				<ion-col col-auto>
-					<h1 class="cpsauto">{{cdprioCat.data}}</h1>
-				</ion-col>
-				<ion-col col-auto>
-					<p class="unit"> </p>
-				</ion-col>
-				<ion-col>
-				</ion-col>
-			</ion-row>
-
-
-			<ion-row [style.backgroundColor]="oopenCat.select" (click)="actSelect('copen')">
-				<ion-col class="colo">
-					<p class="area">heute</p>
-				</ion-col>  
-				<ion-col col-auto>
-					<h1 class="cpsauto">{{oopenCat.data}}</h1>
-				</ion-col>
-				<ion-col col-auto>
-					<p class="unit">Kolli</p>
-				</ion-col>
-				<ion-col>
-					<ion-badge [color]="oopenCat.perfDiffCol">{{oopenCat.perfDiff}}</ion-badge>
+					<ion-badge [color]="cdopenCat.perfDiffCol">{{cdopenCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
 		
 		
-			<ion-row [style.backgroundColor]="oopennCat.select" (click)="actSelect('copenn')">
+			<ion-row [style.backgroundColor]="cdopennCat.select" (click)="actSelect('cdopenn')">
 				<ion-col class="colo">
 					<p class="area">morgen</p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="cpsauto">{{oopennCat.data}}</h1>
+					<h1 class="cpsdsp">{{cdopennCat.data}}</h1>
 				</ion-col>
 				<ion-col col-auto>
-					<p class="unit">Kolli</p>
+					<p class="unit">Displays</p>
 				</ion-col>
 				<ion-col>
-					<ion-badge [color]="oopennCat.perfDiffCol">{{oopennCat.perfDiff}}</ion-badge>
+					<ion-badge [color]="cdopennCat.perfDiffCol">{{cdopennCat.perfDiff}}</ion-badge>
 				</ion-col>
 			</ion-row>
 			<ion-row>
@@ -153,7 +182,7 @@
 					<p class="area">Restzeit</p>
 				</ion-col>  
 				<ion-col col-auto>
-					<h1 class="cpsauto">{{timeleft}}</h1>
+					<h1 class="cpsdsp">{{cdtimeleft}}</h1>
 				</ion-col>
 				<ion-col col-auto>
 					<p class="unit"> </p>
@@ -161,6 +190,117 @@
 				<ion-col>
 				</ion-col>
 			</ion-row>
+			<ion-row>
+				<ion-col class="colo">
+					<p class="area">Prio Cps Display</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="cpsdsp">{{cdprioCat.data}}</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit"> </p>
+				</ion-col>
+				<ion-col>
+				</ion-col>
+			</ion-row>
+		</ion-card-content>
+		
+		</ion-card>
+
+		<ion-card>
+		<ion-card-header>
+		<h1 class="category">CPS-MAN/MW2</h1>
+		</ion-card-header>
+		<ion-card-content>
+			<ion-row [style.backgroundColor]="cmanCat.select" (click)="actSelect('cpsm')">
+				<ion-col class="colo">
+					 <p class="area">MW2/MAN</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="cpsman">{{cmanCat.data}}</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit">Kolli/h</p>
+				</ion-col>
+				<ion-col>
+					<ion-badge [color]="cmanCat.perfDiffCol">{{cmanCat.perfDiff}}</ion-badge>
+				</ion-col>
+			</ion-row>
+	
+		
+			<ion-row [style.backgroundColor]="cmuserCat.select" (click)="actSelect('cpsmcnt')">
+				<ion-col class="colo">
+					<p class="area"> </p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="cpsman">{{cmuserCat.data}}</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit">User</p>
+				</ion-col>
+				<ion-col>
+					<ion-badge [color]="cmuserCat.perfDiffCol">{{cmuserCat.perfDiff}}</ion-badge>
+				</ion-col>
+			</ion-row>
+
+	
+			<ion-row [style.backgroundColor]="cmopenCat.select" (click)="actSelect('cmopen')">
+				<ion-col class="colo">
+					<p class="area">CPS MAN heute</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="cpsman">{{cmopenCat.data}}</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit">Kolli</p>
+				</ion-col>
+				<ion-col>
+					<ion-badge [color]="cmopenCat.perfDiffCol">{{cmopenCat.perfDiff}}</ion-badge>
+				</ion-col>
+			</ion-row>
+		
+		
+			<ion-row [style.backgroundColor]="cmopennCat.select" (click)="actSelect('cmopenn')">
+				<ion-col class="colo">
+					<p class="area">morgen</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="cpsman">{{cmopennCat.data}}</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit">Displays</p>
+				</ion-col>
+				<ion-col>
+					<ion-badge [color]="cmopennCat.perfDiffCol">{{cmopennCat.perfDiff}}</ion-badge>
+				</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col class="colo">
+					<p class="area">Restzeit</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="cpsman">{{cmtimeleft}}</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit"> </p>
+				</ion-col>
+				<ion-col>
+				</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col class="colo">
+					<p class="area">Prio Cps Man</p>
+				</ion-col>  
+				<ion-col col-auto>
+					<h1 class="cpsman">{{cmprioCat.data}}</h1>
+				</ion-col>
+				<ion-col col-auto>
+					<p class="unit"> </p>
+				</ion-col>
+				<ion-col>
+				</ion-col>
+			</ion-row>
+
 		</ion-card-content>
 		</ion-card>
  

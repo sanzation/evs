@@ -24,13 +24,22 @@ export class CpsPage extends ParentPage {
 
 	cpickCat: catData;
 	cdspCat: catData;
-	cpuserCat: catData;
+	cmanCat: catData;
+	causerCat: catData;
 	cduserCat: catData;
+	cmuserCat: catData;
 	caprioCat: catData;
 	cdprioCat: catData;
-	oopenCat: catData;
-	oopennCat: catData;
+	cmprioCat: catData;
+	caopenCat: catData;
+	caopennCat: catData;
+	cdopenCat: catData;
+	cdopennCat: catData;
+	cmopenCat: catData;
+	cmopennCat: catData;
 
+	cdtimeleft: string;	
+	cmtimeleft: string;	
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public EvsCall : EvscallProvider) {
@@ -38,28 +47,44 @@ export class CpsPage extends ParentPage {
 	super(navCtrl,navParams,EvsCall);
 	this.cpickCat=new catData('cpsa');
 	this.cdspCat =new catData('cpsd');  
-	this.cpuserCat=new catData('cpsacnt');
+	this.cmanCat =new catData('cpsm');  
+	this.causerCat=new catData('cpsacnt');
 	this.cduserCat=new catData('cpsdcnt');
+	this.cmuserCat=new catData('cpsmcnt');
 	this.caprioCat=new catData('caprio');
 	this.cdprioCat=new catData('cdprio');
-	this.oopenCat=new catData('copen');
-	this.oopennCat=new catData('copenn');
+	this.cmprioCat=new catData('cmprio');
+	this.caopenCat=new catData('caopen');
+	this.caopennCat=new catData('caopenn');
+	this.cdopenCat=new catData('cdopen');
+	this.cdopennCat=new catData('cdopenn');
+	this.cmopenCat=new catData('cmopen');
+	this.cmopennCat=new catData('cmopenn');
 
 	this.CatCol.push(this.cpickCat);
 	this.CatCol.push(this.cdspCat);
-	this.CatCol.push(this.cpuserCat);
+	this.CatCol.push(this.cmanCat);
+	this.CatCol.push(this.causerCat);
 	this.CatCol.push(this.cduserCat);
+	this.CatCol.push(this.cmuserCat);
 	this.CatCol.push(this.caprioCat);
 	this.CatCol.push(this.cdprioCat);
-	this.CatCol.push(this.oopenCat);
-	this.CatCol.push(this.oopennCat);
+	this.CatCol.push(this.cmprioCat);
+	this.CatCol.push(this.caopenCat);
+	this.CatCol.push(this.caopennCat);
+	this.CatCol.push(this.cdopenCat);
+	this.CatCol.push(this.cdopennCat);
+	this.CatCol.push(this.cmopenCat);
+	this.CatCol.push(this.cmopennCat);
 
 
   }
 
 	
 ionViewDidEnter() {
-		this.timeleft=calcTimeleft(this.cpickCat.data,this.oopenCat.data);
+		this.timeleft=calcTimeleft(this.cpickCat.data,this.caopenCat.data);
+		this.cdtimeleft=calcTimeleft(this.cdspCat.data,this.cdopenCat.data);
+		this.cmtimeleft=calcTimeleft(this.cmanCat.data,this.cmopenCat.data);
 	}
 }
 
