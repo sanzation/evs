@@ -228,6 +228,12 @@ export const perfDataEntFunc = (area: string, EvsDat: any) : any =>{
 				};
 				return dataEntFunc(getExt(area));
 };
+export const opDataEntFunc = (area: string, EvsDat: any) : any =>{
+				const dataEntFunc=(mdataval: any) : any =>{
+					return EvsDat.getOpListResult[EvsDat.getOpListResult.length-1][mdataval];
+				};
+				return dataEntFunc(getExt(area));
+};
 
 export const perfDataLastFunc = (area: string, EvsDat: any) : any =>{
 				const dataListFunc= (mdataval: any) : any =>{

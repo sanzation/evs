@@ -23,10 +23,13 @@ export class MasterdataPage extends OpparentPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public EvsCall : EvscallProvider) {
 	super(navCtrl,navParams,EvsCall);
 	 setInterval(()=>{this.load('masterdata');},60000);
+
   }
 
   ionViewWillEnter() {
-	this.load('masterdata');
+
+      this.load('masterdata');
+      console.log(this.opList);
   }
 
 }
