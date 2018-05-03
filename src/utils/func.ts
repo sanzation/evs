@@ -228,9 +228,9 @@ export const perfDataEntFunc = (area: string, EvsDat: any) : any =>{
 				};
 				return dataEntFunc(getExt(area));
 };
-export const opDataEntFunc = (area: string, EvsDat: any) : any =>{
+export const dataEntFunc = (area: string, EvsList: any) : any =>{
 				const dataEntFunc=(mdataval: any) : any =>{
-					return EvsDat.getOpListResult[EvsDat.getOpListResult.length-1][mdataval];
+					return EvsList[EvsList.length-1][mdataval];
 				};
 				return dataEntFunc(getExt(area));
 };

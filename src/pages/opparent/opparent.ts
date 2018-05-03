@@ -34,7 +34,7 @@ load=(type : string) : void => {
 	this.opList=EvsData.getOpListResult.map((data)=>{return new opData(
 		data.ident, data.type, data.source, data.comment, data.opcnt, parseDateTime(data.gendate))});	
 
-	this.stateInfo=`Aktualisiert: ${parseDateTime(opDataEntFunc('gen',EvsData))}`;
+	this.stateInfo=`Aktualisiert: ${parseDateTime(dataEntFunc('gen',EvsData))}`;
 	this.state="stateok";
 	},
 	
