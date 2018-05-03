@@ -43,7 +43,7 @@ load=(type : string) : void => {
 		 }
 	);
 	
-	this.opList=this.EvsCall.getOp(type);
+	//this.opList=this.EvsCall.getOp(type);
 }
 opSelect(op : opData){
 	this.navCtrl.push(OpdetailPage,{first: op});
