@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { EvscallProvider } from '../../providers/evscall/evscall';
 import { opData } from '../../utils/types';
-import { parseDateTime, opDataEntFunc } from '../../utils/func';
+import { formatTime, parseDate, dataEntFunc } from '../../utils/func';
 import { OpdetailPage } from '../opdetail/opdetail';
 /**
  * Generated class for the OpparentPage page.
@@ -32,9 +32,9 @@ load=(type : string) : void => {
 	this.EvsCall.getOp(type).subscribe((EvsData)=>{
 	this.EvsData= EvsData.current_observation;
 	this.opList=EvsData.getOpListResult.map((data)=>{return new opData(
-		data.ident, data.type, data.source, data.comment, data.opcnt, parseDateTime(data.gendate))});	
-
-	this.stateInfo=`Aktualisiert: ${parseDateTime(dataEntFunc('gen',EvsData))}`;
+		data.ident, data.type, data.source, data.comment, data.cnt, parseDate(data.gendate),data.opindex,data.data,data.info)});	
+	var ttime = new Date();
+	this.stateInfo=`Aktualisiert: ${formatTime(ttime,"hour")+":"+formatTime(ttime,"min")}`;
 	this.state="stateok";
 	},
 	

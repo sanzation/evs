@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { EvscallProvider } from '../../providers/evscall/evscall';
 import { Chart } from 'chart.js';
-import { perfDataListFunc,perfDataEntFunc,parseDateTime,perfDataLastFunc, graphOpt } from '../../utils/func';
+import { perfDataListFunc,perfDataEntFunc,formatTime,perfDataLastFunc, graphOpt } from '../../utils/func';
 import { catData } from '../../utils/types';
 /**
  * Generated class for the ParentPage page.
@@ -41,8 +41,10 @@ load= () : void =>{
 this.EvsCall.getData().subscribe(EvsData=>{
 	this.EvsData= EvsData.current_observation;
 	this.CatCol.map((cat)=>{ cat.data=perfDataEntFunc(cat.name,EvsData) });
-	this.stateInfo=`Aktualisiert: ${parseDateTime(perfDataEntFunc('gen',EvsData))}`;
+	var ttime = new Date();
+	this.stateInfo=`Aktualisiert: ${formatTime(ttime,"hour")+":"+formatTime(ttime,"min")}`;
 	this.state="stateok";
+
      },
 	error => {this.stateInfo=`Error: ${error.status} Info: ${error.statusText}`;
 		  this.state="stateerr";

@@ -73,9 +73,12 @@ export class opData{
 	comment: string; // Like-Item Gruppenfehler Strategie OPM auf Lagerbestand
 	opcnt: number; // 633
 	gendate: string; //sysdate
+	index: number;
+	data: string;
+	info: string;
 	
 	constructor(ident: string,type : string, source : string,
-	comment : string, opcnt : number, gendate : string
+	comment : string, opcnt : number, gendate : string, index : number, data : string, info : string
 	){
 		this.ident=ident; 
 		this.type=type; 
@@ -83,6 +86,9 @@ export class opData{
 		this.comment=comment; 
 		this.opcnt=opcnt; 
 		this.gendate=gendate; 
+		this.index=index;
+		this.data=data;
+		this.info=info;
 	
 	}
 

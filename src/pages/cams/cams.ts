@@ -4,7 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EvscallProvider } from '../../providers/evscall/evscall';
 import { camData } from '../../utils/types';
 import { CamDetailPage } from '../cam-detail/cam-detail';
-import { parseDateTime, dataEntFunc } from '../../utils/func';
+import { formatTime, dataEntFunc } from '../../utils/func';
 /**
  * Generated class for the CamsPage page.
  *
@@ -36,8 +36,9 @@ ionViewWillEnter(){
 load= () : void =>{
 	this.EvsCall.getCam().subscribe(EvsData=>{
 			this.EvsData= EvsData.current_observation;
-			this.camList=EvsData.getCamListResult.map((data)=>{ return new camData(data.name,data.url)});
-			this.stateInfo=`Aktualisiert: ${parseDateTime(dataEntFunc('gen',EvsData))}`;
+			this.camList=EvsData.getCamListResult.map((data)=>{ return new camData(data.ident,data.url)});
+			var ttime = new Date();
+			this.stateInfo=`Aktualisiert: ${formatTime(ttime,"hour")+":"+formatTime(ttime,"min")}`;
 			this.state="stateok";
 		     },
 	error => {this.stateInfo=`Error: ${error.status} Info: ${error.statusText}`;

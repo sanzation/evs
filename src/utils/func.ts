@@ -224,7 +224,7 @@ export const perfDataListFunc= (area: string, EvsDat: any) : any => {
 
 export const perfDataEntFunc = (area: string, EvsDat: any) : any =>{
 				const dataEntFunc=(mdataval: any) : any =>{
-					return EvsDat.getPerfEntityResult[mdataval];
+					return area.indexOf("prio")===-1 ? EvsDat.getPerfEntityResult[mdataval] : parseDate(EvsDat.getPerfEntityResult[mdataval]);
 				};
 				return dataEntFunc(getExt(area));
 };
@@ -257,12 +257,29 @@ return	formatTime(ttime,"hour")+ ":" + formatTime(ttime,"min");
 //	etime.months=etime.days
 }
 
-const formatTime= (time : Date, gettype: string) : string => {
+export const parseDate= (time: string) : any => { 
+	
+	
+	//var etime=new evsTime();
+	//Date(1516659302019+0100)/
+	var ttime = new Date(parseInt(time.substring(6,19),10));
+return	formatTime(ttime,"day")+"."+formatTime(ttime,"mon")+"  "+formatTime(ttime,"hour")+ ":" + formatTime(ttime,"min");	
+
+//	etime.sec=etime.ms/1000;
+//	etime.min=etime.sec/60;
+//	etime.hours=etime.min/60;
+//	etime.days=etime.hours/24;
+//	etime.months=etime.days
+}
+
+export const formatTime= (time : Date, gettype: string) : string => {
 	
 	let str = 
 		{
 			"hour" : ()=>{return time.getHours()<10 ? `0${time.getHours()}` : time.getHours()},
-			"min" :  ()=>{return time.getMinutes()<10 ? `0${time.getMinutes()}` : time.getMinutes()}
+			"min" :  ()=>{return time.getMinutes()<10 ? `0${time.getMinutes()}` : time.getMinutes()},
+			"day" :  ()=>{return time.getDate()<10 ? `0${time.getDate()}` : time.getDate()},
+			"mon" :  ()=>{return time.getMonth()<9 ? `0${time.getMonth()+1}` : time.getMonth()+1}
 
 	       		
 		};

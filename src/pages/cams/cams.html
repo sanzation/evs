@@ -15,8 +15,8 @@
 
 <ion-content padding>
 	<ion-list>
-	  <button ion-item *ngFor="let cam of camList" (click)="camSelect(cam)">
-	    {{ cam.name }}
-	  </button>  
+		<ion-item *ngFor="let cam of camList" (click)="camSelect(cam)">
+			<h2>Kamera {{cam.name}}</h2>
+	  </ion-item>  
 	</ion-list>
 </ion-content>
