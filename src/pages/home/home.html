@@ -60,23 +60,23 @@
 		<ion-item (click)="pushMasterdata()">
 		    <ion-thumbnail class="masterdata" item-start>
 		    </ion-thumbnail>
-		    <h2>S T A M M D A T E N</h2>
+		    <h2>S T A M M D A T E N</h2><ion-badge *ngIf="mdCnt" class="opcnt">{{mdCnt}}</ion-badge>
 		    <p>Probleme und Statistik</p>
 		</ion-item>
 		<ion-item (click)="pushStock()">
-		    <ion-thumbnail class="stock" item-start>
+		    <ion-thumbnail class="stock" item-start><ion-badge *ngIf="stCnt" class="opcnt">{{stCnt}}</ion-badge>
 		    </ion-thumbnail>
 		    <h2>B E S T A N D</h2>
 		    <p>Bestandsprobleme</p>
 		</ion-item>
 		<ion-item (click)="pushExpendable()">
-		    <ion-thumbnail class="expendable" item-start>
+		    <ion-thumbnail class="expendable" item-start><ion-badge *ngIf="exCnt" class="opcnt">{{exCnt}}</ion-badge>
 		    </ion-thumbnail>
 		    <h2>V E R B R A U C H S M A T E R I A L</h2>
 		    <p>Bestand und Verbrauch</p>
 		</ion-item>
 		<ion-item (click)="pushMaterialflow()">
-		    <ion-thumbnail class="materialflow" item-start>
+		    <ion-thumbnail class="materialflow" item-start><ion-badge *ngIf="mfCnt" class="opcnt">{{mfCnt}}</ion-badge>
 		    </ion-thumbnail>
 		    <h2>M A T E R I A L F L U S S</h2>
 		    <p>Probleme und Kennzahlen</p>

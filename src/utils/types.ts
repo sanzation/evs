@@ -65,6 +65,16 @@ export class camData{
 	}
 
 }
+export class opCntData{
+	area: string;
+	cnt: number;
+
+	constructor(area: string, cnt: number){
+	this.area=area;
+	this.cnt=cnt;	
+	}
+
+}
 export class opData{
 
 	ident: string; //Like-Item Gruppenfehler

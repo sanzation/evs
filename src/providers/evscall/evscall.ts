@@ -23,6 +23,7 @@ export class EvscallProvider {
 	fill : string="/getFillList";
 	cam : string="/getCamList";
 	op : string="/getOpList";
+	cnt : string="/getOpCnt";
 
   constructor(public http: Http) {
   }
@@ -55,7 +56,10 @@ export class EvscallProvider {
 	return this.http.get(`${this.test}${this.fill}`)
 		.map(res => res.json());
 	}
-
+	getOpCnt(){
+	return this.http.get(`${this.test}${this.cnt}`)
+		.map(res => res.json());
+	}
 	getOp(area: string){
 	return this.http.get(`${this.test}${this.op}?area=${area}`)
 		.map(res => res.json());

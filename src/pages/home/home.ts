@@ -11,19 +11,51 @@ import { MasterdataPage } from '../masterdata/masterdata';
 import { StockPage } from '../stock/stock';
 import { ExpendablePage } from '../expendable/expendable';
 import { MaterialflowPage } from '../materialflow/materialflow';
+import { opCntData } from '../../utils/types';
+import { EvscallProvider } from '../../providers/evscall/evscall';
+import { formatTime, dataEntFunc } from '../../utils/func';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
+	
+	mdCnt : number;
+	stCnt : number;
+	exCnt : number;
+	mfCnt: number;
 
-  constructor(public navCtrl: NavController  ) {
+	stateInfo: string;
+	EvsData: any;
+	state: string;
+
+  constructor(public navCtrl: NavController, public EvsCall : EvscallProvider  ) {
+	  this.opCntList=new Array<opCntData>();
+	  setInterval(()=>{this.load();},60000);
+
   }
 
-   ionViewWillEnter(){
-   }
+ionViewDidEnter(){
+	   this.load();
 
+
+}
+	
+load= () : void =>{
+	this.EvsCall.getOpCnt().subscribe(EvsData=>{
+			this.EvsData= EvsData.current_observation;
+			this.opCntList=EvsData.getOpCntResult.map((data)=>{// return new opCntData(data.area,data.cnt)});
+			var ttime = new Date();
+			this.stateInfo=`Aktualisiert: ${formatTime(ttime,"hour")+":"+formatTime(ttime,"min")}`;
+			this.state="stateok";
+		     },
+	error => {this.stateInfo=`Error: ${error.status} Info: ${error.statusText}`;
+		  this.state="stateerr";
+		 }
+	);
+
+}
   pushOpm(){
    this.navCtrl.push(OpmPage);
   }
