@@ -64,10 +64,11 @@
 		    <p>Probleme und Statistik</p>
 		</ion-item>
 		<ion-item (click)="pushStock()">
-		    <ion-thumbnail class="stock" item-start><ion-badge *ngIf="stCnt" class="opcnt">{{stCnt}}</ion-badge>
+		    <ion-thumbnail class="stock" item-start>
 		    </ion-thumbnail>
 		    <h2>B E S T A N D</h2>
-		    <p>Bestandsprobleme</p>
+		    <p>Bestandsprobleme</p><ion-badge *ngIf="stCnt" class="opcnt">{{stCnt}}</ion-badge>
+
 		</ion-item>
 		<ion-item (click)="pushExpendable()">
 		    <ion-thumbnail class="expendable" item-start><ion-badge *ngIf="exCnt" class="opcnt">{{exCnt}}</ion-badge>

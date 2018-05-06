@@ -67,11 +67,18 @@ border-radius: 5px;
 .opcomment{
 	float: left;
 }
+.opdata{
+	float: left;
+	white-space: pre-wrap !important;
+}
+.opinfo{
+	float: left;
+}
 .opcnt{
 	background-color: color($colors, secondary);
 	float: right;
-	padding: 2px 2px;
-	border-radius: 2px;
+	padding: 4px 4px;
+	border-radius: 4px;
 }
 .opsymbol{
 	padding: 5px 5px 5px 5px;

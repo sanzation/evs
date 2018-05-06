@@ -31,9 +31,11 @@ export class HomePage {
 	state: string;
 
   constructor(public navCtrl: NavController, public EvsCall : EvscallProvider  ) {
-	  this.opCntList=new Array<opCntData>();
 	  setInterval(()=>{this.load();},60000);
-
+	this.mdCnt=0;
+	this.stCnt=0;
+	this.exCnt=0;
+	this.mfCnt=0;
   }
 
 ionViewDidEnter(){
@@ -45,7 +47,24 @@ ionViewDidEnter(){
 load= () : void =>{
 	this.EvsCall.getOpCnt().subscribe(EvsData=>{
 			this.EvsData= EvsData.current_observation;
-			this.opCntList=EvsData.getOpCntResult.map((data)=>{// return new opCntData(data.area,data.cnt)});
+			EvsData.getOpCntResult.forEach((data)=>{
+				if (data.area==='masterdata'){
+					this.mdCnt=data.cnt;
+				};
+				if (data.area==='stock')
+				{
+					this.stCnt=data.cnt;
+				};
+				if (data.area==='expendable')
+				{
+					this.exCnt=data.cnt;
+				};
+				if (data.area==='materialflow')
+				{
+					this.mfCnt=data.cnt;
+				}
+
+			});// return new opCntData(data.area,data.cnt)});
 			var ttime = new Date();
 			this.stateInfo=`Aktualisiert: ${formatTime(ttime,"hour")+":"+formatTime(ttime,"min")}`;
 			this.state="stateok";
@@ -54,7 +73,6 @@ load= () : void =>{
 		  this.state="stateerr";
 		 }
 	);
-
 }
   pushOpm(){
    this.navCtrl.push(OpmPage);

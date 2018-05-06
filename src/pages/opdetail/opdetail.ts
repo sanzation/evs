@@ -24,7 +24,6 @@ export class OpdetailPage {
   }
 
   ionViewDidLoad() {
-
   }
 
 }
