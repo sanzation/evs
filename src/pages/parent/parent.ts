@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { EvscallProvider } from '../../providers/evscall/evscall';
 import { Chart } from 'chart.js';
-import { perfDataListFunc,perfDataEntFunc,formatTime,perfDataLastFunc, graphOpt } from '../../utils/func';
+import { perfDataListFunc,perfDataEntFunc,formatTime,perfDataLastFunc, graphOpt, parseDateTime } from '../../utils/func';
 import { catData } from '../../utils/types';
 /**
  * Generated class for the ParentPage page.
