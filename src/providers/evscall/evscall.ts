@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { opData } from '../../utils/types';
-import { url } from '../../utils/api.json';
+import url from '../../utils/api.json';
 
 /*
   Generated class for the EvscallProvider provider.
