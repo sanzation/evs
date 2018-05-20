@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { opData } from '../../utils/types';
-import url from '../../utils/api.json';
+import { con } from '../../utils/api';
 
 /*
   Generated class for the EvscallProvider provider.
@@ -16,7 +15,7 @@ import url from '../../utils/api.json';
 export class EvscallProvider {
 
 	
-	test : string= url;
+	test : string= con.url;
 	ent : string="/getDataEnt";
 	list : string="/getDataList";
 	rou : string="/getRouList";
@@ -61,6 +60,7 @@ export class EvscallProvider {
 		.map(res => res.json());
 	}
 	getOp(area: string){
+	console.log(this.test);
 	return this.http.get(`${this.test}${this.op}?area=${area}`)
 		.map(res => res.json());
 		
