@@ -21,7 +21,8 @@ export class ExpendablePage extends OpparentPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public EvsCall : EvscallProvider) {
 	super(navCtrl,navParams,EvsCall);
-	 setInterval(()=>{this.load('expendable');},60000);
+	setInterval(()=>{this.load('expendable');},60000);
+	this.title='Verbrauchsmaterial';
   }
 
   ionViewWillEnter() {

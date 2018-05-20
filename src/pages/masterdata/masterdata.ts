@@ -22,7 +22,8 @@ export class MasterdataPage extends OpparentPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public EvsCall : EvscallProvider) {
 	super(navCtrl,navParams,EvsCall);
-	 setInterval(()=>{this.load('masterdata');},60000);
+	setInterval(()=>{this.load('masterdata');},60000);
+	this.title='Stammdaten';
 
   }
 

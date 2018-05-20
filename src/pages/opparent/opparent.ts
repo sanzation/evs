@@ -23,7 +23,7 @@ export class OpparentPage {
 	EvsData: any;
 	stateInfo: string;
 	state: string;
-
+	title: string;
   constructor(public navCtrl: NavController, public navParams: NavParams, public EvsCall : EvscallProvider) {
 	this.opList=new Array<opData>();  
   }

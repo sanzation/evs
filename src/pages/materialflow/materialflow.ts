@@ -21,7 +21,8 @@ export class MaterialflowPage  extends OpparentPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public EvsCall : EvscallProvider) {
 	super(navCtrl,navParams,EvsCall);
-	 setInterval(()=>{this.load('materialflow');},60000);
+	setInterval(()=>{this.load('materialflow');},60000);
+	this.title='Materialfluss';
   }
 
   ionViewWillEnter() {

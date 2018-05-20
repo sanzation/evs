@@ -22,6 +22,7 @@ export class StockPage  extends OpparentPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public EvsCall : EvscallProvider) {
 	super(navCtrl,navParams,EvsCall);
 	 setInterval(()=>{this.load('stock');},60000);
+	 this.title='Bestand';
   }
 
   ionViewWillEnter() {
