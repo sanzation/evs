@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { EvscallProvider } from '../../providers/evscall/evscall';
-import { opData } from '../../utils/types';
-import { parseDateTime } from '../../utils/func';
 import { OpparentPage } from '../opparent/opparent';
 /**
  * Generated class for the StockPage page.

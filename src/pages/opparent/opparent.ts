@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { EvscallProvider } from '../../providers/evscall/evscall';
 import { opData } from '../../utils/types';
-import { formatTime, parseDate, dataEntFunc } from '../../utils/func';
+import { formatTime, parseDate } from '../../utils/func';
 import { OpdetailPage } from '../opdetail/opdetail';
 /**
  * Generated class for the OpparentPage page.

@@ -11,9 +11,8 @@ import { MasterdataPage } from '../masterdata/masterdata';
 import { StockPage } from '../stock/stock';
 import { ExpendablePage } from '../expendable/expendable';
 import { MaterialflowPage } from '../materialflow/materialflow';
-import { opCntData } from '../../utils/types';
 import { EvscallProvider } from '../../providers/evscall/evscall';
-import { formatTime, dataEntFunc } from '../../utils/func';
+import { formatTime } from '../../utils/func';
 
 @Component({
   selector: 'page-home',

@@ -4,7 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EvscallProvider } from '../../providers/evscall/evscall';
 import { camData } from '../../utils/types';
 import { CamDetailPage } from '../cam-detail/cam-detail';
-import { formatTime, dataEntFunc } from '../../utils/func';
+import { formatTime } from '../../utils/func';
 /**
  * Generated class for the CamsPage page.
  *
