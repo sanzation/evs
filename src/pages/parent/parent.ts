@@ -63,7 +63,7 @@ this.EvsCall.getData().subscribe(EvsData=>{
 
 actSelect=(area : string): void =>
 	{
-	this.showheight='30%';	
+	this.showheight='25%';	
 	this.CatCol.forEach( (cat) => {		
 	cat.select = area ==cat.name ? '#f0f0f0' : '#ffffff';
 	});
