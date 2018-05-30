@@ -66,6 +66,7 @@ border-radius: 5px;
 }
 .opcomment{
 	float: left;
+	white-space: pre-wrap !important;
 }
 .opdata{
 	float: left;
@@ -73,6 +74,7 @@ border-radius: 5px;
 }
 .opinfo{
 	float: left;
+	white-space: pre-wrap !important;
 }
 .opcnt{
 	background-color: color($colors, secondary);
