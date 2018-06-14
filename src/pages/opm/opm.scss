@@ -25,4 +25,16 @@ page-opm{
 
 
 }
+.card
+{
+	border:1px solid silver;
+	margin: 10px
+}
+.flexcont
+{
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
 

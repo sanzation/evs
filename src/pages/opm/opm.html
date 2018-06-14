@@ -10,13 +10,12 @@
   </ion-navbar>
 </ion-header>
 <ion-content class="cont" has-footer>
+	<div class="flexcont">
 	<ion-card>
 		<ion-card-header>
-			<div class="card-header-div"></div>
 		<h1 class="category">Leistung</h1>
 		</ion-card-header>
 	<ion-card-content>
-		
 			<ion-row [style.backgroundColor]="comCat.select" (click)="actSelect('com')">
 				<ion-col class="colo">
 					<p class="area">COM</p>
@@ -50,7 +49,6 @@
 			</ion-row>
 	</ion-card-content>
 	</ion-card>
-
 		<ion-card>
 			<ion-card-header>
 			<h1 class="category">Stoerungen</h1>
@@ -190,7 +188,7 @@
 						</ion-row>
 		</ion-card-content>
 		</ion-card>
-
+</div>
 </ion-content>
 <ion-footer [style.height]="showheight" class="graphfooter">
 	<ion-card class="graphcard">
