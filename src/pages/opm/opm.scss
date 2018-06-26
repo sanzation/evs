@@ -25,16 +25,12 @@ page-opm{
 
 
 }
-.card
+.platform-browser .flexcont
 {
-	border:1px solid silver;
-	margin: 10px
-}
-.flexcont
-{
-
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+	flex-grow: 1;
+	flex-basis: 0;
 }
 
