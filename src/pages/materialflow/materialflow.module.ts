@@ -4,7 +4,7 @@ import { MaterialflowPage } from './materialflow';
 
 @NgModule({
   declarations: [
-    MaterialflowPage,
+//    MaterialflowPage,
   ],
   imports: [
     IonicPageModule.forChild(MaterialflowPage),

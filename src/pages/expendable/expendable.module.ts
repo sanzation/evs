@@ -4,7 +4,7 @@ import { ExpendablePage } from './expendable';
 
 @NgModule({
   declarations: [
-    ExpendablePage,
+//    ExpendablePage,
   ],
   imports: [
     IonicPageModule.forChild(ExpendablePage),

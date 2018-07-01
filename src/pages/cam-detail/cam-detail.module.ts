@@ -4,7 +4,7 @@ import { CamDetailPage } from './cam-detail';
 
 @NgModule({
   declarations: [
-    CamDetailPage,
+//    CamDetailPage,
   ],
   imports: [
     IonicPageModule.forChild(CamDetailPage),

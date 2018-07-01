@@ -4,7 +4,7 @@ import { MasterdataPage } from './masterdata';
 
 @NgModule({
   declarations: [
-    MasterdataPage,
+//    MasterdataPage,
   ],
   imports: [
     IonicPageModule.forChild(MasterdataPage),

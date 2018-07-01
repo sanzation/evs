@@ -4,7 +4,7 @@ import { OpparentPage } from './opparent';
 
 @NgModule({
   declarations: [
-    OpparentPage,
+//    OpparentPage,
   ],
   imports: [
     IonicPageModule.forChild(OpparentPage),

@@ -4,7 +4,7 @@ import { OpdetailPage } from './opdetail';
 
 @NgModule({
   declarations: [
-    OpdetailPage,
+//    OpdetailPage,
   ],
   imports: [
     IonicPageModule.forChild(OpdetailPage),

@@ -4,7 +4,7 @@ import { StockPage } from './stock';
 
 @NgModule({
   declarations: [
-    StockPage,
+//    StockPage,
   ],
   imports: [
     IonicPageModule.forChild(StockPage),
