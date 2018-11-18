@@ -15,7 +15,7 @@ import { ParentPage } from '../parent/parent';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+//@IonicPage()
 @Component({
   selector: 'page-dps',
   templateUrl: 'dps.html'

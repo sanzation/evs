@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { OpmPage } from '../opm/opm';
-import { DpsPage } from '../dps/dps';
-import { CpsPage } from '../cps/cps';
-import { WaPage } from '../wa/wa';
-import { WePage } from '../we/we';
+import { OpmwrapPage } from '../opmwrap/opmwrap';
+import { DpswrapPage } from '../dpswrap/dpswrap';
+import { CpswrapPage } from '../cpswrap/cpswrap';
+import { WawrapPage } from '../wawrap/wawrap';
+import { WewrapPage } from '../wewrap/wewrap';
 import { MiscPage } from '../misc/misc';
 import { CamsPage } from '../cams/cams';
 import { MasterdataPage } from '../masterdata/masterdata';
 import { StockPage } from '../stock/stock';
 import { ExpendablePage } from '../expendable/expendable';
 import { MaterialflowPage } from '../materialflow/materialflow';
+import { DashboardPage } from '../dashboard/dashboard';
 import { EvscallProvider } from '../../providers/evscall/evscall';
 import { formatTime } from '../../utils/func';
 
@@ -74,19 +75,19 @@ load= () : void =>{
 	);
 }
   pushOpm(){
-   this.navCtrl.push(OpmPage);
+   this.navCtrl.push(OpmwrapPage);
   }
   pushDps(){
-   this.navCtrl.push(DpsPage);
+   this.navCtrl.push(DpswrapPage);
    }
    pushCps(){
-   this.navCtrl.push(CpsPage);
+   this.navCtrl.push(CpswrapPage);
    }
    pushWe(){
-   this.navCtrl.push(WePage);
+   this.navCtrl.push(WewrapPage);
    }
    pushWa(){
-   this.navCtrl.push(WaPage);
+   this.navCtrl.push(WawrapPage);
    }
    pushMisc(){
    this.navCtrl.push(MiscPage);
@@ -110,5 +111,9 @@ load= () : void =>{
    pushMaterialflow(){
    this.navCtrl.push(MaterialflowPage);
    }
+   pushDashboard(){
+   this.navCtrl.push(DashboardPage);
+   }
+
 }
 

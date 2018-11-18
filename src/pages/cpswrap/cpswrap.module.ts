@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { OpmPage } from './opm';
+import { CpswrapPage } from './cpswrap';
 
 @NgModule({
   declarations: [
-   // OpmPage
+    CpswrapPage,
   ],
   imports: [
-    IonicPageModule.forChild(OpmPage),
-  ]
+    IonicPageModule.forChild(CpswrapPage),
+  ],
 })
-export class OpmPageModule {}
+export class CpswrapPageModule {}

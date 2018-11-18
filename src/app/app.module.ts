@@ -7,11 +7,16 @@ import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { OpmPage } from '../pages/opm/opm';
+import { OpmPage} from '../pages/opm/opm';
+import { OpmwrapPage } from '../pages/opmwrap/opmwrap';
 import { DpsPage } from '../pages/dps/dps';
+import { DpswrapPage } from '../pages/dpswrap/dpswrap';
 import { CpsPage } from '../pages/cps/cps';
+import { CpswrapPage } from '../pages/cpswrap/cpswrap';
 import { WaPage } from '../pages/wa/wa';
+import { WawrapPage } from '../pages/wawrap/wawrap';
 import { WePage } from '../pages/we/we';
+import { WewrapPage } from '../pages/wewrap/wewrap';
 import { ParentPage } from '../pages/parent/parent';
 import { OpparentPage } from '../pages/opparent/opparent';
 import { MiscPage } from '../pages/misc/misc';
@@ -22,6 +27,7 @@ import { MasterdataPage } from '../pages/masterdata/masterdata';
 import { StockPage } from '../pages/stock/stock';
 import { ExpendablePage } from '../pages/expendable/expendable';
 import { MaterialflowPage } from '../pages/materialflow/materialflow';
+import { DashboardPage } from '../pages/dashboard/dashboard';
 import { EvscallProvider } from '../providers/evscall/evscall';
 
 @NgModule({
@@ -29,10 +35,15 @@ import { EvscallProvider } from '../providers/evscall/evscall';
     MyApp,
     HomePage,
     OpmPage,
+    OpmwrapPage,
     DpsPage, 
+    DpswrapPage, 
     CpsPage, 
+    CpswrapPage, 
     WaPage, 
+    WawrapPage, 
     WePage, 
+    WewrapPage,  
     MiscPage,
     ParentPage,
     OpparentPage,  
@@ -42,7 +53,8 @@ import { EvscallProvider } from '../providers/evscall/evscall';
     StockPage,
     ExpendablePage,
     MaterialflowPage,
-    OpdetailPage
+    OpdetailPage,
+    DashboardPage
 
 
   ],
@@ -55,11 +67,11 @@ import { EvscallProvider } from '../providers/evscall/evscall';
   entryComponents: [
     MyApp,
     HomePage,
-    OpmPage,
-    DpsPage, 
-    CpsPage, 
-    WaPage, 
-    WePage, 
+    OpmwrapPage,
+    DpswrapPage, 
+    CpswrapPage, 
+    WawrapPage, 
+    WewrapPage, 
     MiscPage,
     ParentPage, 
     OpparentPage,	  
@@ -69,7 +81,8 @@ import { EvscallProvider } from '../providers/evscall/evscall';
     StockPage,
     ExpendablePage,
     MaterialflowPage,	  
-    OpdetailPage	  
+    OpdetailPage,
+    DashboardPage
     ],
   providers: [
     StatusBar,

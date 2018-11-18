@@ -2,7 +2,7 @@
 
 
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { EvscallProvider } from '../../providers/evscall/evscall';
 import { catData } from '../../utils/types';
 import { ParentPage } from '../parent/parent';
@@ -20,7 +20,7 @@ import { calcTimeleft } from '../../utils/func';
 
 
 
-@IonicPage()
+//@IonicPage()
 @Component({
   selector: 'page-opm',
   templateUrl: 'opm.html'

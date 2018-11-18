@@ -1,0 +1,37 @@
+page-dashboard {
+.flexcont
+{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	align-content: flex-start;
+}
+.ion-card
+{
+	max-width: 30%;
+}
+.flexchild
+{
+	display: flex;
+	flex-flow: row wrap;
+}
+.flexchildcol
+{
+	display: flex;
+	flex-flow: column wrap;
+}
+.off
+{
+	color: color($colors, light);
+	padding: 5px 5px 5px 5px;
+	text-align: right;
+}
+.on
+{
+	color: color($colors, danger);
+	padding: 5px 5px 5px 5px;
+	text-align: right;
+}
+
+}
