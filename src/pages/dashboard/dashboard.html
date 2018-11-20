@@ -6,8 +6,14 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>D A S H & S M A S H</ion-title><div [class]="state">{{stateInfo}}</div>
-	<ion-icon style.color="" name="barcode" (click)="doRowSort()"></ion-icon><ion-icon name="list" (click)="doColSort()"></ion-icon>
+    <ion-title>D A S H B O A R D</ion-title>
+  <ion-grid>
+  <ion-row>
+  <ion-col col-auto><div [class]="rowiconclass"><ion-icon name="barcode" (click)="doRowSort()"></ion-icon></div></ion-col>
+  <ion-col col-auto><div [class]="coliconclass"><ion-icon name="list" (click)="doColSort()"></ion-icon></div></ion-col>
+  <ion-col><div [class]="state">{{stateInfo}}</div></ion-col>
+  </ion-row>
+  </ion-grid>
   </ion-navbar>
 </ion-header>
 <ion-content padding>

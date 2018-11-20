@@ -23,15 +23,15 @@ page-dashboard {
 }
 .off
 {
-	color: color($colors, light);
-	padding: 5px 5px 5px 5px;
-	text-align: right;
+
 }
 .on
 {
-	color: color($colors, danger);
-	padding: 5px 5px 5px 5px;
-	text-align: right;
+	background-color: color($colors, danger);
 }
-
+.icon {
+    color: white;
+    padding: 2px;
+    font-size: 1.4em;
+}
 }
