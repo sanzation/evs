@@ -21,9 +21,8 @@ page-dashboard {
 	display: flex;
 	flex-flow: column wrap;
 }
-.off
-{
-
+.rowiconclass
+{	
 }
 .on
 {
@@ -33,5 +32,18 @@ page-dashboard {
     color: white;
     padding: 2px;
     font-size: 1.4em;
+}
+.headgrid
+{
+	padding: 0px;
+}
+.headrow
+{
+	padding: 0px;
+}
+
+.headcol
+{
+	padding: 0px;
 }
 }

@@ -7,11 +7,12 @@
 <ion-header>
   <ion-navbar>
     <ion-title>D A S H B O A R D</ion-title>
-  <ion-grid>
-  <ion-row>
-  <ion-col col-auto><div [class]="rowiconclass"><ion-icon name="barcode" (click)="doRowSort()"></ion-icon></div></ion-col>
-  <ion-col col-auto><div [class]="coliconclass"><ion-icon name="list" (click)="doColSort()"></ion-icon></div></ion-col>
-  <ion-col><div [class]="state">{{stateInfo}}</div></ion-col>
+  <ion-grid class="headgrid">
+  <ion-row class="headrow">
+  <ion-col col-auto><div></div></ion-col>
+  <ion-col class="headcol" col-auto><div [class]="rowiconclass"><ion-icon name="barcode" (click)="doRowSort()"></ion-icon></div></ion-col>
+  <ion-col class="headcol" col-auto><div [class]="coliconclass"><ion-icon name="list" (click)="doColSort()"></ion-icon></div></ion-col>
+  <ion-col class="headcol"><div [class]="state">{{stateInfo}}</div></ion-col>
   </ion-row>
   </ion-grid>
   </ion-navbar>
@@ -20,9 +21,12 @@
 <div class="flexcont">
 <page-opm [class]="childclass"></page-opm>
 <page-dps [class]="childclass"></page-dps>
-<page-cps [class]="childclass"></page-cps>
-<page-we  [class]="childclass"></page-we>
 <page-wa  [class]="childclass"></page-wa>
+<page-cps [class]="childclass"></page-cps>
+<div [class]="childclass">
+<page-misc [class]="childclass"></page-misc>
+<page-we  [class]="childclass"></page-we>
+</div>
 </div>
 </ion-content>
 <ion-footer [style.height]="showheight" class="graphfooter">

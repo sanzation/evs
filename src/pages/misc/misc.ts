@@ -14,7 +14,7 @@ import { catData } from '../../utils/types';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+//@IonicPage()
 @Component({
   selector: 'page-misc',
   templateUrl: 'misc.html',
