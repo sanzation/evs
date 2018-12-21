@@ -28,17 +28,17 @@ export class DashboardPage extends ParentPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public EvsCall : EvscallProvider) {
 	super(navCtrl,navParams,EvsCall);
 	this.childclass="flexchildcol";
-	 this.coliconclass="on";
-	 this.rowiconclass="off";
+	 this.coliconclass="symbolon";
+	 this.rowiconclass="symboloff";
   }
 doColSort(){
 	 this.childclass="flexchildcol";
-	 this.coliconclass="on";
-	 this.rowiconclass="off";
+	 this.coliconclass="symbolon";
+	 this.rowiconclass="symboloff";
 }
 doRowSort(){
 	 this.childclass="flexchild";
-	 this.coliconclass="off";
-	 this.rowiconclass="on";
+	 this.coliconclass="symboloff";
+	 this.rowiconclass="symbolon";
 }
 }

@@ -7,8 +7,8 @@ import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { OpmPage} from '../pages/opm/opm';
-import { OpmwrapPage } from '../pages/opmwrap/opmwrap';
+import { OpmPageModule} from '../pages/opm/opm.module';
+import { OpmwrapPageModule } from '../pages/opmwrap/opmwrap.module';
 import { DpsPage } from '../pages/dps/dps';
 import { DpswrapPage } from '../pages/dpswrap/dpswrap';
 import { CpsPage } from '../pages/cps/cps';
@@ -20,6 +20,7 @@ import { WewrapPage } from '../pages/wewrap/wewrap';
 import { ParentPage } from '../pages/parent/parent';
 import { OpparentPage } from '../pages/opparent/opparent';
 import { MiscPage } from '../pages/misc/misc';
+import { MiscwrapPage } from '../pages/miscwrap/miscwrap';
 import { CamsPage } from '../pages/cams/cams';
 import { CamDetailPage } from '../pages/cam-detail/cam-detail';
 import { OpdetailPage } from '../pages/opdetail/opdetail';
@@ -34,8 +35,7 @@ import { EvscallProvider } from '../providers/evscall/evscall';
   declarations: [
     MyApp,
     HomePage,
-    OpmPage,
-    OpmwrapPage,
+   // OpmPage,
     DpsPage, 
     DpswrapPage, 
     CpsPage, 
@@ -45,6 +45,7 @@ import { EvscallProvider } from '../providers/evscall/evscall';
     WePage, 
     WewrapPage,  
     MiscPage,
+    MiscwrapPage,
     ParentPage,
     OpparentPage,  
     CamsPage,
@@ -55,24 +56,25 @@ import { EvscallProvider } from '../providers/evscall/evscall';
     MaterialflowPage,
     OpdetailPage,
     DashboardPage
-
+	
 
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    OpmwrapPageModule,
+    OpmPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    OpmwrapPage,
     DpswrapPage, 
     CpswrapPage, 
     WawrapPage, 
     WewrapPage, 
-    MiscPage,
+    MiscwrapPage,
     ParentPage, 
     OpparentPage,	  
     CamsPage,

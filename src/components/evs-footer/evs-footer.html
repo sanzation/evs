@@ -1,4 +1,10 @@
 <!-- Generated template for the EvsFooterComponent component -->
-<div>
-  {{text}}
-</div>
+<ion-footer [class]="showit">
+	<ion-card class="graphcard">
+	      <!--ion-card-header> <h1 class="category">Graph</h1></ion-card-header-->
+	      <ion-card-content>
+		<canvas class="graphcanvas" #lineCanvas></canvas>
+	      </ion-card-content>
+	</ion-card>
+</ion-footer>
+

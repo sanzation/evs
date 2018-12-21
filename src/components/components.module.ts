@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { NgModule,  CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import { IonicPageModule } from "ionic-angular";
 import { EvsCardComponent } from './evs-card/evs-card';
 import { EvsHeaderComponent } from './evs-header/evs-header';
 import { EvsFooterComponent } from './evs-footer/evs-footer';
@@ -6,9 +7,10 @@ import { EvsFooterComponent } from './evs-footer/evs-footer';
 	declarations: [EvsCardComponent,
     EvsHeaderComponent,
     EvsFooterComponent],
-	imports: [],
+	imports: [IonicPageModule.forChild(EvsFooterComponent)],
 	exports: [EvsCardComponent,
     EvsHeaderComponent,
-    EvsFooterComponent]
+    EvsFooterComponent],
+    	schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class ComponentsModule {}

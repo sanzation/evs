@@ -5,7 +5,7 @@ import { DpswrapPage } from '../dpswrap/dpswrap';
 import { CpswrapPage } from '../cpswrap/cpswrap';
 import { WawrapPage } from '../wawrap/wawrap';
 import { WewrapPage } from '../wewrap/wewrap';
-import { MiscPage } from '../misc/misc';
+import { MiscwrapPage } from '../miscwrap/miscwrap';
 import { CamsPage } from '../cams/cams';
 import { MasterdataPage } from '../masterdata/masterdata';
 import { StockPage } from '../stock/stock';
@@ -90,7 +90,7 @@ load= () : void =>{
    this.navCtrl.push(WawrapPage);
    }
    pushMisc(){
-   this.navCtrl.push(MiscPage);
+   this.navCtrl.push(MiscwrapPage);
    }
    pushCams(){
    this.navCtrl.push(CamsPage);

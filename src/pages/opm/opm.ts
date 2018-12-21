@@ -20,7 +20,7 @@ import { calcTimeleft } from '../../utils/func';
 
 
 
-//@IonicPage()
+@IonicPage()
 @Component({
   selector: 'page-opm',
   templateUrl: 'opm.html'
@@ -69,11 +69,12 @@ export class OpmPage extends ParentPage{
 	this.CatCol.push(this.rsTryCat);
 	this.CatCol.push(this.stHbwCat);
 	this.CatCol.push(this.saleCat);
-
+	
 
   }
 ionViewDidEnter() {
 		this.timeleft=calcTimeleft(this.comCat.data,this.oopenCat.data);
 	}
+
 	
 } 

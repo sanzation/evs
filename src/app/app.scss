@@ -54,9 +54,17 @@
 	padding: 6px 8px;
 
 }
-.graphfooter
+.on
 {
-	height: 0px;
+	height: 25%;
+}
+.off
+{
+	height: 0%;
+}
+.symbolon
+{
+	background-color: color($colors, danger);
 }
 .graphcanvas
 {
@@ -117,4 +125,18 @@
 }
 .ion-ios-warning{
 	color: color($colors, dps);
+}
+.headgrid
+{
+	padding: 0px;
+}
+.headrow
+{
+//	padding: 0px;
+//	text-align: center;
+}
+
+.headcol
+{
+	padding: 10px 5px 0px 0px;
 }

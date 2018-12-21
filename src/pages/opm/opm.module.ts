@@ -4,10 +4,13 @@ import { OpmPage } from './opm';
 
 @NgModule({
   declarations: [
-   // OpmPage
+    OpmPage
   ],
   imports: [
     IonicPageModule.forChild(OpmPage),
+  ],
+  exports: [
+    OpmPage
   ]
 })
 export class OpmPageModule {}

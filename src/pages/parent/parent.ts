@@ -11,6 +11,9 @@ import { catData } from '../../utils/types';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+(<any>window).showit="off";
+(<any>window).showicon="symboloff";
+
 
 @IonicPage()
 @Component({
@@ -18,21 +21,19 @@ import { catData } from '../../utils/types';
   templateUrl: 'parent.html'
 })
 export class ParentPage {
-	@ViewChild('lineCanvas') lineCanvas;
-	lineChart:any;
 	EvsData:any;
 	ErrorData: any;
 	CatCol: Array<catData>;
 	timeleft: string;	
-	showheight: string;	
 	stateInfo: string;
 	state: string;
+
 	
   constructor(public navCtrl: NavController, public navParams: NavParams,public EvsCall : EvscallProvider) {
 	this.CatCol=new Array<catData>();  
 	 setInterval(()=>{this.load();},60000);
-  }
 
+  }
 
  ionViewWillEnter() {
 	 this.load();
@@ -61,33 +62,16 @@ this.EvsCall.getData().subscribe(EvsData=>{
 
 }	
 
-actSelect=(area : string): void =>
+public actSelect(area : string)
 	{
-	this.showheight='25%';	
+	(<any>window).showit="on";
+	(<any>window).showicon="symbolon";
 	this.CatCol.forEach( (cat) => {		
 	cat.select = area ==cat.name ? '#f0f0f0' : '#ffffff';
 	});
 	
-	if(this.lineChart==null){} 
-		else{this.lineChart.destroy();}
-			
-	this.actGraph(area);
 	}	
 
-actGraph= (area : string): void  =>{
-	let drawGraph= ( area : string): void =>{ 
-		this.EvsCall.getList().subscribe((EvsData)=>{
-			
-			var perfData = perfDataListFunc(area, EvsData);
-			var values =perfData.map((data)=>{return parseInt(data.val,10)});
-			var labeldata= perfData.map((data)=>{return parseDateTime(data.date)});	
-		        var avgPerf : string =`${Math.round(values.reduce((a,b)=>{return a+b})/values.length)}`;
-		        var maxPerf : string =`${values.reduce((a,b)=>{return a>b? a : b})}`;
-			this.lineChart =
-				 new Chart(this.lineCanvas.nativeElement,graphOpt(labeldata, values, area, avgPerf, maxPerf));
-		});
 
-	}
-		drawGraph(area);
-}
+
 }
