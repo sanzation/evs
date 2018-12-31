@@ -1,25 +1,48 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the WawrapPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { EvscallProvider } from '../../providers/evscall/evscall';
+import { EventProvider } from '../../providers/eventprovider/eventprovider';
+import { EvsFooterComponent } from '../../components/evs-footer/evs-footer';
+import { ParentPage } from '../parent/parent';
 
 @IonicPage()
 @Component({
   selector: 'page-wawrap',
   templateUrl: 'wawrap.html',
 })
-export class WawrapPage {
+export class WawrapPage extends ParentPage {
+		
+	@ViewChild(EvsFooterComponent)
+	private footer: EvsFooterComponent;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+constructor(public navCtrl: NavController, public navParams: NavParams, public EvsCall : EvscallProvider, public Event : EventProvider) {
+	super(navCtrl,navParams,EvsCall,Event);
+	this.subscription = Event.footerShown$.subscribe(
+				show =>{ this.actArea=show;
+					 this.showfooter(show);
+				}
+			);
+	}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad WawrapPage');
-  }
+hidefooter = () : void =>{
+	this.footer.showit="off";
+	this.showicon="symboloff";
+}
+showfooter = (area : string) : void =>{
+	this.footer.showit="on";
+	this.showicon="symbolon";
+	this.footer.graphForSelect(area);
+}
+switchfooter = (area = "ocbfill") : void =>{
+	if(this.footer.showit==="on")
+	{
+		this.hidefooter();
+	}
+	else
+	{
+		this.showfooter(area);	
+	}
+}
+
 
 }

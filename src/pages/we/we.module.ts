@@ -4,10 +4,13 @@ import { WePage } from './we';
 
 @NgModule({
   declarations: [
-//    WePage,
+    WePage,
   ],
   imports: [
     IonicPageModule.forChild(WePage),
   ],
+  exports: [
+    WePage	
+  ]
 })
 export class WePageModule {}

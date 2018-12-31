@@ -3,6 +3,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EvscallProvider } from '../../providers/evscall/evscall';
+import { EventProvider } from '../../providers/eventprovider/eventprovider';
 import { ParentPage } from '../parent/parent';
 import { catData } from '../../utils/types';
 /*
@@ -26,8 +27,8 @@ export class WePage extends ParentPage{
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public EvsCall : EvscallProvider) {
-	super(navCtrl,navParams,EvsCall);
+  constructor(public navCtrl: NavController, public navParams: NavParams, public EvsCall : EvscallProvider, public Event : EventProvider) {
+	super(navCtrl,navParams,EvsCall,Event);
   	  this.wepalhCat=new catData('wepalh');
 	this.wepaldCat =new catData('wepald');  
 	this.wevarhCat=new catData('wevarh');

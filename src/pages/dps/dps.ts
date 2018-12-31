@@ -1,21 +1,13 @@
 /* node */
 
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { EvscallProvider } from '../../providers/evscall/evscall';
 import { calcTimeleft } from '../../utils/func';
 import { catData } from '../../utils/types';
-
+import { EventProvider } from '../../providers/eventprovider/eventprovider';
 import { ParentPage } from '../parent/parent';
-/*
-*
- * Generated class for the DpsPage page.
- *
- * See https://ionicframework.dpick/docs/dpickponents/#navigation for more info on
- * Ionic pages and navigation.
- */
 
-//@IonicPage()
 @Component({
   selector: 'page-dps',
   templateUrl: 'dps.html'
@@ -36,9 +28,9 @@ export class DpsPage extends ParentPage{
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public EvsCall : EvscallProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public EvsCall : EvscallProvider, public Event : EventProvider) {
 
-	super(navCtrl,navParams,EvsCall);
+	super(navCtrl,navParams,EvsCall,Event);
 
 	this.dpickCat=new catData('dpick');
 	this.drpckCat =new catData('drpck');  

@@ -3,6 +3,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { EventProvider } from '../../providers/eventprovider/eventprovider';
 import { EvscallProvider } from '../../providers/evscall/evscall';
 import { catData } from '../../utils/types';
 import { ParentPage } from '../parent/parent';
@@ -32,8 +33,8 @@ export class WaPage extends ParentPage {
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public EvsCall : EvscallProvider) {
-	super(navCtrl, navParams, EvsCall) ;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public EvsCall : EvscallProvider, public Event : EventProvider) {
+	super(navCtrl, navParams, EvsCall, Event) ;
 
 	this.fillCat=new catData('ocbfill');
 	this.fill91Cat =new catData('ocbfill91');  

@@ -4,10 +4,13 @@ import { WaPage } from './wa';
 
 @NgModule({
   declarations: [
-//    WaPage,
+    WaPage,
   ],
   imports: [
     IonicPageModule.forChild(WaPage),
   ],
+  exports: [
+	WaPage	
+  ]
 })
 export class WaPageModule {}

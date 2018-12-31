@@ -1,14 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { EvscallProvider } from '../../providers/evscall/evscall';
 import { Chart } from 'chart.js';
-import { perfDataListFunc,perfDataEntFunc,formatTime,perfDataLastFunc, graphOpt, parseDateTime } from '../../utils/func';
-import { catData } from '../../utils/types';
-/**
- * Generated class for the EvsFooterComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
+import { perfDataListFunc, graphOpt, parseDateTime } from '../../utils/func';
+import { EventProvider } from '../../providers/eventprovider/eventprovider';
+
 @Component({
   selector: 'evs-footer',
   templateUrl: 'evs-footer.html'
@@ -19,22 +14,21 @@ export class EvsFooterComponent  {
 	lineChart:any;
 
 
-constructor(public EvsCall : EvscallProvider) {
+constructor(public EvsCall : EvscallProvider, public Event : EventProvider) {
     this.showit="off";
-    (<any>window).showit="off";
  }
 hidefooter = () : void =>{
 	this.showit="off";
-	(<any>window).showit="off";
 }
 showfooter = () : void =>{
 		this.showit="on";
-		(<any>window).showit="on";
 }
-graphForSelect = () : void => {
+destroyChart = () : void =>{
 	if(this.lineChart==null){} 
 		else{this.lineChart.destroy();}
-			
+}
+graphForSelect = (area : string) : void => {
+	this.destroyChart();		
 	this.actGraph(area);
 
 }

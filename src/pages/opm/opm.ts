@@ -4,6 +4,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { EvscallProvider } from '../../providers/evscall/evscall';
+import { EventProvider } from '../../providers/eventprovider/eventprovider';
 import { catData } from '../../utils/types';
 import { ParentPage } from '../parent/parent';
 import { calcTimeleft } from '../../utils/func';
@@ -42,8 +43,8 @@ export class OpmPage extends ParentPage{
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public EvsCall : EvscallProvider) {
-	super(navCtrl,navParams,EvsCall);
+	constructor(public navCtrl: NavController, public navParams: NavParams, public EvsCall : EvscallProvider, public Event : EventProvider) {
+		super(navCtrl,navParams,EvsCall,Event);
 
 
 	this.comCat=new catData('com');

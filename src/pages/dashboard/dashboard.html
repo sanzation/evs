@@ -12,6 +12,7 @@
   <ion-col col-auto><div></div></ion-col>
   <ion-col class="headcol" col-auto><div [class]="rowiconclass"><ion-icon name="barcode" (click)="doRowSort()"></ion-icon></div></ion-col>
   <ion-col class="headcol" col-auto><div [class]="coliconclass"><ion-icon name="list" (click)="doColSort()"></ion-icon></div></ion-col>
+  <ion-col class="headcol" col-auto><div [class]="showicon"><ion-icon class="graphicon" name="stats" (click)="switchfooter()"></ion-icon></div></ion-col>
   <ion-col class="headcol"><div [class]="state">{{stateInfo}}</div></ion-col>
   </ion-row>
   </ion-grid>
@@ -24,17 +25,11 @@
 <page-wa  [class]="childclass"></page-wa>
 <page-cps [class]="childclass"></page-cps>
 <div [class]="childclass">
-<page-misc [class]="childclass"></page-misc>
+<page-misc #misc [class]="childclass"></page-misc>
 <page-we  [class]="childclass"></page-we>
 </div>
 </div>
 </ion-content>
-<ion-footer [class]="showheight" class="graphfooter">
-	<ion-card class="graphcard">
-	      <!--ion-card-header> <h1 class="category">Graph</h1></ion-card-header-->
-	      <ion-card-content>
-		<canvas class="graphcanvas" #lineCanvas></canvas>
-	      </ion-card-content>
-	</ion-card>
-</ion-footer>
+<evs-footer #footer></evs-footer>
+<evs-barfooter #bfooter></evs-barfooter>
 

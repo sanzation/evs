@@ -139,7 +139,7 @@ export const newCat = (cat: catData, catCol: catData[]): catData[] => {catCol.pu
 									return catCol;};
 
 
-export const graphBar = (data : any, area : string )  : any =>
+export const graphBar = (data : any)  : any =>
 	{ return{ 
 		    type: 'bar',
 		    data: data, 

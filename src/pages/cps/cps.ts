@@ -6,6 +6,7 @@ import { EvscallProvider } from '../../providers/evscall/evscall';
 import { calcTimeleft } from '../../utils/func';
 import { catData } from '../../utils/types';
 
+import { EventProvider } from '../../providers/eventprovider/eventprovider';
 import { ParentPage } from '../parent/parent';
 /*
 *
@@ -42,12 +43,12 @@ export class CpsPage extends ParentPage {
 	cmtimeleft: string;	
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public EvsCall : EvscallProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public EvsCall : EvscallProvider, public Event : EventProvider) {
 
-	super(navCtrl,navParams,EvsCall);
+	super(navCtrl,navParams,EvsCall,Event);
 	this.cpickCat=new catData('cpsa');
-	this.cdspCat =new catData('cpsd');  
-	this.cmanCat =new catData('cpsm');  
+	this.cdspCat=new catData('cpsd');  
+	this.cmanCat=new catData('cpsm');  
 	this.causerCat=new catData('cpsacnt');
 	this.cduserCat=new catData('cpsdcnt');
 	this.cmuserCat=new catData('cpsmcnt');

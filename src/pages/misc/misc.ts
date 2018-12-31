@@ -1,27 +1,15 @@
-import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component } from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
 import { EvscallProvider } from '../../providers/evscall/evscall';
-import { Chart } from 'chart.js';
-import 'chartjs-plugin-datalabels';
-
-import { graphBar } from '../../utils/func';
-import { getColor, getInfo, getExt, parseDateTime, perfDataEntFunc} from '../../utils/func';
+import { parseDateTime, perfDataEntFunc} from '../../utils/func';
 import { catData } from '../../utils/types';
-/**
- * Generated class for the MiscPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { EventProvider } from '../../providers/eventprovider/eventprovider';
 
-//@IonicPage()
 @Component({
   selector: 'page-misc',
   templateUrl: 'misc.html',
 })
 export class MiscPage{
-	@ViewChild('lineCanvas') lineCanvas;
-	lineChart:any;
 	EvsData:any;
 	CatCol: Array<catData>;
 
@@ -32,12 +20,13 @@ export class MiscPage{
 	sebCat: catData;
 
 	spacer: string;
-	showheight: string;
+	//showheight: string;
 	stateInfo: string;
 	state: string;
+	showicon: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public EvsCall : EvscallProvider) {
-	//super(navCtrl, navParams, EvsCall);  
+  constructor(public navCtrl: NavController, public navParams: NavParams, public EvsCall : EvscallProvider, public Event : EventProvider) {
+
 	this.CatCol=new Array<catData>();  
 	 setInterval(()=>{this.load();},60000);
 	this.dpsCat=new catData('dps');
@@ -91,80 +80,14 @@ load= () : void =>{
 }
 actSelect=(area : string): void =>
 	{
-	this.showheight='30%';
+	//this.showheight='30%';
+	this.Event.showFooter(area);
 	this.CatCol.forEach( (cat) => {
 
 	cat.select = area ==cat.name ? '#f0f0f0' : '#ffffff';
 	});
-	
-
-	//if(this.lineChart==null){ 
-	//} 
-	//else{
-	//this.lineChart.destroy();
-	
-	//	}
 		
-	this.actGraph(area);
-	}	
-
- actGraph= (area : string): void  =>{
-	let drawGraph= ( area : string): void =>{ 
-		var data = {
-		  labels: [     `${getInfo(this.hbwCat.name)};Loc;Cha`,
-			        `${getInfo(this.tryCat.name)};Loc;Cha`,
-				`${getInfo(this.excCat.name)};Loc;Cha`,
-				`${getInfo(this.sebCat.name)};Loc;Cha`,
-				`DPS;Loc;Cha`
-		           ],
-		  datasets: [{
-		    label: "Platz",
-		    backgroundColor: [
-				getColor(this.hbwCat.name),
-				getColor(this.tryCat.name),
-				getColor(this.excCat.name),
-				getColor(this.sebCat.name),
-				"#0066ff"
-			        ],
-
-		    data: [
-				   this.hbwCat.data,
-				   this.tryCat.data,
-				   this.excCat.data,
-				   this.sebCat.data,
-				   this.dpsCat.data
-				    ],
-		  }, {
-		    label: "Kanal",
-		    backgroundColor: [
-				getExt(this.hbwCat.name),
-				getExt(this.tryCat.name),
-				getExt(this.excCat.name),
-				getExt(this.sebCat.name),
-				"#0047b3"
-			        ],
+}	
 
 
-		    data: [
-				this.hbwCat.datasec,
-				this.tryCat.datasec,
-				this.excCat.datasec,
-				this.sebCat.datasec,
-				this.dpsCat.datasec
-					    ],
-
-		  }
-		  ]
-		};
-		
-		this.lineChart =
-			 new Chart(this.lineCanvas.nativeElement,graphBar(data, area)
-		);
-
-		
-		
-	}
-
-		drawGraph(area);
-}
 }

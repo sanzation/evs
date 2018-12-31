@@ -1,18 +1,10 @@
-import { Component,  ViewChild } from '@angular/core';
+import { Component  } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { Subscription } from 'rxjs';
 import { EvscallProvider } from '../../providers/evscall/evscall';
-import { Chart } from 'chart.js';
-import { perfDataListFunc,perfDataEntFunc,formatTime,perfDataLastFunc, graphOpt, parseDateTime } from '../../utils/func';
+import { EventProvider } from '../../providers/eventprovider/eventprovider';
+import { perfDataEntFunc,formatTime,perfDataLastFunc } from '../../utils/func';
 import { catData } from '../../utils/types';
-/**
- * Generated class for the ParentPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-(<any>window).showit="off";
-(<any>window).showicon="symboloff";
 
 
 @IonicPage()
@@ -27,9 +19,12 @@ export class ParentPage {
 	timeleft: string;	
 	stateInfo: string;
 	state: string;
+	subscription: Subscription;
+	subIcon: Subscription;
+	showicon: string;
+	actArea: string;
 
-	
-  constructor(public navCtrl: NavController, public navParams: NavParams,public EvsCall : EvscallProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public EvsCall : EvscallProvider, public Event : EventProvider) {
 	this.CatCol=new Array<catData>();  
 	 setInterval(()=>{this.load();},60000);
 
@@ -64,14 +59,14 @@ this.EvsCall.getData().subscribe(EvsData=>{
 
 public actSelect(area : string)
 	{
-	(<any>window).showit="on";
-	(<any>window).showicon="symbolon";
+	
+	this.Event.showFooter(area);	
+
 	this.CatCol.forEach( (cat) => {		
 	cat.select = area ==cat.name ? '#f0f0f0' : '#ffffff';
 	});
 	
 	}	
-
 
 
 }

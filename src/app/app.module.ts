@@ -9,18 +9,18 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { OpmPageModule} from '../pages/opm/opm.module';
 import { OpmwrapPageModule } from '../pages/opmwrap/opmwrap.module';
-import { DpsPage } from '../pages/dps/dps';
-import { DpswrapPage } from '../pages/dpswrap/dpswrap';
-import { CpsPage } from '../pages/cps/cps';
-import { CpswrapPage } from '../pages/cpswrap/cpswrap';
-import { WaPage } from '../pages/wa/wa';
-import { WawrapPage } from '../pages/wawrap/wawrap';
-import { WePage } from '../pages/we/we';
-import { WewrapPage } from '../pages/wewrap/wewrap';
+import { DpsPageModule} from '../pages/dps/dps.module';
+import { DpswrapPageModule } from '../pages/dpswrap/dpswrap.module';
+import { CpsPageModule} from '../pages/cps/cps.module';
+import { CpswrapPageModule } from '../pages/cpswrap/cpswrap.module';
+import { WaPageModule} from '../pages/wa/wa.module';
+import { WawrapPageModule } from '../pages/wawrap/wawrap.module';
+import { WePageModule} from '../pages/we/we.module';
+import { WewrapPageModule } from '../pages/wewrap/wewrap.module';
+import { MiscPageModule} from '../pages/misc/misc.module';
+import { MiscwrapPageModule } from '../pages/miscwrap/miscwrap.module';
 import { ParentPage } from '../pages/parent/parent';
 import { OpparentPage } from '../pages/opparent/opparent';
-import { MiscPage } from '../pages/misc/misc';
-import { MiscwrapPage } from '../pages/miscwrap/miscwrap';
 import { CamsPage } from '../pages/cams/cams';
 import { CamDetailPage } from '../pages/cam-detail/cam-detail';
 import { OpdetailPage } from '../pages/opdetail/opdetail';
@@ -28,24 +28,14 @@ import { MasterdataPage } from '../pages/masterdata/masterdata';
 import { StockPage } from '../pages/stock/stock';
 import { ExpendablePage } from '../pages/expendable/expendable';
 import { MaterialflowPage } from '../pages/materialflow/materialflow';
-import { DashboardPage } from '../pages/dashboard/dashboard';
+import { DashboardPageModule } from '../pages/dashboard/dashboard.module';
 import { EvscallProvider } from '../providers/evscall/evscall';
+import { EventProvider } from '../providers/eventprovider/eventprovider';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-   // OpmPage,
-    DpsPage, 
-    DpswrapPage, 
-    CpsPage, 
-    CpswrapPage, 
-    WaPage, 
-    WawrapPage, 
-    WePage, 
-    WewrapPage,  
-    MiscPage,
-    MiscwrapPage,
     ParentPage,
     OpparentPage,  
     CamsPage,
@@ -54,8 +44,7 @@ import { EvscallProvider } from '../providers/evscall/evscall';
     StockPage,
     ExpendablePage,
     MaterialflowPage,
-    OpdetailPage,
-    DashboardPage
+    OpdetailPage
 	
 
   ],
@@ -64,17 +53,23 @@ import { EvscallProvider } from '../providers/evscall/evscall';
     HttpModule,
     IonicModule.forRoot(MyApp),
     OpmwrapPageModule,
-    OpmPageModule
+    OpmPageModule,
+    DpswrapPageModule,
+    DpsPageModule,
+    CpswrapPageModule,
+    CpsPageModule,
+    WawrapPageModule,
+    WaPageModule,
+    WewrapPageModule,
+    WePageModule,
+    MiscwrapPageModule,
+    MiscPageModule,
+    DashboardPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    DpswrapPage, 
-    CpswrapPage, 
-    WawrapPage, 
-    WewrapPage, 
-    MiscwrapPage,
     ParentPage, 
     OpparentPage,	  
     CamsPage,
@@ -84,13 +79,13 @@ import { EvscallProvider } from '../providers/evscall/evscall';
     ExpendablePage,
     MaterialflowPage,	  
     OpdetailPage,
-    DashboardPage
     ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    EvscallProvider
+    EvscallProvider,
+    EventProvider
   ]
 })
 export class AppModule {}

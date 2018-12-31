@@ -8,12 +8,12 @@ export class catData{
 	datasec: any;
 
 
-	constructor(name: string)
+	constructor(public iname: string)
 	{
 	this.perfDiff=0;
 	this.perfDiffCol='primary';
 	this.select=' ';
-	this.name=name;	
+	this.name=iname;	
 	this.data=0;	
 	this.datasec=0;	
 	}
