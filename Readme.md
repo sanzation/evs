@@ -6,7 +6,10 @@ Features:
 - Show working performance for different areas
 - performance history in charts (chart.js)
 - open orders for the same day
-- open point tracking count
+- open point tracking
 - http backend connection
 
-Backend connection, Frontend categorys and open points are highly customised an are dependent on your production enviroment.
+Backend connection, Frontend categorys and open points are highly customised an are dependent on your production enviroment and its backend.
+
+For any Feedback or questions:
+dbaehrle@yahoo.de
