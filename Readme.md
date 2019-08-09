@@ -1,4 +1,6 @@
 A multi-platform Softwareproject for KPI-Tracking in a production enviroment.
+Based on the Ionic Framework (Typescript, Angular).
+Working platforms are Android and Web.
 
 Features:
 - Show working performance for different areas
