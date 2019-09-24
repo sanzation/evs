@@ -4,7 +4,7 @@ import { getInfo, getColor, getExt, graphBar } from '../../utils/func';
 import { catData } from '../../utils/types';
 import { EventProvider } from '../../providers/eventprovider/eventprovider';
 import { Chart } from 'chart.js';
-import 'chartjs-plugin-datalabels';
+//import { ChartDataLabels } from 'chartjs-plugin-datalabels';
 
 @Component({
   selector: 'evs-barfooter',

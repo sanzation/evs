@@ -27,12 +27,12 @@ export class ParentPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,public EvsCall : EvscallProvider, public Event : EventProvider) {
 	this.CatCol=new Array<catData>();  
 	 setInterval(()=>{this.load();},60000);
-
+	this.load();
   }
 
- ionViewWillEnter() {
-	 this.load();
-     }
+// ionViewDidEnter() {
+//	 this.load();
+//     }
 load= () : void =>{
 this.EvsCall.getData().subscribe(EvsData=>{
 	this.EvsData= EvsData.current_observation;
